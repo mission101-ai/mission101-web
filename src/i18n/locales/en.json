@@ -73,42 +73,6 @@
       }
     ]
   },
-  "portfolio": {
-    "title": "Case Studies",
-    "subtitle": "Real-world implementations driving measurable results",
-    "items": [
-      {
-        "title": "Voice Agents for Call Centres",
-        "category": "Voice AI",
-        "description": "AI-powered conversational agents handling customer inquiries with natural language understanding, reducing wait times by 60% and operational costs by 40% while maintaining 95%+ customer satisfaction."
-      },
-      {
-        "title": "Call Center Monitoring Systems",
-        "category": "Analytics",
-        "description": "Real-time analytics and quality assurance automation that monitors 100% of interactions, identifies training opportunities, and maintains consistent service excellence across distributed teams."
-      },
-      {
-        "title": "AI Generated Websites",
-        "category": "Web Development",
-        "description": "Custom business websites created with AI technology, featuring responsive design, SEO optimization, and modern UX. Delivered in days instead of weeks with ongoing AI-powered content updates."
-      },
-      {
-        "title": "Personal AI Assistants",
-        "category": "Productivity",
-        "description": "Intelligent assistants for productivity and task management that automate scheduling, email triage, document processing, and routine workflows, saving 15+ hours per week."
-      },
-      {
-        "title": "Marketing Automation",
-        "category": "Marketing",
-        "description": "AI-driven campaign management and optimization that automates content creation, audience segmentation, A/B testing, and multi-channel execution, increasing ROI by 3x."
-      },
-      {
-        "title": "AI-Powered Budget Management",
-        "category": "FinTech",
-        "description": "Intelligent financial tracking system that automates expense categorization, provides predictive insights, detects anomalies, and optimizes spending patterns for better financial health."
-      }
-    ]
-  },
   "founder": {
     "title": "Leadership",
     "name": "Sergii Illiukhin",

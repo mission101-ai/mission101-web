@@ -5,7 +5,7 @@ export const ContactSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className="py-32 px-6 relative overflow-hidden">
+    <section id="contact" className="py-32 px-6 bg-bg-secondary relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-20" />
       
       <div className="max-w-4xl mx-auto relative z-10">

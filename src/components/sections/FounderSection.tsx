@@ -6,8 +6,10 @@ export const FounderSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="founder" className="py-32 px-6 bg-bg-secondary relative">
-      <div className="max-w-4xl mx-auto">
+    <section id="founder" className="py-32 px-6 relative overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-10" />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-mono">
             <span className="text-accent">{'>'}</span> {t('founder.title')}
