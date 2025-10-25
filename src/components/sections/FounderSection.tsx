@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
 import { Linkedin, Mail } from 'lucide-react';
 
 export const FounderSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="founder" className="py-32 px-6 bg-bg-secondary relative">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-mono">
-            <span className="text-accent">{'>'}</span> Leadership
+            <span className="text-accent">{'>'}</span> {t('founder.title')}
           </h2>
         </div>
 
@@ -24,8 +27,8 @@ export const FounderSection = () => {
               {/* Profile Info */}
               <div className="flex-1">
                 <div className="mb-4">
-                  <h3 className="text-3xl font-bold mb-2">Sergii Illiukhin</h3>
-                  <p className="text-accent font-mono text-lg mb-4">Founder & CEO</p>
+                  <h3 className="text-3xl font-bold mb-2">{t('founder.name')}</h3>
+                  <p className="text-accent font-mono text-lg mb-4">{t('founder.role')}</p>
                   
                   <div className="flex gap-4 mb-6">
                     <a 
@@ -35,20 +38,20 @@ export const FounderSection = () => {
                       className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 rounded-md transition-all duration-300 group"
                     >
                       <Linkedin className="w-5 h-5 text-accent" />
-                      <span className="font-mono text-sm group-hover:text-accent transition-colors">LinkedIn</span>
+                      <span className="font-mono text-sm group-hover:text-accent transition-colors">{t('founder.linkedin')}</span>
                     </a>
                     <a 
                       href="mailto:sergii@mission101.ai"
                       className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 rounded-md transition-all duration-300 group"
                     >
                       <Mail className="w-5 h-5 text-accent" />
-                      <span className="font-mono text-sm group-hover:text-accent transition-colors">Email</span>
+                      <span className="font-mono text-sm group-hover:text-accent transition-colors">{t('founder.email')}</span>
                     </a>
                   </div>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Sergii Illiukhin founded mission101.ai in 2025 with a vision to make enterprise-grade AI accessible to businesses of all sizes. With extensive experience in artificial intelligence, automation, and business optimization, Sergii leads the mission to bridge the gap between cutting-edge technology and practical business solutions. Under his leadership, mission101.ai has helped numerous organizations worldwide streamline operations, reduce costs, and unlock new growth opportunities through intelligent automation.
+                  {t('founder.bio')}
                 </p>
               </div>
             </div>

@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Phone, Mail, MapPin, Globe } from 'lucide-react';
 
 export const ContactSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="py-32 px-6 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-20" />
@@ -8,10 +11,10 @@ export const ContactSection = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-mono">
-            <span className="text-accent">{'>'}</span> Get in Touch
+            <span className="text-accent">{'>'}</span> {t('contact.title')}
           </h2>
           <p className="text-xl text-muted-foreground font-mono">
-            Ready to transform your business with AI?
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -24,7 +27,7 @@ export const ContactSection = () => {
                   <Phone className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-mono font-semibold mb-1 text-accent">Phone</h3>
+                  <h3 className="font-mono font-semibold mb-1 text-accent">{t('contact.phone')}</h3>
                   <a 
                     href="tel:+380974825097" 
                     className="text-muted-foreground hover:text-foreground transition-colors"
@@ -39,7 +42,7 @@ export const ContactSection = () => {
                   <Mail className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-mono font-semibold mb-1 text-accent">Email</h3>
+                  <h3 className="font-mono font-semibold mb-1 text-accent">{t('contact.email')}</h3>
                   <a 
                     href="mailto:sergii@mission101.ai" 
                     className="text-muted-foreground hover:text-foreground transition-colors"
@@ -54,9 +57,9 @@ export const ContactSection = () => {
                   <MapPin className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-mono font-semibold mb-1 text-accent">Location</h3>
+                  <h3 className="font-mono font-semibold mb-1 text-accent">{t('contact.location')}</h3>
                   <p className="text-muted-foreground">
-                    Uzhhorod, Ukraine
+                    {t('contact.locationValue')}
                   </p>
                 </div>
               </div>
@@ -66,9 +69,9 @@ export const ContactSection = () => {
                   <Globe className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-mono font-semibold mb-1 text-accent">Coverage</h3>
+                  <h3 className="font-mono font-semibold mb-1 text-accent">{t('contact.coverage')}</h3>
                   <p className="text-muted-foreground">
-                    Serving clients worldwide
+                    {t('contact.coverageValue')}
                   </p>
                 </div>
               </div>
@@ -82,23 +85,23 @@ export const ContactSection = () => {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                   <div className="w-3 h-3 rounded-full bg-green-500/60" />
                 </div>
-                <span className="text-xs text-muted-foreground font-mono ml-2">~/mission101/contact</span>
+                <span className="text-xs text-muted-foreground font-mono ml-2">{t('contact.terminal.path')}</span>
               </div>
               <div className="space-y-2 font-mono text-sm">
                 <div className="text-muted-foreground">
-                  <span className="text-accent">$</span> curl -X POST https://mission101.ai/contact
+                  <span className="text-accent">$</span> {t('contact.terminal.command')}
                 </div>
                 <div className="text-muted-foreground pl-4">
                   {'{'}
                 </div>
                 <div className="text-muted-foreground pl-8">
-                  "status": <span className="text-green-500">"ready"</span>,
+                  "status": <span className="text-green-500">"{t('contact.terminal.status')}"</span>,
                 </div>
                 <div className="text-muted-foreground pl-8">
-                  "response_time": <span className="text-accent">"&lt;24h"</span>,
+                  "response_time": <span className="text-accent">"{t('contact.terminal.responseTime')}"</span>,
                 </div>
                 <div className="text-muted-foreground pl-8">
-                  "availability": <span className="text-accent">"24/7"</span>
+                  "availability": <span className="text-accent">"{t('contact.terminal.availability')}"</span>
                 </div>
                 <div className="text-muted-foreground pl-4">
                   {'}'}
@@ -110,13 +113,13 @@ export const ContactSection = () => {
           {/* CTA */}
           <div className="mt-12 pt-8 border-t border-border text-center">
             <p className="text-lg text-muted-foreground mb-6 font-mono">
-              Let's discuss how AI automation can transform your business
+              {t('contact.cta.text')}
             </p>
             <a 
               href="mailto:sergii@mission101.ai"
               className="inline-block px-8 py-4 bg-accent text-accent-foreground font-mono font-semibold rounded-md hover:bg-accent/90 transition-all duration-300"
             >
-              Schedule a Consultation
+              {t('contact.cta.button')}
             </a>
           </div>
         </div>

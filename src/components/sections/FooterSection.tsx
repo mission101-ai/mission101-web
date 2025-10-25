@@ -1,6 +1,8 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Linkedin, Mail } from 'lucide-react';
 
 export const FooterSection = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,7 +16,7 @@ export const FooterSection = () => {
               <span className="text-foreground">.ai</span>
             </div>
             <p className="text-sm text-muted-foreground font-mono">
-              Intelligent Automation for Modern Business
+              {t('footer.tagline')}
             </p>
           </div>
 
@@ -42,10 +44,10 @@ export const FooterSection = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground font-mono">
-            © {currentYear} mission101.ai. All rights reserved.
+            {t('footer.copyright', { year: currentYear })}
           </p>
           <p className="text-xs text-muted-foreground mt-2 font-mono">
-            Based in Uzhhorod, Ukraine • Serving clients worldwide
+            {t('footer.location')}
           </p>
         </div>
       </div>

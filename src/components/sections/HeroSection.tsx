@@ -1,6 +1,9 @@
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const HeroSection = () => {
+  const { t } = useTranslation();
+  
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -23,17 +26,17 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <div className="inline-block mb-6 px-4 py-2 bg-secondary border border-border rounded-full">
-          <span className="font-mono text-sm text-accent">$ mission101.ai --init</span>
+          <span className="font-mono text-sm text-accent">{t('hero.terminal')}</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-          <span className="text-gradient">Intelligent Automation</span>
+          <span className="text-gradient">{t('hero.title')}</span>
           <br />
-          <span className="text-foreground">for Modern Business</span>
+          <span className="text-foreground">{t('hero.titleHighlight')}</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto font-mono animate-fade-in-up delay-200">
-          Streamline operations • Enhance productivity • Drive cost reduction
+          {t('hero.tagline')}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
@@ -41,30 +44,30 @@ export const HeroSection = () => {
             onClick={scrollToContact}
             className="group px-8 py-4 bg-accent text-accent-foreground font-mono font-semibold rounded-md hover:bg-accent/90 transition-all duration-300 flex items-center justify-center gap-2"
           >
-            Get Started
+            {t('hero.getStarted')}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <a 
             href="#services"
             className="px-8 py-4 bg-secondary border border-border text-foreground font-mono font-semibold rounded-md hover:bg-secondary/80 transition-all duration-300"
           >
-            Explore Services
+            {t('hero.exploreServices')}
           </a>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto animate-fade-in delay-500">
           <div className="text-center">
-            <div className="text-3xl font-bold text-accent font-mono">2025</div>
-            <div className="text-sm text-muted-foreground mt-1">Founded</div>
+            <div className="text-3xl font-bold text-accent font-mono">{t('hero.stats.foundedValue')}</div>
+            <div className="text-sm text-muted-foreground mt-1">{t('hero.stats.founded')}</div>
           </div>
           <div className="text-center border-x border-border">
-            <div className="text-3xl font-bold text-accent font-mono">24/7</div>
-            <div className="text-sm text-muted-foreground mt-1">Support</div>
+            <div className="text-3xl font-bold text-accent font-mono">{t('hero.stats.supportValue')}</div>
+            <div className="text-sm text-muted-foreground mt-1">{t('hero.stats.support')}</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-accent font-mono">Global</div>
-            <div className="text-sm text-muted-foreground mt-1">Reach</div>
+            <div className="text-3xl font-bold text-accent font-mono">{t('hero.stats.reachValue')}</div>
+            <div className="text-sm text-muted-foreground mt-1">{t('hero.stats.reach')}</div>
           </div>
         </div>
       </div>

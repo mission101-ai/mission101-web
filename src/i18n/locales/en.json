@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "terminal": "$ mission101.ai --init",
+    "title": "Intelligent Automation",
+    "titleHighlight": "for Modern Business",
+    "tagline": "Streamline operations • Enhance productivity • Drive cost reduction",
+    "getStarted": "Get Started",
+    "exploreServices": "Explore Services",
+    "stats": {
+      "founded": "Founded",
+      "foundedValue": "2025",
+      "support": "Support",
+      "supportValue": "24/7",
+      "reach": "Reach",
+      "reachValue": "Global"
+    }
+  },
+  "about": {
+    "title": "About mission101.ai",
+    "intro": "Founded in 2025 and based in Uzhhorod, Ukraine, we serve clients worldwide with cutting-edge AI automation solutions.",
+    "description": "Our expertise spans process automation, performance optimization, and operational cost reduction. We bridge the gap between cutting-edge AI technology and real-world business challenges by delivering tailored automation solutions that streamline operations, enhance productivity, and drive measurable results.",
+    "goal": {
+      "title": "Our Goal",
+      "description": "To empower businesses worldwide to unlock their full potential through intelligent automation and AI-driven optimization, making enterprise-grade artificial intelligence accessible and practical for companies of all sizes."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To bridge the gap between cutting-edge AI technology and real-world business challenges by delivering tailored automation solutions that streamline operations, enhance productivity, and drive measurable cost reduction."
+    },
+    "focusAreas": {
+      "title": "Focus Areas",
+      "processAutomation": {
+        "title": "Process Automation",
+        "description": "Automate repetitive tasks and workflows"
+      },
+      "performanceOptimization": {
+        "title": "Performance Optimization",
+        "description": "Enhance productivity and efficiency"
+      },
+      "costReduction": {
+        "title": "Cost Reduction",
+        "description": "Deliver measurable ROI and savings"
+      }
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Enterprise-grade AI solutions for modern businesses",
+    "items": [
+      {
+        "title": "Voice Agents for Call Centers",
+        "description": "AI-powered conversational agents that handle customer inquiries with natural language understanding, reducing wait times and operational costs while maintaining high service quality."
+      },
+      {
+        "title": "Call Center Monitoring & Analytics",
+        "description": "Real-time quality assurance and performance analytics system that tracks key metrics, identifies improvement opportunities, and ensures consistent service excellence across all interactions."
+      },
+      {
+        "title": "AI-Generated Business Websites",
+        "description": "Custom business websites created with advanced AI technology, featuring responsive design, SEO optimization, and modern user experience tailored to your brand and business goals."
+      },
+      {
+        "title": "Personal AI Assistants",
+        "description": "Intelligent virtual assistants for productivity and task management that automate scheduling, email management, data organization, and routine workflows to maximize efficiency."
+      },
+      {
+        "title": "Marketing Automation",
+        "description": "AI-driven campaign management and optimization platform that automates content creation, audience targeting, performance tracking, and multi-channel marketing execution."
+      },
+      {
+        "title": "Custom AI Solutions",
+        "description": "Bespoke artificial intelligence solutions tailored to your unique business challenges, from predictive analytics to process automation and beyond."
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Case Studies",
+    "subtitle": "Real-world implementations driving measurable results",
+    "items": [
+      {
+        "title": "Voice Agents for Call Centres",
+        "category": "Voice AI",
+        "description": "AI-powered conversational agents handling customer inquiries with natural language understanding, reducing wait times by 60% and operational costs by 40% while maintaining 95%+ customer satisfaction."
+      },
+      {
+        "title": "Call Center Monitoring Systems",
+        "category": "Analytics",
+        "description": "Real-time analytics and quality assurance automation that monitors 100% of interactions, identifies training opportunities, and maintains consistent service excellence across distributed teams."
+      },
+      {
+        "title": "AI Generated Websites",
+        "category": "Web Development",
+        "description": "Custom business websites created with AI technology, featuring responsive design, SEO optimization, and modern UX. Delivered in days instead of weeks with ongoing AI-powered content updates."
+      },
+      {
+        "title": "Personal AI Assistants",
+        "category": "Productivity",
+        "description": "Intelligent assistants for productivity and task management that automate scheduling, email triage, document processing, and routine workflows, saving 15+ hours per week."
+      },
+      {
+        "title": "Marketing Automation",
+        "category": "Marketing",
+        "description": "AI-driven campaign management and optimization that automates content creation, audience segmentation, A/B testing, and multi-channel execution, increasing ROI by 3x."
+      },
+      {
+        "title": "AI-Powered Budget Management",
+        "category": "FinTech",
+        "description": "Intelligent financial tracking system that automates expense categorization, provides predictive insights, detects anomalies, and optimizes spending patterns for better financial health."
+      }
+    ]
+  },
+  "founder": {
+    "title": "Leadership",
+    "name": "Sergii Illiukhin",
+    "role": "Founder & CEO",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "bio": "Sergii Illiukhin founded mission101.ai in 2025 with a vision to make enterprise-grade AI accessible to businesses of all sizes. With extensive experience in artificial intelligence, automation, and business optimization, Sergii leads the mission to bridge the gap between cutting-edge technology and practical business solutions. Under his leadership, mission101.ai has helped numerous organizations worldwide streamline operations, reduce costs, and unlock new growth opportunities through intelligent automation."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to transform your business with AI?",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Uzhhorod, Ukraine",
+    "coverage": "Coverage",
+    "coverageValue": "Serving clients worldwide",
+    "terminal": {
+      "path": "~/mission101/contact",
+      "command": "curl -X POST https://mission101.ai/contact",
+      "status": "ready",
+      "responseTime": "<24h",
+      "availability": "24/7"
+    },
+    "cta": {
+      "text": "Let's discuss how AI automation can transform your business",
+      "button": "Schedule a Consultation"
+    }
+  },
+  "footer": {
+    "tagline": "Intelligent Automation for Modern Business",
+    "copyright": "© {{year}} mission101.ai. All rights reserved.",
+    "location": "Based in Uzhhorod, Ukraine • Serving clients worldwide"
+  }
+}
+
