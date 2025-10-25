@@ -17,7 +17,7 @@ export const TypewriterText = ({
 }: TypewriterTextProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const indexRef = useRef(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const startDelay = setTimeout(() => {
@@ -30,22 +30,22 @@ export const TypewriterText = ({
   useEffect(() => {
     if (!isTyping) return;
 
-    if (indexRef.current < text.length) {
+    if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
-        setDisplayedText(prev => prev + text[indexRef.current]);
-        indexRef.current += 1;
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
       }, speed);
 
       return () => clearTimeout(timeout);
     } else if (onComplete) {
       onComplete();
     }
-  }, [isTyping, displayedText, text, speed, onComplete]);
+  }, [isTyping, currentIndex, text, speed, onComplete]);
 
   return (
     <span className={className}>
       {displayedText}
-      {isTyping && indexRef.current < text.length && (
+      {isTyping && currentIndex < text.length && (
         <span className="inline-block w-0.5 h-5 bg-accent ml-0.5 animate-pulse" />
       )}
     </span>
