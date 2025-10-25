@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { TypewriterText } from '../TypewriterText';
 import { Linkedin, Mail } from 'lucide-react';
 
 export const FounderSection = () => {
-  const [showBio, setShowBio] = useState(false);
-
   return (
     <section id="founder" className="py-32 px-6 bg-bg-secondary relative">
       <div className="max-w-4xl mx-auto">
@@ -15,7 +11,7 @@ export const FounderSection = () => {
           </h2>
         </div>
 
-        <ScrollTrigger onEnterViewport={() => setShowBio(true)}>
+        <ScrollTrigger>
           <div className="bg-background border border-border rounded-lg p-8 md:p-12">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Profile Image */}
@@ -51,14 +47,9 @@ export const FounderSection = () => {
                   </div>
                 </div>
 
-                <div className="text-muted-foreground leading-relaxed space-y-4">
-                  {showBio && (
-                    <TypewriterText 
-                      text="Sergii Illiukhin founded mission101.ai in 2025 with a vision to make enterprise-grade AI accessible to businesses of all sizes. With extensive experience in artificial intelligence, automation, and business optimization, Sergii leads the mission to bridge the gap between cutting-edge technology and practical business solutions. Under his leadership, mission101.ai has helped numerous organizations worldwide streamline operations, reduce costs, and unlock new growth opportunities through intelligent automation."
-                      speed={15}
-                    />
-                  )}
-                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  Sergii Illiukhin founded mission101.ai in 2025 with a vision to make enterprise-grade AI accessible to businesses of all sizes. With extensive experience in artificial intelligence, automation, and business optimization, Sergii leads the mission to bridge the gap between cutting-edge technology and practical business solutions. Under his leadership, mission101.ai has helped numerous organizations worldwide streamline operations, reduce costs, and unlock new growth opportunities through intelligent automation.
+                </p>
               </div>
             </div>
           </div>

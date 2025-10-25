@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { TypewriterText } from '../TypewriterText';
 import { Phone, BarChart3, Globe, Bot, Megaphone, Sparkles } from 'lucide-react';
 
 const services = [
@@ -37,8 +35,6 @@ const services = [
 ];
 
 export const ServicesSection = () => {
-  const [activeService, setActiveService] = useState<number | null>(null);
-
   return (
     <section id="services" className="py-32 px-6 bg-bg-secondary relative">
       <div className="max-w-6xl mx-auto">
@@ -55,10 +51,7 @@ export const ServicesSection = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <ScrollTrigger 
-                key={index}
-                onEnterViewport={() => setActiveService(index)}
-              >
+              <ScrollTrigger key={index}>
                 <div className="bg-background border border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 group h-full">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -68,16 +61,9 @@ export const ServicesSection = () => {
                       {service.title}
                     </h3>
                   </div>
-                  <div className="text-muted-foreground leading-relaxed min-h-[120px]">
-                    {activeService === index ? (
-                      <TypewriterText 
-                        text={service.description}
-                        speed={15}
-                      />
-                    ) : (
-                      <p className="opacity-0">{service.description}</p>
-                    )}
-                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
               </ScrollTrigger>
             );

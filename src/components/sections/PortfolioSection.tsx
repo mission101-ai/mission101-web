@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { TypewriterText } from '../TypewriterText';
 import { Phone, BarChart3, Globe, Bot, Megaphone, Wallet } from 'lucide-react';
 
 const projects = [
@@ -43,8 +41,6 @@ const projects = [
 ];
 
 export const PortfolioSection = () => {
-  const [activeProject, setActiveProject] = useState<number | null>(null);
-
   return (
     <section id="portfolio" className="py-32 px-6 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-10" />
@@ -63,10 +59,7 @@ export const PortfolioSection = () => {
           {projects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <ScrollTrigger 
-                key={index}
-                onEnterViewport={() => setActiveProject(index)}
-              >
+              <ScrollTrigger key={index}>
                 <div className="terminal group hover:border-l-accent transition-all duration-300">
                   <div className="flex items-start gap-6">
                     <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -81,16 +74,9 @@ export const PortfolioSection = () => {
                           {project.category}
                         </span>
                       </div>
-                      <div className="text-muted-foreground leading-relaxed">
-                        {activeProject === index ? (
-                          <TypewriterText 
-                            text={project.description}
-                            speed={15}
-                          />
-                        ) : (
-                          <p className="opacity-0">{project.description}</p>
-                        )}
-                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
                     </div>
                   </div>
                 </div>
