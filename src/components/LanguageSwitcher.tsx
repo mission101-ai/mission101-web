@@ -12,15 +12,15 @@ export const LanguageSwitcher = () => {
   return (
     <button
       onClick={handleLanguageToggle}
-      className="fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2 bg-secondary border border-border rounded-md hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group"
+      className="fixed top-6 right-6 z-50 flex items-center gap-2 px-3 md:px-4 py-2 bg-secondary border border-border rounded-md hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group"
       aria-label="Switch language"
     >
       <Globe className="w-4 h-4 text-accent group-hover:rotate-12 transition-transform" />
       <span className="font-mono text-sm font-semibold">
         {currentLanguage === 'en' ? 'EN' : 'UA'}
       </span>
-      <span className="text-xs text-muted-foreground">|</span>
-      <span className="font-mono text-xs text-muted-foreground">
+      <span className="text-xs text-muted-foreground hidden md:inline">|</span>
+      <span className="font-mono text-xs text-muted-foreground hidden md:inline">
         {currentLanguage === 'en' ? 'Українська' : 'English'}
       </span>
     </button>
