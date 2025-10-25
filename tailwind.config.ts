@@ -57,6 +57,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom semantic tokens
+        "bg-secondary": "hsl(var(--bg-secondary))",
+        "bg-tertiary": "hsl(var(--bg-tertiary))",
       },
       borderRadius: {
         lg: "var(--radius)",
