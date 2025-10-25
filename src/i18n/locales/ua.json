@@ -11,8 +11,8 @@
       "foundedValue": "2025",
       "support": "Підтримка",
       "supportValue": "24/7",
-      "reach": "Охоплення",
-      "reachValue": "Глобальне"
+      "reach": "Географія",
+      "reachValue": "Україна і світ"
     }
   },
   "about": {
@@ -86,15 +86,15 @@
     "subtitle": "Готові трансформувати свій бізнес за допомогою ШІ?",
     "phone": "Телефон",
     "email": "Email",
-    "location": "Розташування",
+    "location": "Локація",
     "locationValue": "Ужгород, Україна",
-    "coverage": "Охоплення",
+    "coverage": "Географія",
     "coverageValue": "Обслуговуємо клієнтів по всьому світу",
     "terminal": {
       "path": "~/mission101/contact",
       "command": "curl -X POST https://mission101.ai/contact",
-      "status": "готові",
-      "responseTime": "<24год",
+      "status": "ready",
+      "responseTime": "<24h",
       "availability": "24/7"
     },
     "cta": {
