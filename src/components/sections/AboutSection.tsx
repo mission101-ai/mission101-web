@@ -7,8 +7,6 @@ import { Target, Zap, TrendingDown } from 'lucide-react';
 export const AboutSection = () => {
   const { t } = useTranslation();
   const [showTypewriter1, setShowTypewriter1] = useState(false);
-  const [showTypewriter2, setShowTypewriter2] = useState(false);
-  const [showTypewriter3, setShowTypewriter3] = useState(false);
 
   return (
     <section id="about" className="py-32 px-6 relative overflow-hidden">
@@ -29,7 +27,6 @@ export const AboutSection = () => {
                   text={t('about.description')}
                   speed={20}
                   className="text-muted-foreground"
-                  onComplete={() => setShowTypewriter2(true)}
                 />
               )}
             </div>
@@ -44,14 +41,7 @@ export const AboutSection = () => {
                 <Target className="w-6 h-6 text-accent" />
                 <h3 className="text-2xl font-bold text-accent">{t('about.goal.title')}</h3>
               </div>
-              {showTypewriter2 && (
-                <TypewriterText 
-                  text={t('about.goal.description')}
-                  speed={20}
-                  className="text-muted-foreground"
-                  onComplete={() => setShowTypewriter3(true)}
-                />
-              )}
+              <p className="text-muted-foreground">{t('about.goal.description')}</p>
             </div>
 
             {/* Mission */}
@@ -60,13 +50,7 @@ export const AboutSection = () => {
                 <Zap className="w-6 h-6 text-accent" />
                 <h3 className="text-2xl font-bold text-accent">{t('about.mission.title')}</h3>
               </div>
-              {showTypewriter3 && (
-                <TypewriterText 
-                  text={t('about.mission.description')}
-                  speed={20}
-                  className="text-muted-foreground"
-                />
-              )}
+              <p className="text-muted-foreground">{t('about.mission.description')}</p>
             </div>
           </div>
         </ScrollTrigger>
