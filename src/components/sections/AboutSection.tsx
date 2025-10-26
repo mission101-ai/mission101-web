@@ -3,9 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
 import { TypewriterText } from '../TypewriterText';
 import { Target, Zap, TrendingDown } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const AboutSection = () => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   const [showTypewriter1, setShowTypewriter1] = useState(false);
 
   return (
@@ -24,6 +26,7 @@ export const AboutSection = () => {
               </p>
               {showTypewriter1 && (
                 <TypewriterText 
+                  key={currentLanguage}
                   text={t('about.description')}
                   speed={20}
                   className="text-muted-foreground"
