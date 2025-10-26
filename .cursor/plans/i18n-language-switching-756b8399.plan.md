@@ -1,7 +1,5 @@
+<!-- 756b8399-aa5e-447e-ae6d-5e71da58ee91 aeb1e0ec-ded9-4940-b3c0-9fd78add6f1d -->
 # Add Internationalization with English & Ukrainian Support
-
-## Overview
-Add English/Ukrainian language support with IP-based detection, URL routing (/en/, /ua/), visible language switcher, and localStorage persistence.
 
 ## 1. Install Dependencies
 
@@ -108,65 +106,47 @@ Update navigation links throughout the site:
 
 ## Key Technical Details
 
-### URL Structure and Language Detection Logic
+**URL Structure:**
 
-**When User Visits Root `/`:**
+- English: `https://mission101.ai/en/`
+- Ukrainian: `https://mission101.ai/ua/`
+- Root `/` redirects based on IP detection or saved preference
 
-First-time visitor (no saved preference):
-1. User lands on `https://mission101.ai/` - URL stays as `/`
-2. System checks localStorage for saved language preference → not found
-3. System makes IP geolocation API call to ipapi.co
-4. If IP is from Ukraine (`UA`) → content displays in Ukrainian
-5. If IP is from anywhere else → content displays in English
-6. URL remains `/` throughout - no redirect happens
-7. Language preference is saved to localStorage for next visit
-
-Returning visitor (has saved preference):
-1. User lands on `https://mission101.ai/` - URL stays as `/`
-2. System checks localStorage → preference found (e.g., "en" or "ua")
-3. Content displays in saved language immediately
-4. No IP detection call is made (preference already exists)
-5. URL remains `/`
-
-**When User Clicks Language Switcher:**
-1. User clicks to switch language (e.g., from EN to UA)
-2. System navigates to `/ua/` - URL changes
-3. Content switches to Ukrainian
-4. New preference saved to localStorage
-5. From now on, even if they visit `/`, they'll see Ukrainian
-
-**When User Directly Visits `/en/` or `/ua/`:**
-1. System respects the URL language parameter
-2. Content displays in that language
-3. Preference is saved to localStorage
-4. They stay on `/en/` or `/ua/` URL
-
-### Language Detection Priority
+**Language Detection Priority:**
 
 1. User's saved preference in localStorage
-2. Current URL language parameter (if visiting `/en/` or `/ua/`)
+2. Current URL language parameter
 3. IP-based geolocation (Ukraine → `ua`, others → `en`)
 4. Browser language settings
 5. Default fallback: `en`
 
-### IP Detection
+**IP Detection:**
 
 - Service: ipapi.co (free tier, 100 req/min)
 - Endpoint: `https://ipapi.co/country/`
 - Returns country code (e.g., "UA" for Ukraine)
-- Only called once per session (cached in sessionStorage)
-- Graceful fallback to English on API failure
+- Only called once per session
 
-## Implementation Checklist
+### To-dos
 
+- [ ] Save implementation plan to /requirements folder
 - [ ] Install react-i18next, i18next, and language detector packages
 - [ ] Create en.json and ua.json translation files with all website content
 - [ ] Configure i18next with language detection and fallback settings
 - [ ] Implement IP geolocation service using ipapi.co
 - [ ] Create LanguageContext with IP detection and localStorage persistence
 - [ ] Build LanguageSwitcher UI component
-- [ ] Update App.tsx with language-based routing (/, /en/, /ua/)
+- [ ] Update App.tsx with language-based routing
 - [ ] Replace hardcoded strings with translation keys in all section components
 - [ ] Add LanguageSwitcher to the header/navigation
 - [ ] Test language switching, IP detection, and localStorage persistence
-
+- [ ] Install react-i18next, i18next, and language detector packages
+- [ ] Create en.json and ua.json translation files with all website content
+- [ ] Configure i18next with language detection and fallback settings
+- [ ] Implement IP geolocation service using ipapi.co
+- [ ] Create LanguageContext with IP detection and localStorage persistence
+- [ ] Build LanguageSwitcher UI component
+- [ ] Update App.tsx with language-based routing (/:lang/)
+- [ ] Replace hardcoded strings with translation keys in all section components
+- [ ] Add LanguageSwitcher to the header/navigation
+- [ ] Test language switching, IP detection, and localStorage persistence
