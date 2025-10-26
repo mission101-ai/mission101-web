@@ -27,8 +27,8 @@ export const SEO = ({
     const canonicalUrl = canonical || `${baseUrl}${currentPath}`;
     
     // Default SEO content
-    const defaultTitle = 'mission101.ai - Intelligent Automation for Modern Business';
-    const defaultDescription = 'Empowering businesses worldwide through intelligent automation and AI-driven optimization. Process automation, performance optimization, and measurable cost reduction.';
+    const defaultTitle = 'Mission101.ai | Intelligent Automation for Modern Business';
+    const defaultDescription = 'Transform your business with intelligent automation solutions. Mission101.ai provides AI-powered tools to streamline operations, enhance productivity, and accelerate digital growth.';
     
     const pageTitle = title || defaultTitle;
     const pageDescription = description || defaultDescription;
