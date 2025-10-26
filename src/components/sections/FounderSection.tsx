@@ -21,8 +21,12 @@ export const FounderSection = () => {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Profile Image */}
               <div className="flex-shrink-0">
-                <div className="w-48 h-48 bg-gradient-to-br from-accent/20 to-accent/5 rounded-lg border-2 border-accent/30 flex items-center justify-center">
-                  <div className="text-6xl font-bold text-accent font-mono">SI</div>
+                <div className="w-48 h-48 rounded-lg border-2 border-accent/30 overflow-hidden">
+                  <img 
+                    src="/sergii-illiukhin.jpg" 
+                    alt={t('founder.name')}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
