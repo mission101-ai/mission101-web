@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
 import { Phone, BarChart3, Globe, Bot, Megaphone, Sparkles } from 'lucide-react';
 
-const serviceIcons = [Phone, BarChart3, Globe, Bot, Megaphone, Sparkles];
+const serviceIcons = [Phone, Bot, Sparkles, Megaphone, Globe, BarChart3];
 
 export const ServicesSection = () => {
   const { t } = useTranslation();
