@@ -106,6 +106,10 @@
     "tagline": "Intelligent Automation for Modern Business",
     "copyright": "© {{year}} mission101.ai. All rights reserved.",
     "location": "Based in Uzhhorod, Ukraine • Serving clients worldwide"
+  },
+  "seo": {
+    "title": "Mission101.ai | Intelligent Automation for Modern Business",
+    "description": "Transform your business with intelligent automation solutions. Mission101.ai provides AI-powered tools to streamline operations, enhance productivity, and accelerate digital growth."
   }
 }
 

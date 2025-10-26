@@ -16,7 +16,7 @@ export const SEO = ({
   canonical 
 }: SEOProps) => {
   const location = useLocation();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   
   useEffect(() => {
     const currentLang = i18n.language || 'en';
@@ -26,9 +26,9 @@ export const SEO = ({
     // Determine the canonical URL
     const canonicalUrl = canonical || `${baseUrl}${currentPath}`;
     
-    // Default SEO content
-    const defaultTitle = 'Mission101.ai | Intelligent Automation for Modern Business';
-    const defaultDescription = 'Transform your business with intelligent automation solutions. Mission101.ai provides AI-powered tools to streamline operations, enhance productivity, and accelerate digital growth.';
+    // Default SEO content from translations
+    const defaultTitle = t('seo.title');
+    const defaultDescription = t('seo.description');
     
     const pageTitle = title || defaultTitle;
     const pageDescription = description || defaultDescription;
@@ -93,7 +93,7 @@ export const SEO = ({
     updateAlternateLink('uk', `${baseUrl}/ua`);
     updateAlternateLink('x-default', baseUrl);
     
-  }, [location, title, description, ogImage, canonical, i18n.language]);
+  }, [location, title, description, ogImage, canonical, i18n.language, t]);
   
   return null; // This component doesn't render anything
 };
