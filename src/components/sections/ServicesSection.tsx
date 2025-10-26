@@ -20,7 +20,7 @@ export const ServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(t('services.items', { returnObjects: true }) as Array<{ title: string; description: string }>).map((service, index: number) => {
+          {(t('services.items', { returnObjects: true }) as Array<{ title: string; description: string[] }>).map((service, index: number) => {
             const Icon = serviceIcons[index];
             return (
               <ScrollTrigger key={index}>
@@ -33,9 +33,11 @@ export const ServicesSection = () => {
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed text-sm">
+                    {service.description.map((item, itemIndex) => (
+                      <li key={itemIndex}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               </ScrollTrigger>
             );

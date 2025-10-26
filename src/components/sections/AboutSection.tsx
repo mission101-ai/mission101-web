@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { TypewriterText } from '../TypewriterText';
+import { TypewriterList } from '../TypewriterList';
 import { Target, Zap, TrendingDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -25,11 +25,12 @@ export const AboutSection = () => {
                 {t('about.intro')}
               </p>
               {showTypewriter1 && (
-                <TypewriterText 
+                <TypewriterList
                   key={currentLanguage}
-                  text={t('about.description')}
+                  items={t('about.description', { returnObjects: true }) as string[]}
                   speed={20}
-                  className="text-muted-foreground"
+                  className="list-disc list-inside space-y-2 text-muted-foreground"
+                  itemClassName=""
                 />
               )}
             </div>
@@ -44,7 +45,11 @@ export const AboutSection = () => {
                 <Target className="w-6 h-6 text-accent" />
                 <h3 className="text-2xl font-bold text-accent">{t('about.goal.title')}</h3>
               </div>
-              <p className="text-muted-foreground">{t('about.goal.description')}</p>
+              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                {(t('about.goal.description', { returnObjects: true }) as string[]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
             </div>
 
             {/* Mission */}
@@ -53,7 +58,11 @@ export const AboutSection = () => {
                 <Zap className="w-6 h-6 text-accent" />
                 <h3 className="text-2xl font-bold text-accent">{t('about.mission.title')}</h3>
               </div>
-              <p className="text-muted-foreground">{t('about.mission.description')}</p>
+              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                {(t('about.mission.description', { returnObjects: true }) as string[]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </ScrollTrigger>

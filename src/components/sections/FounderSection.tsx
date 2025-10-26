@@ -52,9 +52,11 @@ export const FounderSection = () => {
                   </div>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('founder.bio')}
-                </p>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
+                  {(t('founder.bio', { returnObjects: true }) as string[]).map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

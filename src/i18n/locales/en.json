@@ -18,14 +18,27 @@
   "about": {
     "title": "About mission101.ai",
     "intro": "Founded in 2025 and based in Uzhhorod, Ukraine, we serve clients worldwide with cutting-edge AI automation solutions.",
-    "description": "Our expertise spans process automation, performance optimization, and operational cost reduction. We bridge the gap between cutting-edge AI technology and real-world business challenges by delivering tailored automation solutions that streamline operations, enhance productivity, and drive measurable results.",
+    "description": [
+      "Expertise in process automation, performance optimization, and operational cost reduction",
+      "Bridge the gap between cutting-edge AI technology and real-world business challenges",
+      "Deliver tailored automation solutions designed for your unique needs",
+      "Streamline operations, enhance productivity, and drive measurable results"
+    ],
     "goal": {
       "title": "Our Goal",
-      "description": "To empower businesses worldwide to unlock their full potential through intelligent automation and AI-driven optimization, making enterprise-grade artificial intelligence accessible and practical for companies of all sizes."
+      "description": [
+        "Empower businesses worldwide to unlock their full potential",
+        "Enable intelligent automation and AI-driven optimization",
+        "Make enterprise-grade AI accessible and practical for companies of all sizes"
+      ]
     },
     "mission": {
       "title": "Our Mission",
-      "description": "To bridge the gap between cutting-edge AI technology and real-world business challenges by delivering tailored automation solutions that streamline operations, enhance productivity, and drive measurable cost reduction."
+      "description": [
+        "Bridge the gap between cutting-edge AI technology and real-world business challenges",
+        "Deliver tailored automation solutions that fit your operations",
+        "Drive measurable cost reduction and productivity enhancement"
+      ]
     },
     "focusAreas": {
       "title": "Focus Areas",
@@ -49,27 +62,45 @@
     "items": [
       {
         "title": "Voice Agents for Call Centers",
-        "description": "AI-powered conversational agents that handle customer inquiries with natural language understanding, reducing wait times and operational costs while maintaining high service quality."
+        "description": [
+          "AI-powered conversational agents that handle customer inquiries with natural language understanding",
+          "Reduce wait times and operational costs while maintaining high service quality 24/7"
+        ]
       },
       {
         "title": "Personal AI Assistants",
-        "description": "Intelligent virtual assistants for productivity and task management that automate scheduling, email management, data organization, and routine workflows to maximize efficiency."
+        "description": [
+          "Intelligent virtual assistants that automate scheduling, email management, and data organization",
+          "Handle routine workflows seamlessly to maximize efficiency and free up your time"
+        ]
       },
       {
         "title": "Custom AI Solutions",
-        "description": "Bespoke artificial intelligence solutions tailored to your unique business challenges, from predictive analytics to process automation and beyond."
+        "description": [
+          "Bespoke AI solutions tailored to your unique business challenges, from predictive analytics to process automation",
+          "Designed for your industry and needs with the ability to scale and adapt as your business grows"
+        ]
       },
       {
         "title": "Marketing Automation",
-        "description": "AI-driven campaign management and optimization platform that automates content creation, audience targeting, performance tracking, and multi-channel marketing execution."
+        "description": [
+          "AI-driven campaign management that automates content creation, audience targeting, and performance tracking",
+          "Optimize multi-channel marketing execution in real-time for better results"
+        ]
       },
       {
         "title": "AI-Generated Business Websites",
-        "description": "Custom business websites created with advanced AI technology, featuring responsive design, SEO optimization, and modern user experience tailored to your brand and business goals."
+        "description": [
+          "Custom websites created with advanced AI technology, featuring responsive design and SEO optimization",
+          "Modern user experience tailored to your brand and business goals"
+        ]
       },
       {
         "title": "Business Monitoring & Analytics",
-        "description": "Real-time quality assurance and performance analytics system that tracks key metrics, identifies improvement opportunities, and ensures consistent service excellence across all interactions."
+        "description": [
+          "Real-time quality assurance and performance tracking across all operations",
+          "Monitor key metrics, identify improvement opportunities, and ensure consistent service excellence"
+        ]
       }
     ]
   },
@@ -79,7 +110,13 @@
     "role": "Founder & CEO",
     "linkedin": "LinkedIn",
     "email": "Email",
-    "bio": "Sergii Illiukhin founded mission101.ai in 2025 with a vision to make enterprise-grade AI accessible to businesses of all sizes. With extensive experience in artificial intelligence, automation, and business optimization, Sergii leads the mission to bridge the gap between cutting-edge technology and practical business solutions. Under his leadership, mission101.ai has helped numerous organizations worldwide streamline operations, reduce costs, and unlock new growth opportunities through intelligent automation."
+    "bio": [
+      "Founded mission101.ai in 2025 with a vision to democratize enterprise-grade AI",
+      "Extensive experience in artificial intelligence, automation, and business optimization",
+      "Leads the mission to bridge cutting-edge technology with practical business solutions",
+      "Making AI accessible and practical for companies of all sizes",
+      "Helped organizations worldwide streamline operations and unlock growth through intelligent automation"
+    ]
   },
   "contact": {
     "title": "Get in Touch",
