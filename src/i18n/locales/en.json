@@ -16,7 +16,7 @@
     }
   },
   "about": {
-    "title": "About mission101.ai",
+    "title": "About Mission101.ai",
     "intro": "Founded in 2025 and based in Uzhhorod, Ukraine, we serve clients worldwide with cutting-edge AI automation solutions.",
     "description": [
       "Expertise in process automation, performance optimization, and operational cost reduction",
@@ -111,7 +111,7 @@
     "linkedin": "LinkedIn",
     "email": "Email",
     "bio": [
-      "Sergii founded mission101.ai in 2025 with a vision to make enterprise-grade artificial intelligence accessible to every business.",
+      "Sergii founded Mission101.ai in 2025 with a vision to make enterprise-grade artificial intelligence accessible to every business.",
       "He brings over 20 years of experience in AI, automation, and business optimization.",
       "Leads the mission of bridging cutting-edge technology with real-world business needs.",
       "Transforms artificial intelligence into a practical tool for companies of any scale.",
@@ -141,7 +141,7 @@
   },
   "footer": {
     "tagline": "Intelligent Automation for Modern Business",
-    "copyright": "© {{year}} mission101.ai. All rights reserved.",
+    "copyright": "© {{year}} Mission101.ai. All rights reserved.",
     "location": "Based in Uzhhorod, Ukraine • Serving clients worldwide"
   },
   "seo": {
