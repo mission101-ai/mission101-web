@@ -7,8 +7,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI 
-    ? [['html'], ['github']] 
-    : [['list'], ['html']],
+    ? [['list'], ['github']] 
+    : [['list']],
   use: {
     baseURL: 'http://localhost:8080',
     trace: 'on-first-retry',
@@ -20,7 +20,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run preview',
+    command: 'python3 -m http.server 8080 --directory dist',
     url: 'http://localhost:8080',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

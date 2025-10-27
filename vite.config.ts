@@ -21,9 +21,10 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'copy-index-to-lang-folders',
       closeBundle() {
-        // Copy index.html to /en/ and /ua/ directories in dist
+        // Copy language-specific index.html files to dist
         const distPath = path.resolve(__dirname, 'dist');
-        const indexPath = path.join(distPath, 'index.html');
+        const publicPath = path.resolve(__dirname, 'public');
+        const distIndexPath = path.join(distPath, 'index.html');
         
         // Create language directories if they don't exist
         const enDir = path.join(distPath, 'en');
@@ -36,12 +37,60 @@ export default defineConfig(({ mode }) => ({
           fs.mkdirSync(uaDir, { recursive: true });
         }
         
-        // Copy index.html to language folders
-        if (fs.existsSync(indexPath)) {
-          fs.copyFileSync(indexPath, path.join(enDir, 'index.html'));
-          fs.copyFileSync(indexPath, path.join(uaDir, 'index.html'));
-          console.log('✓ Copied index.html to /en/ and /ua/ directories');
+        // Read the built index.html to get the asset references
+        const builtHtml = fs.readFileSync(distIndexPath, 'utf-8');
+        
+        // Copy to /en/ (English version)
+        const enPublicIndex = path.join(publicPath, 'en', 'index.html');
+        if (fs.existsSync(enPublicIndex)) {
+          let enHtml = fs.readFileSync(enPublicIndex, 'utf-8');
+          // Replace the script/style references with the built ones
+          const scriptMatch = builtHtml.match(/<script[^>]*src="([^"]*)"[^>]*><\/script>/);
+          const styleMatch = builtHtml.match(/<link[^>]*href="([^"]*\.css)"[^>]*>/);
+          
+          if (scriptMatch) {
+            enHtml = enHtml.replace(
+              '<script type="module" src="/src/main.tsx"></script>',
+              scriptMatch[0]
+            );
+          }
+          if (styleMatch) {
+            // Add the CSS link before the closing head tag
+            enHtml = enHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          
+          fs.writeFileSync(path.join(enDir, 'index.html'), enHtml);
+        } else {
+          // Fallback: copy built index.html
+          fs.copyFileSync(distIndexPath, path.join(enDir, 'index.html'));
         }
+        
+        // Copy to /ua/ (Ukrainian version)
+        const uaPublicIndex = path.join(publicPath, 'ua', 'index.html');
+        if (fs.existsSync(uaPublicIndex)) {
+          let uaHtml = fs.readFileSync(uaPublicIndex, 'utf-8');
+          // Replace the script/style references with the built ones
+          const scriptMatch = builtHtml.match(/<script[^>]*src="([^"]*)"[^>]*><\/script>/);
+          const styleMatch = builtHtml.match(/<link[^>]*href="([^"]*\.css)"[^>]*>/);
+          
+          if (scriptMatch) {
+            uaHtml = uaHtml.replace(
+              '<script type="module" src="/src/main.tsx"></script>',
+              scriptMatch[0]
+            );
+          }
+          if (styleMatch) {
+            // Add the CSS link before the closing head tag
+            uaHtml = uaHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          
+          fs.writeFileSync(path.join(uaDir, 'index.html'), uaHtml);
+        } else {
+          // Fallback: copy built index.html
+          fs.copyFileSync(distIndexPath, path.join(uaDir, 'index.html'));
+        }
+        
+        console.log('✓ Copied language-specific index.html to /en/ and /ua/ directories');
       }
     }
   ].filter(Boolean),

@@ -108,42 +108,36 @@ test.describe('SEO Tags', () => {
 
   test('page title should reflect current language', async ({ page }) => {
     // English page
-    await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/en/', { waitUntil: 'networkidle' });
     let title = await page.title();
     expect(title).toContain('Intelligent Automation');
     
-    // Ukrainian page
-    await page.goto('/ua');
-    await page.waitForLoadState('networkidle');
+    // Ukrainian page  
+    await page.goto('/ua/', { waitUntil: 'networkidle' });
     title = await page.title();
     expect(title).toContain('Розумна Автоматизація');
   });
 
   test('HTML lang attribute should match language for SEO', async ({ page }) => {
     // Test English
-    await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/en/', { waitUntil: 'networkidle' });
     let htmlLang = await page.locator('html').getAttribute('lang');
     expect(htmlLang).toBe('en');
     
     // Test Ukrainian
-    await page.goto('/ua');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/ua/', { waitUntil: 'networkidle' });
     htmlLang = await page.locator('html').getAttribute('lang');
     expect(htmlLang).toBe('uk');
   });
 
   test('og:locale should match language', async ({ page }) => {
     // Test English
-    await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/en/', { waitUntil: 'networkidle' });
     let ogLocale = await page.locator('meta[property="og:locale"]').getAttribute('content');
     expect(ogLocale).toBe('en_US');
     
     // Test Ukrainian
-    await page.goto('/ua');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/ua/', { waitUntil: 'networkidle' });
     ogLocale = await page.locator('meta[property="og:locale"]').getAttribute('content');
     expect(ogLocale).toBe('uk_UA');
   });
