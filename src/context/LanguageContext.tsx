@@ -79,18 +79,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     await i18n.changeLanguage(lang);
     localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
 
-    // Navigate to the language-specific URL
-    const currentPath = location.pathname;
-    const pathSegments = currentPath.split('/').filter(Boolean);
-    
-    // Remove existing language prefix if present
-    if (pathSegments[0] === 'en' || pathSegments[0] === 'ua') {
-      pathSegments.shift();
-    }
-    
-    // Add new language prefix
-    const newPath = `/${lang}/${pathSegments.join('/')}`;
-    navigate(newPath);
+    // Navigate to clean URL without trailing slash
+    navigate(`/${lang}`);
   };
 
   return (

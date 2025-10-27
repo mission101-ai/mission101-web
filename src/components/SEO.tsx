@@ -23,8 +23,11 @@ export const SEO = ({
     const baseUrl = 'https://mission101.ai';
     const currentPath = location.pathname;
     
+    // Normalize path - remove trailing slashes for consistency
+    const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+    
     // Determine the canonical URL
-    const canonicalUrl = canonical || `${baseUrl}${currentPath}`;
+    const canonicalUrl = canonical || `${baseUrl}${normalizedPath}`;
     
     // Default SEO content from translations
     const defaultTitle = t('seo.title');
