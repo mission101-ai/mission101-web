@@ -40,23 +40,27 @@ export default defineConfig(({ mode }) => ({
         // Read the built index.html to get the asset references
         const builtHtml = fs.readFileSync(distIndexPath, 'utf-8');
         
+        // Extract script and style tags from the built HTML
+        // Match the production JS bundle (contains /assets/ in the path)
+        const scriptMatch = builtHtml.match(/<script[^>]*src="(\/assets\/[^"]*\.js)"[^>]*><\/script>/);
+        const styleMatch = builtHtml.match(/<link[^>]*href="([^"]*\.css)"[^>]*>/);
+        
         // Copy to /en/ (English version)
         const enPublicIndex = path.join(publicPath, 'en', 'index.html');
         if (fs.existsSync(enPublicIndex)) {
           let enHtml = fs.readFileSync(enPublicIndex, 'utf-8');
-          // Replace the script/style references with the built ones
-          const scriptMatch = builtHtml.match(/<script[^>]*src="([^"]*)"[^>]*><\/script>/);
-          const styleMatch = builtHtml.match(/<link[^>]*href="([^"]*\.css)"[^>]*>/);
           
+          // Inject the CSS link before the closing head tag
+          if (styleMatch) {
+            enHtml = enHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          
+          // Replace the dev script tag with the production script tag
           if (scriptMatch) {
             enHtml = enHtml.replace(
               '<script type="module" src="/src/main.tsx"></script>',
               scriptMatch[0]
             );
-          }
-          if (styleMatch) {
-            // Add the CSS link before the closing head tag
-            enHtml = enHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
           }
           
           fs.writeFileSync(path.join(enDir, 'index.html'), enHtml);
@@ -69,19 +73,18 @@ export default defineConfig(({ mode }) => ({
         const uaPublicIndex = path.join(publicPath, 'ua', 'index.html');
         if (fs.existsSync(uaPublicIndex)) {
           let uaHtml = fs.readFileSync(uaPublicIndex, 'utf-8');
-          // Replace the script/style references with the built ones
-          const scriptMatch = builtHtml.match(/<script[^>]*src="([^"]*)"[^>]*><\/script>/);
-          const styleMatch = builtHtml.match(/<link[^>]*href="([^"]*\.css)"[^>]*>/);
           
+          // Inject the CSS link before the closing head tag
+          if (styleMatch) {
+            uaHtml = uaHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          
+          // Replace the dev script tag with the production script tag
           if (scriptMatch) {
             uaHtml = uaHtml.replace(
               '<script type="module" src="/src/main.tsx"></script>',
               scriptMatch[0]
             );
-          }
-          if (styleMatch) {
-            // Add the CSS link before the closing head tag
-            uaHtml = uaHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
           }
           
           fs.writeFileSync(path.join(uaDir, 'index.html'), uaHtml);

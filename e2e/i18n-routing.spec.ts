@@ -105,5 +105,33 @@ test.describe('i18n Routing', () => {
     expect(page.url()).toContain('/ua/');
     expect(page.url()).toMatch(/\/ua\/$/);
   });
+
+  test('/en/ should render actual content, not blank page', async ({ page }) => {
+    await page.goto('/en/', { waitUntil: 'networkidle' });
+    
+    // Wait for React to mount and render content
+    await page.waitForSelector('#root', { state: 'attached' });
+    
+    // Check that root div has actual content (React has rendered)
+    const rootContent = await page.locator('#root').innerHTML();
+    expect(rootContent.length).toBeGreaterThan(100); // Should have substantial content
+    
+    // Verify specific content is visible (from HeroSection)
+    await expect(page.locator('body')).toContainText('Mission101.ai');
+  });
+
+  test('/ua/ should render actual content, not blank page', async ({ page }) => {
+    await page.goto('/ua/', { waitUntil: 'networkidle' });
+    
+    // Wait for React to mount and render content
+    await page.waitForSelector('#root', { state: 'attached' });
+    
+    // Check that root div has actual content (React has rendered)
+    const rootContent = await page.locator('#root').innerHTML();
+    expect(rootContent.length).toBeGreaterThan(100); // Should have substantial content
+    
+    // Verify specific content is visible (from HeroSection)
+    await expect(page.locator('body')).toContainText('Mission101.ai');
+  });
 });
 
