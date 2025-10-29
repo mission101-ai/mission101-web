@@ -1,10 +1,19 @@
 # Mission101 AI - Web Platform
 
+[![Build and Deploy](https://github.com/mission101-ai/mission101-web/actions/workflows/deploy.yml/badge.svg)](https://github.com/mission101-ai/mission101-web/actions/workflows/deploy.yml)
+
 A modern, multilingual landing page for Mission101 AI, built with React, TypeScript, and Vite. The site features comprehensive SEO optimization, internationalization support, and automated E2E testing.
 
 ## 🌐 Live Site
 
 **Production:** [https://mission101.ai](https://mission101.ai)
+
+## 📊 Build Status
+
+- **Latest Build**: ![Build Status](https://img.shields.io/github/actions/workflow/status/mission101-ai/mission101-web/deploy.yml?branch=main&label=build&logo=github)
+- **Deployment**: Automatic deployment to GitHub Pages on successful build
+- **Tests**: 61 E2E tests must pass before deployment
+- **View Workflow**: [GitHub Actions](https://github.com/mission101-ai/mission101-web/actions/workflows/deploy.yml)
 
 ## ✨ Features
 
