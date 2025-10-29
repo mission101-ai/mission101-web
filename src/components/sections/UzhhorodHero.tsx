@@ -1,8 +1,10 @@
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const UzhhorodHero = () => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   
   const handleContactClick = () => {
     // Scroll to contact section on the same page
@@ -71,8 +73,12 @@ export const UzhhorodHero = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Досвід впровадження</p>
-                  <p className="text-lg font-bold text-gray-900">20+ років</p>
+                  <p className="text-sm text-gray-500">
+                    {currentLanguage === 'ua' ? 'Досвід впровадження' : 'Implementation Experience'}
+                  </p>
+                  <p className="text-lg font-bold text-gray-900">
+                    {currentLanguage === 'ua' ? '20+ років' : '20+ years'}
+                  </p>
                 </div>
               </div>
             </div>

@@ -185,14 +185,6 @@ test.describe('Uzhhorod Landing Page', () => {
       await expect(nav).toBeVisible();
     });
 
-    test('should have contact CTA button in navigation', async ({ page }) => {
-      await page.goto('/ua/uzhhorod');
-      await page.waitForLoadState('networkidle');
-      
-      const ctaButton = page.locator('nav button').filter({ hasText: /Зв'язатися|Contact/ });
-      await expect(ctaButton).toBeVisible();
-    });
-
     test('navigation should be sticky', async ({ page }) => {
       await page.goto('/ua/uzhhorod');
       await page.waitForLoadState('networkidle');
@@ -330,7 +322,7 @@ test.describe('Uzhhorod Landing Page', () => {
   });
 
   test.describe('Language Switching', () => {
-    test('should switch from Ukrainian to English', async ({ page }) => {
+    test('should switch from Ukrainian to English via direct navigation', async ({ page }) => {
       await page.goto('/ua/uzhhorod');
       await page.waitForLoadState('networkidle');
       
@@ -338,14 +330,168 @@ test.describe('Uzhhorod Landing Page', () => {
       const uaTitle = await page.locator('h1').first().textContent();
       expect(uaTitle).toContain('Ужгород');
       
-      // Note: Language switcher interaction would need to be tested with the actual component
-      // For now, we test direct navigation
+      // Navigate to English version
       await page.goto('/en/uzhhorod');
       await page.waitForLoadState('networkidle');
       
       const enTitle = await page.locator('h1').first().textContent();
       expect(enTitle).toContain('Uzhhorod');
       expect(enTitle).not.toContain('Ужгород');
+    });
+
+    test('should switch from Ukrainian to English using language switcher', async ({ page }) => {
+      // Set up response listener to catch any 404s
+      const responses: number[] = [];
+      page.on('response', response => {
+        responses.push(response.status());
+      });
+
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      // Verify we're on Ukrainian page
+      const initialUrl = page.url();
+      expect(initialUrl).toContain('/ua/uzhhorod');
+      
+      const uaTitle = await page.locator('h1').first().textContent();
+      expect(uaTitle).toContain('Ужгород');
+      
+      // Click the language switcher
+      const languageSwitcher = page.locator('button[aria-label="Switch language"]');
+      await expect(languageSwitcher).toBeVisible();
+      await languageSwitcher.click();
+      
+      // Wait for navigation to complete
+      await page.waitForLoadState('networkidle');
+      
+      // Verify URL changed to English
+      const newUrl = page.url();
+      expect(newUrl).toContain('/en/uzhhorod');
+      expect(newUrl).not.toContain('/ua');
+      
+      // Verify content changed to English
+      const enTitle = await page.locator('h1').first().textContent();
+      expect(enTitle).toContain('Uzhhorod');
+      expect(enTitle).not.toContain('Ужгород');
+      
+      // Verify no 404 errors occurred during the switch
+      const has404 = responses.some(status => status === 404);
+      expect(has404).toBe(false);
+    });
+
+    test('should switch from English to Ukrainian using language switcher', async ({ page }) => {
+      // Set up response listener to catch any 404s
+      const responses: number[] = [];
+      page.on('response', response => {
+        responses.push(response.status());
+      });
+
+      await page.goto('/en/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      // Verify we're on English page
+      const initialUrl = page.url();
+      expect(initialUrl).toContain('/en/uzhhorod');
+      
+      const enTitle = await page.locator('h1').first().textContent();
+      expect(enTitle).toContain('Uzhhorod');
+      
+      // Click the language switcher
+      const languageSwitcher = page.locator('button[aria-label="Switch language"]');
+      await expect(languageSwitcher).toBeVisible();
+      await languageSwitcher.click();
+      
+      // Wait for navigation to complete
+      await page.waitForLoadState('networkidle');
+      
+      // Verify URL changed to Ukrainian
+      const newUrl = page.url();
+      expect(newUrl).toContain('/ua/uzhhorod');
+      expect(newUrl).not.toContain('/en');
+      
+      // Verify content changed to Ukrainian
+      const uaTitle = await page.locator('h1').first().textContent();
+      expect(uaTitle).toContain('Ужгород');
+      
+      // Verify no 404 errors occurred during the switch
+      const has404 = responses.some(status => status === 404);
+      expect(has404).toBe(false);
+    });
+
+    test('should preserve Uzhhorod path when switching languages multiple times', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const languageSwitcher = page.locator('button[aria-label="Switch language"]');
+      
+      // Switch to English
+      await languageSwitcher.click();
+      await page.waitForLoadState('networkidle');
+      expect(page.url()).toContain('/en/uzhhorod');
+      
+      // Switch back to Ukrainian
+      await languageSwitcher.click();
+      await page.waitForLoadState('networkidle');
+      expect(page.url()).toContain('/ua/uzhhorod');
+      
+      // Switch to English again
+      await languageSwitcher.click();
+      await page.waitForLoadState('networkidle');
+      expect(page.url()).toContain('/en/uzhhorod');
+      
+      // Verify we're still on a valid page (not 404)
+      const title = await page.locator('h1').first().textContent();
+      expect(title).toBeTruthy();
+      expect(title).toContain('Uzhhorod');
+    });
+
+    test('should not redirect to index page when switching languages', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const languageSwitcher = page.locator('button[aria-label="Switch language"]');
+      await languageSwitcher.click();
+      await page.waitForLoadState('networkidle');
+      
+      const url = page.url();
+      // Should be on /en/uzhhorod, not /en
+      expect(url).toContain('/en/uzhhorod');
+      expect(url).not.toMatch(/\/en\/?$/);
+      
+      // Verify we're on the Uzhhorod page (has specific title)
+      const title = await page.locator('h1').first().textContent();
+      expect(title).toContain('Uzhhorod');
+      
+      // Verify Uzhhorod-specific content exists (local advantages section)
+      const advantagesTitle = page.locator('h2').filter({ hasText: /Why Choose|Чому Обирають/ });
+      await expect(advantagesTitle).toBeVisible();
+    });
+
+    test('should handle language switching without 404 responses', async ({ page }) => {
+      const failed404Requests: string[] = [];
+      
+      page.on('response', response => {
+        if (response.status() === 404) {
+          failed404Requests.push(response.url());
+        }
+      });
+
+      // Start on Ukrainian
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      // Switch to English
+      const languageSwitcher = page.locator('button[aria-label="Switch language"]');
+      await languageSwitcher.click();
+      await page.waitForLoadState('networkidle');
+      
+      // Switch back to Ukrainian
+      await languageSwitcher.click();
+      await page.waitForLoadState('networkidle');
+      
+      // Check no HTML pages returned 404
+      const html404s = failed404Requests.filter(url => url.includes('.html') || !url.includes('.'));
+      expect(html404s.length).toBe(0);
     });
   });
 

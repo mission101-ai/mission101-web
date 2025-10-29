@@ -9,24 +9,28 @@ export const UzhhorodContacts = () => {
       icon: Phone,
       label: 'uzhhorod.contacts.phone',
       value: '+38-097-48-25-097',
+      valueKey: null,
       href: 'tel:+380974825097',
     },
     {
       icon: Mail,
       label: 'uzhhorod.contacts.email',
       value: 'sergii@mission101.ai',
+      valueKey: null,
       href: 'mailto:sergii@mission101.ai',
     },
     {
       icon: MapPin,
       label: 'uzhhorod.contacts.address',
-      value: 'Ужгород, Закарпатська область, Україна',
+      value: null,
+      valueKey: 'uzhhorod.contacts.address_value',
       href: 'https://maps.google.com/?q=Uzhhorod,Ukraine',
     },
     {
       icon: Clock,
       label: 'uzhhorod.contacts.hours',
-      value: 'Пн-Пт: 9:00 - 18:00',
+      value: null,
+      valueKey: 'uzhhorod.contacts.hours_value',
       href: null,
     },
   ];
@@ -55,6 +59,7 @@ export const UzhhorodContacts = () => {
               {contactItems.map((item, index) => {
                 const Icon = item.icon;
                 const label = t(item.label);
+                const displayValue = item.valueKey ? t(item.valueKey) : item.value;
                 
                 return (
                   <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -70,10 +75,10 @@ export const UzhhorodContacts = () => {
                           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           className="text-lg font-semibold text-gray-900 hover:text-green-600 transition-colors"
                         >
-                          {item.value}
+                          {displayValue}
                         </a>
                       ) : (
-                        <p className="text-lg font-semibold text-gray-900">{item.value}</p>
+                        <p className="text-lg font-semibold text-gray-900">{displayValue}</p>
                       )}
                     </div>
                   </div>

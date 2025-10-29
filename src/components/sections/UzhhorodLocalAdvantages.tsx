@@ -57,8 +57,8 @@ export const UzhhorodLocalAdvantages = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-8 left-8 text-white">
-              <p className="text-3xl font-bold">Ужгород</p>
-              <p className="text-lg">Закарпатська область, Україна</p>
+              <p className="text-3xl font-bold">{t('uzhhorod.advantages.city_name')}</p>
+              <p className="text-lg">{t('uzhhorod.advantages.city_region')}</p>
             </div>
           </div>
         </div>

@@ -151,14 +151,16 @@
   "uzhhorod": {
     "hero": {
       "title": "IT Services in Uzhhorod",
-      "subtitle": "Optimize Your Business with AI",
-      "description": "Our headquarters is located in Uzhhorod. Ready to meet in person and discuss how artificial intelligence can transform your business.",
+      "subtitle": "Business Optimization and AI Implementation",
+      "description": "Our main office is located in Uzhhorod. Ready to meet in person and discuss how artificial intelligence can transform your business.",
       "cta": "Contact Us",
       "location": "📍 Uzhhorod, Zakarpattia Region"
     },
     "advantages": {
       "title": "Why Choose Us in Uzhhorod",
       "subtitle": "Local expertise with global standards",
+      "city_name": "Uzhhorod",
+      "city_region": "Zakarpattia Region, Ukraine",
       "items": [
         {
           "title": "Headquarters in Uzhhorod",
@@ -240,7 +242,9 @@
       "phone": "Phone",
       "email": "Email",
       "address": "Address",
+      "address_value": "Uzhhorod, Ukraine",
       "hours": "Business Hours",
+      "hours_value": "Mon-Fri: 9:00 AM - 6:00 PM",
       "cta_title": "Schedule a Consultation",
       "cta_description": "Contact us in the way that's most convenient for you. We're ready to meet in person at our office or visit you.",
       "features": [

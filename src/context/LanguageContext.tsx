@@ -79,8 +79,21 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     await i18n.changeLanguage(lang);
     localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
 
-    // Navigate to clean URL without trailing slash
-    navigate(`/${lang}`);
+    // Preserve current page path when switching languages
+    const currentPath = location.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    
+    // Remove current language prefix if present
+    if (pathSegments[0] === 'en' || pathSegments[0] === 'ua') {
+      pathSegments.shift();
+    }
+    
+    // Construct new path with new language
+    const newPath = pathSegments.length > 0 
+      ? `/${lang}/${pathSegments.join('/')}`
+      : `/${lang}`;
+    
+    navigate(newPath);
   };
 
   return (
