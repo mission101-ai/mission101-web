@@ -147,5 +147,115 @@
   "seo": {
     "title": "Mission101.ai | Intelligent Automation for Modern Business",
     "description": "Transform your business with intelligent automation solutions. Mission101.ai provides AI-powered tools to streamline operations, enhance productivity, and accelerate digital growth."
+  },
+  "uzhhorod": {
+    "hero": {
+      "title": "IT Services in Uzhhorod",
+      "subtitle": "Optimize Your Business with AI",
+      "description": "Our headquarters is located in Uzhhorod. Ready to meet in person and discuss how artificial intelligence can transform your business.",
+      "cta": "Contact Us",
+      "location": "📍 Uzhhorod, Zakarpattia Region"
+    },
+    "advantages": {
+      "title": "Why Choose Us in Uzhhorod",
+      "subtitle": "Local expertise with global standards",
+      "items": [
+        {
+          "title": "Headquarters in Uzhhorod",
+          "description": "We're here, close to you. Our office is located in the city center, ready to meet at your convenience."
+        },
+        {
+          "title": "In-Person Consultations",
+          "description": "Face-to-face meetings for detailed discussion of your needs. We understand the specifics of local business."
+        },
+        {
+          "title": "Quick Support",
+          "description": "Rapid response to your requests. We can visit your office to address issues on-site."
+        },
+        {
+          "title": "Understanding of Local Market",
+          "description": "We know the business landscape in Transcarpathia and can offer the best solutions for your niche."
+        }
+      ]
+    },
+    "services": {
+      "title": "Our Business Services",
+      "subtitle": "Practical solutions to optimize your company",
+      "items": [
+        {
+          "title": "Business Process Automation",
+          "description": "Eliminate routine tasks. We automate repetitive processes so your team can focus on what matters.",
+          "benefits": [
+            "Save up to 60% of working time",
+            "Reduce errors",
+            "Faster customer service"
+          ]
+        },
+        {
+          "title": "Cost Optimization",
+          "description": "Find opportunities for savings. We analyze your processes and offer solutions to reduce operational costs.",
+          "benefits": [
+            "Reduce costs by 20-40%",
+            "Transparent cost analytics",
+            "ROI within 3-6 months"
+          ]
+        },
+        {
+          "title": "Custom AI Solutions",
+          "description": "We develop solutions for your business. From chatbots to analytics systems - we'll create what you need.",
+          "benefits": [
+            "Solutions tailored to your needs",
+            "Integration with existing systems",
+            "Training for your team"
+          ]
+        },
+        {
+          "title": "Performance Enhancement",
+          "description": "Help you work better. We optimize workflows and implement tools to increase productivity.",
+          "benefits": [
+            "More tasks in less time",
+            "Better team coordination",
+            "Measurable results"
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "title": "Let's Meet",
+      "subtitle": "Ready to discuss your project",
+      "description": "We invite you for a free consultation at our office in Uzhhorod or we can come to you. Let's discuss your challenges and offer optimal solutions.",
+      "features": [
+        "Free consultation",
+        "Analysis of your processes",
+        "Specific recommendations",
+        "Cost estimation"
+      ],
+      "button": "Contact Us",
+      "note": "We typically respond within 2 hours during business hours"
+    },
+    "contacts": {
+      "title": "Contact Us",
+      "subtitle": "Ready to answer your questions and discuss your project",
+      "info_title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Business Hours",
+      "cta_title": "Schedule a Consultation",
+      "cta_description": "Contact us in the way that's most convenient for you. We're ready to meet in person at our office or visit you.",
+      "features": [
+        "Free consultation",
+        "Analysis of your needs",
+        "Custom solutions",
+        "Quick response"
+      ],
+      "call_button": "Call Us",
+      "email_button": "Send Email",
+      "response_time": "We respond within 2 hours during business hours"
+    },
+    "seo": {
+      "title": "IT Services in Uzhhorod | Business Automation with AI | Mission101.ai",
+      "description": "Professional IT services in Uzhhorod from Mission101.ai. Business process automation, cost optimization, custom AI solutions. In-person meetings and consultations. ☎️ Contact us!"
+    }
   }
 }

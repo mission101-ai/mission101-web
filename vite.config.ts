@@ -29,12 +29,20 @@ export default defineConfig(({ mode }) => ({
         // Create language directories if they don't exist
         const enDir = path.join(distPath, 'en');
         const uaDir = path.join(distPath, 'ua');
+        const enUzhhorodDir = path.join(distPath, 'en', 'uzhhorod');
+        const uaUzhhorodDir = path.join(distPath, 'ua', 'uzhhorod');
         
         if (!fs.existsSync(enDir)) {
           fs.mkdirSync(enDir, { recursive: true });
         }
         if (!fs.existsSync(uaDir)) {
           fs.mkdirSync(uaDir, { recursive: true });
+        }
+        if (!fs.existsSync(enUzhhorodDir)) {
+          fs.mkdirSync(enUzhhorodDir, { recursive: true });
+        }
+        if (!fs.existsSync(uaUzhhorodDir)) {
+          fs.mkdirSync(uaUzhhorodDir, { recursive: true });
         }
         
         // Read the built index.html to get the asset references
@@ -93,7 +101,55 @@ export default defineConfig(({ mode }) => ({
           fs.copyFileSync(distIndexPath, path.join(uaDir, 'index.html'));
         }
         
-        console.log('✓ Copied language-specific index.html to /en/ and /ua/ directories');
+        // Copy to /en/uzhhorod/ (English Uzhhorod version)
+        const enUzhhorodPublicIndex = path.join(publicPath, 'en', 'index.html');
+        if (fs.existsSync(enUzhhorodPublicIndex)) {
+          let enUzhhorodHtml = fs.readFileSync(enUzhhorodPublicIndex, 'utf-8');
+          
+          // Inject the CSS link before the closing head tag
+          if (styleMatch) {
+            enUzhhorodHtml = enUzhhorodHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          
+          // Replace the dev script tag with the production script tag
+          if (scriptMatch) {
+            enUzhhorodHtml = enUzhhorodHtml.replace(
+              '<script type="module" src="/src/main.tsx"></script>',
+              scriptMatch[0]
+            );
+          }
+          
+          fs.writeFileSync(path.join(enUzhhorodDir, 'index.html'), enUzhhorodHtml);
+        } else {
+          // Fallback: copy built index.html
+          fs.copyFileSync(distIndexPath, path.join(enUzhhorodDir, 'index.html'));
+        }
+        
+        // Copy to /ua/uzhhorod/ (Ukrainian Uzhhorod version)
+        const uaUzhhorodPublicIndex = path.join(publicPath, 'ua', 'index.html');
+        if (fs.existsSync(uaUzhhorodPublicIndex)) {
+          let uaUzhhorodHtml = fs.readFileSync(uaUzhhorodPublicIndex, 'utf-8');
+          
+          // Inject the CSS link before the closing head tag
+          if (styleMatch) {
+            uaUzhhorodHtml = uaUzhhorodHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          
+          // Replace the dev script tag with the production script tag
+          if (scriptMatch) {
+            uaUzhhorodHtml = uaUzhhorodHtml.replace(
+              '<script type="module" src="/src/main.tsx"></script>',
+              scriptMatch[0]
+            );
+          }
+          
+          fs.writeFileSync(path.join(uaUzhhorodDir, 'index.html'), uaUzhhorodHtml);
+        } else {
+          // Fallback: copy built index.html
+          fs.copyFileSync(distIndexPath, path.join(uaUzhhorodDir, 'index.html'));
+        }
+        
+        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, and /ua/uzhhorod/ directories');
       }
     }
   ].filter(Boolean),

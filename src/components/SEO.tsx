@@ -7,13 +7,15 @@ interface SEOProps {
   description?: string;
   ogImage?: string;
   canonical?: string;
+  isLocalPage?: boolean;
 }
 
 export const SEO = ({ 
   title, 
   description, 
   ogImage = 'https://mission101.ai/mission101-og-image.png',
-  canonical 
+  canonical,
+  isLocalPage = false
 }: SEOProps) => {
   const location = useLocation();
   const { i18n, t } = useTranslation();
@@ -92,11 +94,68 @@ export const SEO = ({
       link.setAttribute('href', href);
     };
     
-    updateAlternateLink('en', `${baseUrl}/en`);
-    updateAlternateLink('uk', `${baseUrl}/ua`);
-    updateAlternateLink('x-default', baseUrl);
+    // Update hreflang based on page type
+    if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
+      updateAlternateLink('en', `${baseUrl}/en/uzhhorod`);
+      updateAlternateLink('uk', `${baseUrl}/ua/uzhhorod`);
+      updateAlternateLink('x-default', `${baseUrl}/ua/uzhhorod`);
+    } else {
+      updateAlternateLink('en', `${baseUrl}/en`);
+      updateAlternateLink('uk', `${baseUrl}/ua`);
+      updateAlternateLink('x-default', baseUrl);
+    }
     
-  }, [location, title, description, ogImage, canonical, i18n.language, t]);
+    // Add LocalBusiness schema for Uzhhorod page
+    if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
+      let schemaScript = document.querySelector('script[type="application/ld+json"]');
+      if (!schemaScript) {
+        schemaScript = document.createElement('script');
+        schemaScript.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(schemaScript);
+      }
+      
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Mission101.ai",
+        "image": ogImage,
+        "description": pageDescription,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Uzhhorod",
+          "addressRegion": "Zakarpattia Oblast",
+          "addressCountry": "UA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "48.6208",
+          "longitude": "22.2879"
+        },
+        "url": canonicalUrl,
+        "telephone": "+380",
+        "priceRange": "$$",
+        "areaServed": {
+          "@type": "City",
+          "name": "Uzhhorod"
+        },
+        "serviceType": [
+          "Business Process Automation",
+          "AI Solutions",
+          "IT Consulting",
+          "Cost Optimization"
+        ]
+      };
+      
+      schemaScript.textContent = JSON.stringify(schemaData);
+    } else {
+      // Remove schema if not on local page
+      const existingSchema = document.querySelector('script[type="application/ld+json"]');
+      if (existingSchema) {
+        existingSchema.remove();
+      }
+    }
+    
+  }, [location, title, description, ogImage, canonical, isLocalPage, i18n.language, t]);
   
   return null; // This component doesn't render anything
 };

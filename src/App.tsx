@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Uzhhorod from "./pages/Uzhhorod";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "@/i18n/config";
@@ -23,6 +24,10 @@ const App = () => (
             <Route path="/en/" element={<Index />} />
             <Route path="/ua" element={<Index />} />
             <Route path="/ua/" element={<Index />} />
+            <Route path="/ua/uzhhorod" element={<Uzhhorod />} />
+            <Route path="/ua/uzhhorod/" element={<Uzhhorod />} />
+            <Route path="/en/uzhhorod" element={<Uzhhorod />} />
+            <Route path="/en/uzhhorod/" element={<Uzhhorod />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

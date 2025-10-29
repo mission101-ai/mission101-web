@@ -50,6 +50,48 @@ All colors MUST be HSL.
     --accent-blue: 212 92% 55%;
     --grid-color: 220 13% 15%;
   }
+
+  /* Light theme for Uzhhorod landing page */
+  .light-theme {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    --bg-secondary: 210 40% 98%;
+    --bg-tertiary: 210 40% 96%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 137 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 137 55% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 137 55% 45%;
+    
+    /* Custom semantic tokens for light theme */
+    --text-primary: 222 47% 11%;
+    --text-secondary: 215 16% 47%;
+    --text-tertiary: 215 20% 65%;
+    --accent-green: 137 55% 45%;
+    --accent-blue: 212 92% 55%;
+    --grid-color: 214 32% 91%;
+  }
 }
 
 @layer base {
