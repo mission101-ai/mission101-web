@@ -39,7 +39,8 @@ test.describe('Uzhhorod Landing Page', () => {
       await page.goto('/ua/uzhhorod', { waitUntil: 'networkidle' });
       
       const title = await page.title();
-      expect(title).toContain('IT Послуги в Ужгороді');
+      expect(title).toContain('Ужгород');
+      expect(title).toContain('Автоматизація Бізнесу');
       expect(title).toContain('Mission101.ai');
     });
 
@@ -47,7 +48,8 @@ test.describe('Uzhhorod Landing Page', () => {
       await page.goto('/en/uzhhorod', { waitUntil: 'networkidle' });
       
       const title = await page.title();
-      expect(title).toContain('IT Services in Uzhhorod');
+      expect(title).toContain('Uzhhorod');
+      expect(title).toContain('Business Automation');
       expect(title).toContain('Mission101.ai');
     });
 

@@ -27,5 +27,23 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/" />
   </url>
+  <url>
+    <loc>https://mission101.ai/en/uzhhorod</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/uzhhorod" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/uzhhorod" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/ua/uzhhorod" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/ua/uzhhorod</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/uzhhorod" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/uzhhorod" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/ua/uzhhorod" />
+  </url>
 </urlset>
 

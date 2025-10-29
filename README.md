@@ -9,12 +9,14 @@ A modern, multilingual landing page for Mission101 AI, built with React, TypeScr
 ## ✨ Features
 
 - **Multilingual Support**: Full i18n implementation with English and Ukrainian languages
+- **Local Landing Pages**: Dedicated Uzhhorod city page with local SEO optimization
 - **SEO Optimized**: Comprehensive meta tags, Open Graph, Twitter Cards, and structured data (JSON-LD)
-- **SEO-Friendly Routing**: Proper language-specific routes (`/`, `/en`, `/ua`) with hreflang tags
+- **SEO-Friendly Routing**: Proper language-specific routes (`/`, `/en`, `/ua`, `/en/uzhhorod`, `/ua/uzhhorod`) with hreflang tags
+- **LocalBusiness Schema**: Rich structured data for enhanced local search visibility
 - **Responsive Design**: Mobile-first design with Tailwind CSS
 - **Modern UI Components**: Built with shadcn-ui component library
 - **Type-Safe**: Full TypeScript implementation
-- **Automated Testing**: Comprehensive E2E tests with Playwright
+- **Automated Testing**: 61 comprehensive E2E tests with Playwright
 - **CI/CD**: Automated deployment to GitHub Pages via GitHub Actions
 - **Custom Domain**: Deployed with SSL certificate on mission101.ai
 
@@ -88,13 +90,15 @@ npm run lint:strict     # Run ESLint with zero warnings allowed
 
 The project includes comprehensive E2E testing with Playwright:
 
-- **21 automated tests** covering routing, i18n, and SEO
+- **61 automated tests** covering routing, i18n, SEO, and page functionality
 - **i18n Routing Tests**: Validate all language routes work correctly
 - **SEO Validation Tests**: Verify meta tags, canonical URLs, hreflang tags, and structured data
+- **Uzhhorod Page Tests**: 38 tests for local landing page functionality
 - **CI Integration**: Tests run automatically on every push to main branch
 
 ### Test Coverage
 
+#### Main Site (23 tests)
 - ✅ All routes accessible (/, /en, /en/, /ua, /ua/)
 - ✅ 404 handling for invalid routes
 - ✅ Language switcher functionality
@@ -104,6 +108,16 @@ The project includes comprehensive E2E testing with Playwright:
 - ✅ HTML lang attribute matching
 - ✅ localStorage persistence
 
+#### Uzhhorod Landing Page (38 tests)
+- ✅ Route accessibility (/en/uzhhorod, /ua/uzhhorod)
+- ✅ SEO tags (titles, descriptions, canonical URLs, hreflang)
+- ✅ LocalBusiness schema validation
+- ✅ Open Graph and Twitter Cards
+- ✅ Light theme application
+- ✅ Navigation and mobile responsiveness
+- ✅ Language switching without 404 errors
+- ✅ Content rendering and CTA functionality
+
 ## 🌍 Internationalization
 
 The site supports multiple languages with proper SEO routing:
@@ -111,11 +125,22 @@ The site supports multiple languages with proper SEO routing:
 - **English** (`/en`) - Default language
 - **Ukrainian** (`/ua`) - Secondary language
 
+### Main Pages
+- `/` - Home page with automatic language detection
+- `/en` - English home page
+- `/ua` - Ukrainian home page
+
+### Local Landing Pages
+- `/en/uzhhorod` - English Uzhhorod IT services page
+- `/ua/uzhhorod` - Ukrainian Uzhhorod IT services page (x-default for local SEO)
+
 Each language version has:
-- Dedicated routes with proper HTTP 200 responses
+- Dedicated routes with proper HTTP 200 responses (no 404s)
+- Physical HTML files for direct access by search engines
 - Localized content loaded from JSON files
 - Proper `lang` attributes and hreflang tags
 - Language-specific meta tags and Open Graph data
+- LocalBusiness structured data for Uzhhorod pages
 - Automatic language detection based on browser settings
 
 ## 📦 Project Structure
@@ -123,22 +148,42 @@ Each language version has:
 ```
 mission101-web/
 ├── public/              # Static assets and prerendered HTML
-│   ├── en/             # English language route
-│   ├── ua/             # Ukrainian language route
-│   ├── sitemap.xml     # SEO sitemap
+│   ├── en/             # English language routes
+│   │   ├── index.html      # English home page
+│   │   └── uzhhorod/       # English Uzhhorod page
+│   │       └── index.html
+│   ├── ua/             # Ukrainian language routes
+│   │   ├── index.html      # Ukrainian home page
+│   │   └── uzhhorod/       # Ukrainian Uzhhorod page
+│   │       └── index.html
+│   ├── sitemap.xml     # SEO sitemap with all pages
 │   └── robots.txt      # Search engine directives
 ├── src/
 │   ├── components/     # React components
-│   │   ├── sections/   # Page sections
+│   │   ├── sections/   # Page sections (Hero, Services, Uzhhorod, etc.)
 │   │   ├── ui/         # shadcn-ui components
-│   │   └── SEO.tsx     # SEO meta tags component
+│   │   ├── SEO.tsx     # Dynamic SEO meta tags component
+│   │   └── UzhhorodNav.tsx  # Uzhhorod-specific navigation
 │   ├── context/        # React Context providers
 │   ├── i18n/           # Internationalization config and locales
+│   │   └── locales/    # en.json, ua.json translations
 │   ├── hooks/          # Custom React hooks
 │   ├── lib/            # Utility functions
 │   ├── pages/          # Page components
+│   │   ├── Index.tsx       # Main landing page
+│   │   ├── Uzhhorod.tsx    # Uzhhorod landing page
+│   │   └── NotFound.tsx    # 404 page
 │   └── services/       # Service modules
 ├── e2e/                # Playwright E2E tests
+│   ├── i18n-routing.spec.ts    # i18n routing tests
+│   ├── seo-tags.spec.ts        # SEO validation tests
+│   └── uzhhorod-page.spec.ts   # Uzhhorod page tests
+├── instructions/       # Project documentation
+│   ├── DEPLOYMENT.md
+│   ├── IMPLEMENTATION-SUMMARY.md
+│   ├── SEO-SETUP.md
+│   ├── UZHHOROD-PAGE-SUMMARY.md
+│   └── UZHHOROD-SEO-SUMMARY.md
 └── dist/               # Production build output
 ```
 
@@ -153,7 +198,9 @@ The site is automatically deployed to GitHub Pages when changes are pushed to th
 3. Install dependencies and Playwright browsers
 4. Run strict linting (`npm run lint:strict`)
 5. Build production bundle (`vite build`)
-6. Run all E2E tests
+   - Copies language-specific HTML files to `/en/`, `/ua/`, `/en/uzhhorod/`, `/ua/uzhhorod/`
+   - Injects production assets into static HTML files
+6. Run all E2E tests (61 tests)
 7. Deploy to GitHub Pages (only if tests pass)
 8. Site updates at https://mission101.ai
 
@@ -181,14 +228,31 @@ Trigger deployment manually from [GitHub Actions](https://github.com/mission101-
 
 ## 📝 SEO Features
 
-- **Meta Tags**: Title, description, keywords, viewport
-- **Open Graph**: Full OG protocol support for social sharing
-- **Twitter Cards**: Summary cards with images
-- **Structured Data**: JSON-LD for better search engine understanding
-- **Canonical URLs**: Proper canonical tags for all pages
+### Global SEO
+- **Meta Tags**: Title, description, keywords, viewport optimized for each page
+- **Open Graph**: Full OG protocol support for social sharing (Facebook, LinkedIn)
+- **Twitter Cards**: Large image summary cards with localized content
+- **Canonical URLs**: Proper canonical tags for all pages (normalized without trailing slashes)
 - **Hreflang Tags**: Language alternate tags for multilingual SEO
-- **Sitemap**: XML sitemap for search engine crawling
-- **Robots.txt**: Search engine directives
+- **Sitemap**: XML sitemap with all pages and language variants
+- **Robots.txt**: Search engine directives with sitemap reference
+
+### Structured Data (JSON-LD)
+- **Organization Schema**: Company information with founding date and contact details
+- **LocalBusiness Schema**: Uzhhorod office with geo-coordinates (48.6208, 22.2879)
+- **WebSite Schema**: Site-wide information with language support
+- **Service Schema**: Detailed service offerings catalog
+- **WebPage Schema**: Page-specific structured data
+
+### Local SEO (Uzhhorod Pages)
+- **LocalBusiness Schema**: Full business profile with:
+  - Precise geo-coordinates and address
+  - Service areas (Uzhhorod, Zakarpattia Oblast)
+  - Business hours (Mon-Fri 9:00-18:00)
+  - Service types and offerings
+- **Local Keywords**: Optimized for "IT services Uzhhorod", "AI automation Uzhhorod"
+- **x-default hreflang**: Ukrainian version set as default for local relevance
+- **Physical HTML Files**: Direct search engine access without SPA routing
 
 ## 🤝 Contributing
 
@@ -221,9 +285,13 @@ This project is private and proprietary to Mission101 AI.
 
 ## 📚 Documentation
 
-- [Deployment Guide](DEPLOYMENT.md) - GitHub Pages and custom domain setup
-- [Implementation Summary](IMPLEMENTATION-SUMMARY.md) - i18n routing implementation details
-- [SEO Setup](SEO-SETUP.md) - SEO configuration and best practices
+All documentation is located in the `instructions/` folder:
+
+- [Deployment Guide](instructions/DEPLOYMENT.md) - GitHub Pages and custom domain setup
+- [Implementation Summary](instructions/IMPLEMENTATION-SUMMARY.md) - i18n routing implementation details
+- [SEO Setup](instructions/SEO-SETUP.md) - SEO configuration and best practices
+- [Uzhhorod Page Summary](instructions/UZHHOROD-PAGE-SUMMARY.md) - Uzhhorod landing page implementation
+- [Uzhhorod SEO Summary](instructions/UZHHOROD-SEO-SUMMARY.md) - Local SEO optimization details
 
 ## 🐛 Troubleshooting
 
