@@ -26,10 +26,10 @@ export const UzhhorodLocalAdvantages = () => {
             return (
               <div
                 key={index}
-                className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:border-green-200"
+                className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:border-blue-200"
               >
-                <div className="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-600 transition-colors duration-300">
-                  <Icon className="w-7 h-7 text-green-600 group-hover:text-white transition-colors duration-300" />
+                <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+                  <Icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors duration-300" />
                 </div>
                 
                 <h3 className="text-xl font-bold text-gray-900 mb-3">

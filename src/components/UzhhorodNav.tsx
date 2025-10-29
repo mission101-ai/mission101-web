@@ -12,16 +12,16 @@ export const UzhhorodNav = () => {
           {/* Logo */}
           <button
             onClick={handleLogoClick}
-            className="text-2xl font-bold text-gray-900 hover:text-green-600 transition-colors"
+            className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <span className="text-green-600">Mission</span>
+            <span className="text-blue-600">Mission</span>
             <span>101</span>
-            <span className="text-green-600">.ai</span>
+            <span className="text-blue-600">.ai</span>
           </button>
 
           {/* Right side: Language switcher */}
           <div className="flex items-center gap-4">
-            <LanguageSwitcher />
+            <LanguageSwitcher isUzhhorodPage={true} />
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ export const UzhhorodCTA = () => {
                   }}
                 />
                 {/* Decorative overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-green-600/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
               </div>
             </div>
 
@@ -39,7 +39,7 @@ export const UzhhorodCTA = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                   {t('uzhhorod.cta.title')}
                 </h2>
-                <p className="text-xl text-green-600 font-semibold mb-4">
+                <p className="text-xl text-blue-600 font-semibold mb-4">
                   {t('uzhhorod.cta.subtitle')}
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
@@ -51,7 +51,7 @@ export const UzhhorodCTA = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {Array.from({ length: 4 }).map((_, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 font-medium">
                       {t(`uzhhorod.cta.features.${index}`)}
                     </span>
@@ -63,7 +63,7 @@ export const UzhhorodCTA = () => {
               <div className="pt-4">
                 <button
                   onClick={handleContactClick}
-                  className="group inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   {t('uzhhorod.cta.button')}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

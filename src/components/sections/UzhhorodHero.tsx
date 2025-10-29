@@ -15,10 +15,10 @@ export const UzhhorodHero = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-green-50/30">
+    <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-blue-50/30">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-green-100 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-100 rounded-full blur-3xl" />
       </div>
 
@@ -26,7 +26,7 @@ export const UzhhorodHero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
               {t('uzhhorod.hero.location')}
             </div>
             
@@ -34,7 +34,7 @@ export const UzhhorodHero = () => {
               {t('uzhhorod.hero.title')}
             </h1>
             
-            <p className="text-xl md:text-2xl text-green-600 font-semibold">
+            <p className="text-xl md:text-2xl text-blue-600 font-semibold">
               {t('uzhhorod.hero.subtitle')}
             </p>
             
@@ -44,7 +44,7 @@ export const UzhhorodHero = () => {
             
             <button
               onClick={handleContactClick}
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               {t('uzhhorod.hero.cta')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -67,8 +67,8 @@ export const UzhhorodHero = () => {
             {/* Floating card */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>

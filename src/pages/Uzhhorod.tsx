@@ -30,7 +30,7 @@ const Uzhhorod = () => {
       <UzhhorodServices />
       <UzhhorodCTA />
       <UzhhorodContacts />
-      <FooterSection />
+      <FooterSection isUzhhorodPage={true} />
     </div>
   );
 };
