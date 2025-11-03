@@ -152,3 +152,4 @@ Use the provided keywords. Search terms are optimized for Unsplash, Pexels, and 
 | 3 | modern-office.jpg | 16:9 | Modern workspace | Technology, efficiency, professional |
 | 4 | handshake.jpg | 4:3 | Partnership | Collaboration, trust, welcoming |
 
+
