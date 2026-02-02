@@ -8,24 +8,18 @@ interface FooterSectionProps {
 export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-  
-  // Use blue colors for Uzhhorod pages, green (accent) for main pages
-  const accentColor = isUzhhorodPage ? 'text-uzhhorod' : 'text-accent';
-  const hoverBorderColor = isUzhhorodPage ? 'hover:border-uzhhorod' : 'hover:border-accent';
-  const hoverBgColor = isUzhhorodPage ? 'hover:bg-uzhhorod/10' : 'hover:bg-accent/10';
-  const iconColor = isUzhhorodPage ? 'text-uzhhorod' : 'text-accent';
 
   return (
-    <footer className="py-12 px-6 border-t border-border">
+    <footer className="py-12 px-6 border-t border-gray-200">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo and tagline */}
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold font-mono mb-2">
-              <span className={accentColor}>mission101</span>
-              <span className="text-foreground">.ai</span>
+            <div className="text-2xl font-bold mb-2">
+              <span className="text-uzhhorod">mission101</span>
+              <span className="text-[#3a6291]">.ai</span>
             </div>
-            <p className="text-sm text-muted-foreground font-mono">
+            <p className="text-sm text-gray-600">
               {t('footer.tagline')}
             </p>
           </div>
@@ -36,27 +30,27 @@ export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) =>
               href="https://www.linkedin.com/in/sergiiilliukhin/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-10 h-10 bg-secondary border border-border rounded-lg flex items-center justify-center ${hoverBorderColor} ${hoverBgColor} transition-all duration-300`}
+              className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
               aria-label="LinkedIn"
             >
-              <Linkedin className={`w-5 h-5 ${iconColor}`} />
+              <Linkedin className="w-5 h-5 text-uzhhorod" />
             </a>
             <a
               href="mailto:sergii@mission101.ai"
-              className={`w-10 h-10 bg-secondary border border-border rounded-lg flex items-center justify-center ${hoverBorderColor} ${hoverBgColor} transition-all duration-300`}
+              className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
               aria-label="Email"
             >
-              <Mail className={`w-5 h-5 ${iconColor}`} />
+              <Mail className="w-5 h-5 text-uzhhorod" />
             </a>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground font-mono">
+        <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+          <p className="text-sm text-gray-600">
             {t('footer.copyright', { year: currentYear })}
           </p>
-          <p className="text-xs text-muted-foreground mt-2 font-mono">
+          <p className="text-xs text-gray-600 mt-2">
             {t('footer.location')}
           </p>
         </div>

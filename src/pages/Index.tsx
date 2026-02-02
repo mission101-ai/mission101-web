@@ -4,20 +4,20 @@ import { ServicesSection } from '@/components/sections/ServicesSection';
 import { FounderSection } from '@/components/sections/FounderSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { FooterSection } from '@/components/sections/FooterSection';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { UzhhorodNav } from '@/components/UzhhorodNav';
 import { SEO } from '@/components/SEO';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-white text-[#3a6291] overflow-x-hidden light-theme">
       <SEO />
-      <LanguageSwitcher />
+      <UzhhorodNav />
       <HeroSection />
       <AboutSection />
       <ServicesSection />
       <FounderSection />
       <ContactSection />
-      <FooterSection />
+      <FooterSection isUzhhorodPage={true} />
     </div>
   );
 };

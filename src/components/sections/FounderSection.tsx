@@ -6,22 +6,21 @@ export const FounderSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="founder" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-10" />
-      
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-mono">
-            <span className="text-accent">{'>'}</span> {t('founder.title')}
+    <section id="founder" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3a6291] mb-4">
+            {t('founder.title')}
           </h2>
         </div>
 
         <ScrollTrigger>
-          <div className="bg-background border border-border rounded-lg p-8 md:p-12">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 md:p-12 shadow-sm max-w-5xl mx-auto">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Profile Image */}
               <div className="flex-shrink-0">
-                <div className="w-48 h-48 rounded-lg border-2 border-accent/30 overflow-hidden">
+                <div className="w-48 h-48 rounded-lg border-2 border-uzhhorod/30 overflow-hidden">
                   <img 
                     src="/sergii-illiukhin.jpg" 
                     alt={t('founder.name')}
@@ -34,29 +33,29 @@ export const FounderSection = () => {
               <div className="flex-1">
                 <div className="mb-4">
                   <h3 className="text-3xl font-bold mb-2">{t('founder.name')}</h3>
-                  <p className="text-accent font-mono text-lg mb-4">{t('founder.role')}</p>
+                  <p className="text-uzhhorod text-lg mb-4">{t('founder.role')}</p>
                   
                   <div className="flex gap-4 mb-6">
                     <a 
                       href="https://www.linkedin.com/in/sergiiilliukhin/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 rounded-md transition-all duration-300 group"
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-100 hover:bg-uzhhorod/10 border border-uzhhorod/30 rounded-md transition-all duration-300 group"
                     >
-                      <Linkedin className="w-5 h-5 text-accent" />
-                      <span className="font-mono text-sm group-hover:text-accent transition-colors">{t('founder.linkedin')}</span>
+                      <Linkedin className="w-5 h-5 text-uzhhorod" />
+                      <span className="text-sm group-hover:text-uzhhorod transition-colors">{t('founder.linkedin')}</span>
                     </a>
                     <a 
                       href="mailto:sergii@mission101.ai"
-                      className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 rounded-md transition-all duration-300 group"
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-100 hover:bg-uzhhorod/10 border border-uzhhorod/30 rounded-md transition-all duration-300 group"
                     >
-                      <Mail className="w-5 h-5 text-accent" />
-                      <span className="font-mono text-sm group-hover:text-accent transition-colors">{t('founder.email')}</span>
+                      <Mail className="w-5 h-5 text-uzhhorod" />
+                      <span className="text-sm group-hover:text-uzhhorod transition-colors">{t('founder.email')}</span>
                     </a>
                   </div>
                 </div>
 
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
+                <ul className="list-disc list-inside space-y-2 text-gray-600 leading-relaxed">
                   {(t('founder.bio', { returnObjects: true }) as string[]).map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
