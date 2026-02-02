@@ -20,12 +20,13 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const navigate = useNavigate();
   const location = useLocation();
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Initialize language on mount
   useEffect(() => {
     const initializeLanguage = async () => {
-      setIsLoading(true);
+      // Don't block rendering - let content show immediately
+      // setIsLoading(true); // Removed to prevent black screen
 
       // Check URL first - if user is on /en or /ua, use that
       const pathSegments = location.pathname.split('/').filter(Boolean);

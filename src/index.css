@@ -121,11 +121,6 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
-  /* Page load animation */
-  body {
-    animation: fadeIn 0.5s ease-in;
-  }
-  
   /* Smooth transitions for all interactive elements */
   button, a, input, textarea {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
