@@ -53,7 +53,7 @@ export const UzhhorodHero = () => {
 
           {/* Image */}
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/uzhhorod/business-meeting.jpg"
                 alt="Business meeting in Uzhhorod"

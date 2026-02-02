@@ -19,7 +19,7 @@ export const UzhhorodCTA = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="order-2 md:order-1">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="/uzhhorod/handshake.jpg"
                   alt="Business handshake"

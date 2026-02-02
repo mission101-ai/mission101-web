@@ -10,10 +10,10 @@ export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) =>
   const currentYear = new Date().getFullYear();
   
   // Use blue colors for Uzhhorod pages, green (accent) for main pages
-  const accentColor = isUzhhorodPage ? 'text-blue-600' : 'text-accent';
-  const hoverBorderColor = isUzhhorodPage ? 'hover:border-blue-600' : 'hover:border-accent';
-  const hoverBgColor = isUzhhorodPage ? 'hover:bg-blue-600/10' : 'hover:bg-accent/10';
-  const iconColor = isUzhhorodPage ? 'text-blue-600' : 'text-accent';
+  const accentColor = isUzhhorodPage ? 'text-uzhhorod' : 'text-accent';
+  const hoverBorderColor = isUzhhorodPage ? 'hover:border-uzhhorod' : 'hover:border-accent';
+  const hoverBgColor = isUzhhorodPage ? 'hover:bg-uzhhorod/10' : 'hover:bg-accent/10';
+  const iconColor = isUzhhorodPage ? 'text-uzhhorod' : 'text-accent';
 
   return (
     <footer className="py-12 px-6 border-t border-border">

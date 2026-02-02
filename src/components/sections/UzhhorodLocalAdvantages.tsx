@@ -46,7 +46,7 @@ export const UzhhorodLocalAdvantages = () => {
 
         {/* City Image */}
         <div className="mt-16">
-          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-[1200/728] rounded-2xl overflow-hidden shadow-2xl">
             <img
               src="/uzhhorod/city-view.jpg"
               alt="Uzhhorod city view"

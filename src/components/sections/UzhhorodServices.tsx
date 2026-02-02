@@ -68,7 +68,7 @@ export const UzhhorodServices = () => {
 
         {/* Office Image */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl">
             <img
               src="/uzhhorod/modern-office.jpg"
               alt="Modern office"
