@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { Target, Zap, TrendingDown } from 'lucide-react';
+import { Target, Zap, TrendingDown, CheckCircle } from 'lucide-react';
 
 export const AboutSection = () => {
   const { t } = useTranslation();
@@ -16,18 +16,33 @@ export const AboutSection = () => {
         </div>
 
         <ScrollTrigger>
-          <div className="mb-20 max-w-6xl mx-auto">
-            <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-              {t('about.intro')}
-            </p>
-            <ul className="space-y-3 text-gray-600">
-              {(t('about.description', { returnObjects: true }) as string[]).map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="text-accent-teal mt-1 flex-shrink-0">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20 max-w-6xl mx-auto">
+            {/* Left Column: Text Content */}
+            <div>
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                {t('about.intro')}
+              </p>
+              <ul className="space-y-4">
+                {(t('about.description', { returnObjects: true }) as string[]).map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-accent-teal to-cyan-500 rounded-lg flex items-center justify-center shadow-md">
+                      <CheckCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-gray-600 leading-relaxed pt-1.5">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Column: Image */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-uzhhorod/20 to-accent-teal/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <img 
+                src="/collaborate.jpg" 
+                alt="Team collaboration at Mission101.ai"
+                className="relative rounded-2xl shadow-xl border-2 border-gray-100 group-hover:shadow-2xl group-hover:scale-[1.02] transition-all duration-500 w-full h-auto"
+              />
+            </div>
           </div>
         </ScrollTrigger>
 
