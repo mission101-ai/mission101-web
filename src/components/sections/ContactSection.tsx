@@ -84,11 +84,11 @@ export const ContactSection = () => {
               </p>
               <a 
                 href="mailto:sergii@mission101.ai"
-                className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-uzhhorod to-accent-teal text-white font-bold text-lg rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+                className="group relative inline-flex items-center justify-center gap-3 px-12 py-6 bg-gradient-to-r from-uzhhorod to-accent-teal text-white font-bold text-lg rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 btn-ripple animate-gradient-shift"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2d4e73] to-[#0f9488] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative z-10">{t('contact.cta.button')}</span>
-                <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 relative z-10 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </a>

@@ -10,13 +10,16 @@ export const HeroSection = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Animated particle network background
+  // Interactive animated particle network background
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
 
     // Set canvas size
     const setCanvasSize = () => {
@@ -26,6 +29,14 @@ export const HeroSection = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
+    // Track mouse position
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    };
+    canvas.addEventListener('mousemove', handleMouseMove);
+
     // Particle system
     class Particle {
       x: number;
@@ -33,16 +44,36 @@ export const HeroSection = () => {
       vx: number;
       vy: number;
       radius: number;
+      baseX: number;
+      baseY: number;
 
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
+        this.baseX = this.x;
+        this.baseY = this.y;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.radius = Math.random() * 2 + 1;
       }
 
       update() {
+        // Mouse interaction
+        const dx = mouseX - this.x;
+        const dy = mouseY - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const maxDistance = 100;
+
+        if (distance < maxDistance) {
+          const force = (maxDistance - distance) / maxDistance;
+          this.x -= (dx / distance) * force * 2;
+          this.y -= (dy / distance) * force * 2;
+        } else {
+          // Return to base position
+          this.x += (this.baseX - this.x) * 0.05;
+          this.y += (this.baseY - this.y) * 0.05;
+        }
+
         this.x += this.vx;
         this.y += this.vy;
 
@@ -54,7 +85,7 @@ export const HeroSection = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(58, 98, 145, 0.5)';
+        ctx.fillStyle = 'rgba(58, 98, 145, 0.6)';
         ctx.fill();
       }
     }
@@ -100,6 +131,7 @@ export const HeroSection = () => {
 
     return () => {
       window.removeEventListener('resize', setCanvasSize);
+      canvas.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -125,18 +157,18 @@ export const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Trust badges */}
+        {/* Trust badges with enhanced animations */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-6 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-blue-200 text-uzhhorod rounded-full text-xs font-medium shadow-sm">
-            <Shield className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md border-2 border-blue-200 text-uzhhorod rounded-full text-xs font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-uzhhorod transition-all duration-300 cursor-pointer group">
+            <Shield className="w-4 h-4 group-hover:scale-110 transition-transform" />
             <span>{t('hero.badges.ukrainianCompany')}</span>
           </div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-blue-200 text-uzhhorod rounded-full text-xs font-medium shadow-sm">
-            <Award className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md border-2 border-blue-200 text-uzhhorod rounded-full text-xs font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-accent-teal transition-all duration-300 cursor-pointer group">
+            <Award className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             <span>{t('hero.badges.aiCertified')}</span>
           </div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-blue-200 text-uzhhorod rounded-full text-xs font-medium shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md border-2 border-blue-200 text-uzhhorod rounded-full text-xs font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-uzhhorod transition-all duration-300 cursor-pointer group">
+            <Sparkles className="w-4 h-4 group-hover:animate-pulse transition-transform" />
             <span>{t('hero.badges.enterpriseReady')}</span>
           </div>
         </div>
@@ -158,43 +190,43 @@ export const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
           <button 
             onClick={scrollToContact}
-            className="group relative px-10 py-5 bg-gradient-to-r from-[#3a6291] via-uzhhorod to-accent-teal text-white font-bold text-lg rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-xl transform hover:-translate-y-2 overflow-hidden"
+            className="group relative px-10 py-5 bg-gradient-to-r from-[#3a6291] via-uzhhorod to-accent-teal text-white font-bold text-lg rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-xl transform hover:-translate-y-2 hover:scale-105 overflow-hidden btn-ripple animate-gradient-shift"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#2d4e73] via-[#3a6291] to-[#0f9488] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10">{t('hero.getStarted')}</span>
-            <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
           </button>
           <a 
             href="#services"
-            className="group px-10 py-5 bg-white/95 backdrop-blur-sm border-2 border-uzhhorod text-uzhhorod font-bold text-lg rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:border-accent-teal transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-2"
+            className="group relative px-10 py-5 bg-white/95 backdrop-blur-sm border-2 border-uzhhorod text-uzhhorod font-bold text-lg rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:border-accent-teal transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 overflow-hidden btn-ripple"
           >
-            {t('hero.exploreServices')}
+            <span className="relative z-10">{t('hero.exploreServices')}</span>
           </a>
         </div>
 
-        {/* Enhanced Stats with icons */}
-        <div className="grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto animate-fade-in delay-500">
-          <div className="text-center group">
-            <div className="text-3xl font-bold bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.foundedValue')}</div>
-            <div className="text-sm text-gray-600 mt-1">{t('hero.stats.founded')}</div>
+        {/* Enhanced Stats with icons and better animations */}
+        <div className="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto animate-fade-in delay-500">
+          <div className="text-center group cursor-pointer">
+            <div className="inline-block p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-[#3a6291] to-accent-teal bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.foundedValue')}</div>
+              <div className="text-sm text-gray-600 mt-2 font-semibold">{t('hero.stats.founded')}</div>
+            </div>
           </div>
-          <div className="text-center border-x border-gray-200 group">
-            <div className="text-3xl font-bold bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.supportValue')}</div>
-            <div className="text-sm text-gray-600 mt-1">{t('hero.stats.support')}</div>
+          <div className="text-center group cursor-pointer">
+            <div className="inline-block p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-accent-teal to-[#3a6291] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.supportValue')}</div>
+              <div className="text-sm text-gray-600 mt-2 font-semibold">{t('hero.stats.support')}</div>
+            </div>
           </div>
-          <div className="text-center group">
-            <div className="text-3xl font-bold bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.reachValue')}</div>
-            <div className="text-sm text-gray-600 mt-1">{t('hero.stats.reach')}</div>
+          <div className="text-center group cursor-pointer">
+            <div className="inline-block p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-[#3a6291] to-accent-teal bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.reachValue')}</div>
+              <div className="text-sm text-gray-600 mt-2 font-semibold">{t('hero.stats.reach')}</div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced scroll indicator */}
-      <div className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-uzhhorod rounded-full flex items-start justify-center p-2 bg-white/50 backdrop-blur-sm shadow-lg">
-          <div className="w-1 h-2 bg-gradient-to-b from-[#3a6291] to-[#4a7ab0] rounded-full animate-pulse" />
-        </div>
-      </div>
     </section>
   );
 };

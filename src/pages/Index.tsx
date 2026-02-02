@@ -6,12 +6,13 @@ import { ContactSection } from '@/components/sections/ContactSection';
 import { FooterSection } from '@/components/sections/FooterSection';
 import { UzhhorodNav } from '@/components/UzhhorodNav';
 import { SEO } from '@/components/SEO';
-import { WaveDivider } from '@/components/WaveDivider';
+import { CursorGlow } from '@/components/CursorGlow';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white text-[#3a6291] overflow-x-hidden light-theme">
+    <div className="min-h-screen bg-white text-[#3a6291] overflow-x-hidden light-theme relative">
       <SEO />
+      <CursorGlow />
       <UzhhorodNav />
       <HeroSection />
       <AboutSection />

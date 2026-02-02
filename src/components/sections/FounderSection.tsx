@@ -55,19 +55,19 @@ export const FounderSection = () => {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a 
                       href="mailto:sergii@mission101.ai"
-                      className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-uzhhorod to-accent-teal text-white font-semibold rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+                      className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-uzhhorod to-accent-teal text-white font-bold rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 btn-ripple animate-gradient-shift"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-[#2d4e73] to-[#0f9488] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <Mail className="w-5 h-5 relative z-10" />
+                      <Mail className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform" />
                       <span className="relative z-10">{t('founder.email')}</span>
                     </a>
                     <a 
                       href="https://www.linkedin.com/in/sergiiilliukhin/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-uzhhorod text-uzhhorod font-semibold rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:border-accent-teal transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                      className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-uzhhorod text-uzhhorod font-bold rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:border-accent-teal transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-2 hover:scale-105 overflow-hidden btn-ripple"
                     >
-                      <Linkedin className="w-5 h-5" />
+                      <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
                       <span>{t('founder.linkedin')}</span>
                     </a>
                   </div>
