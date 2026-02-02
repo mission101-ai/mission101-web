@@ -13,7 +13,7 @@ interface SEOProps {
 export const SEO = ({ 
   title, 
   description, 
-  ogImage = 'https://mission101.ai/mission101-og-image.png',
+  ogImage = 'https://mission101.ai/mission101-og-2026.png',
   canonical,
   isLocalPage = false
 }: SEOProps) => {
