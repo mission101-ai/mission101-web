@@ -215,25 +215,19 @@ export const HeroSection = () => {
           </a>
         </div>
 
-        {/* Enhanced Stats with icons and better animations */}
-        <div className="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto animate-fade-in delay-500">
-          <div className="text-center group cursor-pointer">
-            <div className="inline-block p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-[#3a6291] to-accent-teal bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.foundedValue')}</div>
-              <div className="text-sm text-gray-600 mt-2 font-semibold">{t('hero.stats.founded')}</div>
-            </div>
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto animate-fade-in delay-500">
+          <div className="text-center group">
+            <div className="text-3xl font-bold bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.foundedValue')}</div>
+            <div className="text-sm text-gray-600 mt-1">{t('hero.stats.founded')}</div>
           </div>
-          <div className="text-center group cursor-pointer">
-            <div className="inline-block p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-accent-teal to-[#3a6291] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.supportValue')}</div>
-              <div className="text-sm text-gray-600 mt-2 font-semibold">{t('hero.stats.support')}</div>
-            </div>
+          <div className="text-center border-x border-gray-200 group">
+            <div className="text-3xl font-bold bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.supportValue')}</div>
+            <div className="text-sm text-gray-600 mt-1">{t('hero.stats.support')}</div>
           </div>
-          <div className="text-center group cursor-pointer">
-            <div className="inline-block p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-[#3a6291] to-accent-teal bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.reachValue')}</div>
-              <div className="text-sm text-gray-600 mt-2 font-semibold">{t('hero.stats.reach')}</div>
-            </div>
+          <div className="text-center group">
+            <div className="text-3xl font-bold bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{t('hero.stats.reachValue')}</div>
+            <div className="text-sm text-gray-600 mt-1">{t('hero.stats.reach')}</div>
           </div>
         </div>
       </div>
