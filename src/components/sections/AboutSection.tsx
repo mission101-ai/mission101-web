@@ -1,14 +1,9 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { TypewriterList } from '../TypewriterList';
 import { Target, Zap, TrendingDown } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
 
 export const AboutSection = () => {
   const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
-  const [showTypewriter1, setShowTypewriter1] = useState(false);
 
   return (
     <section id="about" className="py-24 bg-white relative">
@@ -20,20 +15,19 @@ export const AboutSection = () => {
           </h2>
         </div>
 
-        <ScrollTrigger onEnterViewport={() => setShowTypewriter1(true)}>
+        <ScrollTrigger>
           <div className="mb-20 max-w-6xl mx-auto">
             <p className="text-xl text-gray-700 mb-6 leading-relaxed">
               {t('about.intro')}
             </p>
-            {showTypewriter1 && (
-              <TypewriterList
-                key={currentLanguage}
-                items={t('about.description', { returnObjects: true }) as string[]}
-                speed={20}
-                className="space-y-3 text-gray-600"
-                itemClassName="flex items-start gap-3"
-              />
-            )}
+            <ul className="space-y-3 text-gray-600">
+              {(t('about.description', { returnObjects: true }) as string[]).map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span className="text-accent-teal mt-1 flex-shrink-0">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </ScrollTrigger>
 
