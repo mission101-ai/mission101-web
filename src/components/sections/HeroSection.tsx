@@ -2,6 +2,69 @@ import { ArrowRight, Sparkles, Shield, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useRef } from 'react';
 
+// Particle class for animated background
+class Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  baseX: number;
+  baseY: number;
+  canvas: HTMLCanvasElement;
+  ctx: CanvasRenderingContext2D;
+  mouseX: number;
+  mouseY: number;
+
+  constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, mouseX: number, mouseY: number) {
+    this.canvas = canvas;
+    this.ctx = ctx;
+    this.mouseX = mouseX;
+    this.mouseY = mouseY;
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.baseX = this.x;
+    this.baseY = this.y;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.radius = Math.random() * 2 + 1;
+  }
+
+  update(mouseX: number, mouseY: number) {
+    this.mouseX = mouseX;
+    this.mouseY = mouseY;
+    
+    // Mouse interaction
+    const dx = this.mouseX - this.x;
+    const dy = this.mouseY - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const maxDistance = 100;
+
+    if (distance < maxDistance) {
+      const force = (maxDistance - distance) / maxDistance;
+      this.x -= (dx / distance) * force * 2;
+      this.y -= (dy / distance) * force * 2;
+    } else {
+      // Return to base position
+      this.x += (this.baseX - this.x) * 0.05;
+      this.y += (this.baseY - this.y) * 0.05;
+    }
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (this.x < 0 || this.x > this.canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > this.canvas.height) this.vy *= -1;
+  }
+
+  draw() {
+    this.ctx.beginPath();
+    this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    this.ctx.fillStyle = 'rgba(58, 98, 145, 0.6)';
+    this.ctx.fill();
+  }
+}
+
 export const HeroSection = () => {
   const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -37,64 +100,12 @@ export const HeroSection = () => {
     };
     canvas.addEventListener('mousemove', handleMouseMove);
 
-    // Particle system
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      baseX: number;
-      baseY: number;
-
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
-      }
-
-      update() {
-        // Mouse interaction
-        const dx = mouseX - this.x;
-        const dy = mouseY - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 100;
-
-        if (distance < maxDistance) {
-          const force = (maxDistance - distance) / maxDistance;
-          this.x -= (dx / distance) * force * 2;
-          this.y -= (dy / distance) * force * 2;
-        } else {
-          // Return to base position
-          this.x += (this.baseX - this.x) * 0.05;
-          this.y += (this.baseY - this.y) * 0.05;
-        }
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(58, 98, 145, 0.6)';
-        ctx.fill();
-      }
-    }
-
+    // Initialize particles
     const particles: Particle[] = [];
     const particleCount = 50;
 
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+      particles.push(new Particle(canvas, ctx, mouseX, mouseY));
     }
 
     const animate = () => {
@@ -102,7 +113,7 @@ export const HeroSection = () => {
 
       // Update and draw particles
       particles.forEach(particle => {
-        particle.update();
+        particle.update(mouseX, mouseY);
         particle.draw();
       });
 
