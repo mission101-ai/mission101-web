@@ -183,10 +183,6 @@ export const HeroSection = () => {
             <span>{t('hero.badges.enterpriseReady')}</span>
           </div>
         </div>
-
-        <div className="inline-block mb-6 px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-uzhhorod rounded-full text-sm font-medium shadow-sm border border-blue-200/50">
-          <span>{t('hero.terminal')}</span>
-        </div>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
           <span className="bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] bg-clip-text text-transparent">{t('hero.title')}</span>
