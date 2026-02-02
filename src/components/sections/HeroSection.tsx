@@ -158,15 +158,15 @@ export const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
           <button 
             onClick={scrollToContact}
-            className="group relative px-8 py-4 bg-gradient-to-r from-[#3a6291] to-[#4a7ab0] text-white font-semibold rounded-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
+            className="group relative px-10 py-5 bg-gradient-to-r from-[#3a6291] via-uzhhorod to-accent-teal text-white font-bold text-lg rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-xl transform hover:-translate-y-2 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#2d4e73] to-[#3a6291] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2d4e73] via-[#3a6291] to-[#0f9488] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10">{t('hero.getStarted')}</span>
             <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <a 
             href="#services"
-            className="group px-8 py-4 bg-white/90 backdrop-blur-sm border-2 border-uzhhorod text-uzhhorod font-semibold rounded-lg hover:bg-blue-50 hover:border-[#4a7ab0] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+            className="group px-10 py-5 bg-white/95 backdrop-blur-sm border-2 border-uzhhorod text-uzhhorod font-bold text-lg rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:border-accent-teal transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-2"
           >
             {t('hero.exploreServices')}
           </a>

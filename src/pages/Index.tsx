@@ -6,6 +6,7 @@ import { ContactSection } from '@/components/sections/ContactSection';
 import { FooterSection } from '@/components/sections/FooterSection';
 import { UzhhorodNav } from '@/components/UzhhorodNav';
 import { SEO } from '@/components/SEO';
+import { WaveDivider } from '@/components/WaveDivider';
 
 const Index = () => {
   return (

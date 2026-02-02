@@ -63,6 +63,9 @@ export default {
         "bg-tertiary": "hsl(var(--bg-tertiary))",
         // Uzhhorod page primary color
         "uzhhorod": "#3a6291",
+        // Secondary accent colors
+        "accent-teal": "#14b8a6",
+        "accent-gold": "#f59e0b",
       },
       borderRadius: {
         lg: "var(--radius)",
