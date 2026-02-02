@@ -6,6 +6,11 @@
     "tagline": "Streamline operations • Enhance productivity • Drive cost reduction",
     "getStarted": "Get Started",
     "exploreServices": "Explore Services",
+    "badges": {
+      "ukrainianCompany": "Ukrainian Company",
+      "aiCertified": "AI Certified",
+      "enterpriseReady": "Enterprise Ready"
+    },
     "stats": {
       "founded": "Founded",
       "foundedValue": "2025",

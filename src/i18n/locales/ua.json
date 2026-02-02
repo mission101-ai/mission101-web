@@ -6,6 +6,11 @@
     "tagline": "Оптимізуйте процеси • Підвищуйте продуктивність • Знижуйте витрати",
     "getStarted": "До Співпраці",
     "exploreServices": "Наші Послуги",
+    "badges": {
+      "ukrainianCompany": "Українська Компанія",
+      "aiCertified": "AI Сертифікація",
+      "enterpriseReady": "Корпоративний Рівень"
+    },
     "stats": {
       "founded": "Засновано",
       "foundedValue": "2025",
