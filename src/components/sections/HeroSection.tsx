@@ -167,7 +167,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-8">
         {/* Trust badges with enhanced animations */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-6 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md border-2 border-blue-200 text-uzhhorod rounded-full text-xs font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-uzhhorod transition-all duration-300 cursor-pointer group">
