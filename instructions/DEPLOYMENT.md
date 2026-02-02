@@ -70,10 +70,10 @@ Type: CNAME    Name: www    Value: mission101-ai.github.io
 
 Every push to the `main` branch will:
 1. Trigger GitHub Actions workflow
-2. Install dependencies
-3. Run `npm run lint:strict` (fails build if any errors/warnings)
-4. Build production bundle with `vite build`
-5. Deploy to GitHub Pages
+2. Install dependencies and Playwright browsers
+3. Run `npm run build` (runs `npm run lint:strict` then `vite build`; fails if lint has errors/warnings)
+4. Run Playwright E2E tests (`npm run test`); deployment proceeds only if tests pass
+5. Upload artifact and deploy to GitHub Pages
 6. Site updates at https://mission101.ai
 
 ### Manual Deployment

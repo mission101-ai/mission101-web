@@ -96,7 +96,7 @@ After deployment, submit your sitemap to search engines:
 
 ### 4. Update Open Graph Image (Optional)
 
-The OG image is set to `/mission101-og-image.png`. This file has been copied to the public directory.
+The OG image is set to `/mission101-og-2026.png`. This file is in the public directory.
 
 **Recommended specifications:**
 - Dimensions: 1200x630 pixels
@@ -192,7 +192,7 @@ The SEO component automatically updates meta tags based on language selection. T
 - ✅ `/index.html` - Enhanced with meta tags, GA4, structured data
 - ✅ `/public/robots.txt` - Updated with sitemap reference
 - ✅ `/public/sitemap.xml` - Created with all routes
-- ✅ `/public/mission101-og-image.png` - Added OG image
+- ✅ `/public/mission101-og-2026.png` - OG image (1200×630)
 - ✅ `/src/components/SEO.tsx` - Created dynamic SEO component
 - ✅ `/src/pages/Index.tsx` - Added SEO component
 - ✅ `/src/pages/NotFound.tsx` - Added SEO component and improved styling

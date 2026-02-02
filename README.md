@@ -23,6 +23,10 @@ A modern, multilingual landing page for Mission101 AI, built with React, TypeScr
 - **SEO-Friendly Routing**: Proper language-specific routes (`/`, `/en`, `/ua`, `/en/uzhhorod`, `/ua/uzhhorod`) with hreflang tags
 - **LocalBusiness Schema**: Rich structured data for enhanced local search visibility
 - **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Interactive Hero**: Animated particle canvas background with mouse interaction
+- **Cursor Glow**: Subtle cursor-follow glow effect on the main landing page
+- **Scroll Animations**: ScrollTrigger-based reveal animations in About, Services, and Founder sections
+- **Light Theme**: Consistent light theme (`.light-theme`) across main and Uzhhorod pages
 - **Modern UI Components**: Built with shadcn-ui component library
 - **Type-Safe**: Full TypeScript implementation
 - **Automated Testing**: 61 comprehensive E2E tests with Playwright
@@ -172,7 +176,10 @@ mission101-web/
 │   │   ├── sections/   # Page sections (Hero, Services, Uzhhorod, etc.)
 │   │   ├── ui/         # shadcn-ui components
 │   │   ├── SEO.tsx     # Dynamic SEO meta tags component
-│   │   └── UzhhorodNav.tsx  # Uzhhorod-specific navigation
+│   │   ├── CursorGlow.tsx   # Cursor-follow glow effect
+│   │   ├── ScrollTrigger.tsx # Scroll reveal animations
+│   │   ├── WaveDivider.tsx  # SVG wave section divider
+│   │   └── UzhhorodNav.tsx  # Shared navigation (main + Uzhhorod)
 │   ├── context/        # React Context providers
 │   ├── i18n/           # Internationalization config and locales
 │   │   └── locales/    # en.json, ua.json translations
@@ -189,8 +196,9 @@ mission101-web/
 │   └── uzhhorod-page.spec.ts   # Uzhhorod page tests
 ├── instructions/       # Project documentation
 │   ├── DEPLOYMENT.md
-│   ├── IMPLEMENTATION-SUMMARY.md
+│   ├── FAVICON-SETUP.md
 │   ├── SEO-SETUP.md
+│   ├── UZHHOROD-IMAGE-PROMPTS.md
 │   ├── UZHHOROD-PAGE-SUMMARY.md
 │   └── UZHHOROD-SEO-SUMMARY.md
 └── dist/               # Production build output
@@ -297,8 +305,9 @@ This project is private and proprietary to Mission101 AI.
 All documentation is located in the `instructions/` folder:
 
 - [Deployment Guide](instructions/DEPLOYMENT.md) - GitHub Pages and custom domain setup
-- [Implementation Summary](instructions/IMPLEMENTATION-SUMMARY.md) - i18n routing implementation details
+- [Favicon Setup](instructions/FAVICON-SETUP.md) - Favicon best practices and Google search visibility
 - [SEO Setup](instructions/SEO-SETUP.md) - SEO configuration and best practices
+- [Uzhhorod Image Prompts](instructions/UZHHOROD-IMAGE-PROMPTS.md) - Image specs for Uzhhorod page assets
 - [Uzhhorod Page Summary](instructions/UZHHOROD-PAGE-SUMMARY.md) - Uzhhorod landing page implementation
 - [Uzhhorod SEO Summary](instructions/UZHHOROD-SEO-SUMMARY.md) - Local SEO optimization details
 
