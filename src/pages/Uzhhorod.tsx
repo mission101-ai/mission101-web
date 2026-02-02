@@ -18,7 +18,7 @@ const Uzhhorod = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden light-theme">
+    <div className="min-h-screen bg-white text-[#3a6291] overflow-x-hidden light-theme">
       <SEO 
         title={t('uzhhorod.seo.title')}
         description={t('uzhhorod.seo.description')}

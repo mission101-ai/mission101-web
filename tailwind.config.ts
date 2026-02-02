@@ -61,6 +61,8 @@ export default {
         // Custom semantic tokens
         "bg-secondary": "hsl(var(--bg-secondary))",
         "bg-tertiary": "hsl(var(--bg-tertiary))",
+        // Uzhhorod page primary color
+        "uzhhorod": "#3a6291",
       },
       borderRadius: {
         lg: "var(--radius)",

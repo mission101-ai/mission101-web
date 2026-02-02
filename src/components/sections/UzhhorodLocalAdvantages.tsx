@@ -11,7 +11,7 @@ export const UzhhorodLocalAdvantages = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3a6291] mb-4">
             {t('uzhhorod.advantages.title')}
           </h2>
           <p className="text-lg text-gray-600">
@@ -28,11 +28,11 @@ export const UzhhorodLocalAdvantages = () => {
                 key={index}
                 className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:border-blue-200"
               >
-                <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                  <Icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3a6291] transition-colors duration-300">
+                  <Icon className="w-7 h-7 text-uzhhorod group-hover:text-white transition-colors duration-300" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-[#3a6291] mb-3">
                   {t(`uzhhorod.advantages.items.${index}.title`)}
                 </h3>
                 

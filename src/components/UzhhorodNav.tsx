@@ -12,11 +12,18 @@ export const UzhhorodNav = () => {
           {/* Logo */}
           <button
             onClick={handleLogoClick}
-            className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <span className="text-blue-600">Mission</span>
-            <span>101</span>
-            <span className="text-blue-600">.ai</span>
+            <img 
+              src="/mission101-logo-nav.png" 
+              alt="Mission101.ai logo" 
+              className="h-12"
+            />
+            <span className="text-2xl font-bold text-gray-900">
+              <span className="text-uzhhorod">Mission</span>
+              <span>101</span>
+              <span className="text-uzhhorod">.ai</span>
+            </span>
           </button>
 
           {/* Right side: Language switcher */}
