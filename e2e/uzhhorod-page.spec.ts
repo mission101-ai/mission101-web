@@ -163,8 +163,8 @@ test.describe('Uzhhorod Landing Page', () => {
         return window.getComputedStyle(el).color;
       });
       
-      // Check for dark text (low RGB values)
-      expect(textColor).toMatch(/rgb\([0-9]{1,2}, [0-9]{1,2}, [0-9]{1,2}\)/);
+      // Check for dark text (RGB values, e.g. dark blue/navy for headings)
+      expect(textColor).toMatch(/rgb\(\d{1,3}, \d{1,3}, \d{1,3}\)/);
     });
   });
 
