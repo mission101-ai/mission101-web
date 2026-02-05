@@ -16,7 +16,7 @@ declare global {
         event_callback?: () => void;
       }
     ) => void;
-    dataLayer?: any[];
+    dataLayer?: unknown[];
   }
 }
 

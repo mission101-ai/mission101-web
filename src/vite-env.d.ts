@@ -6,10 +6,10 @@ interface Window {
     command: 'js' | 'config' | 'event',
     targetOrAction: string | Date,
     params?: {
-      [key: string]: any;
+      [key: string]: unknown;
       send_to?: string;
       event_callback?: () => void;
     }
   ) => void;
-  dataLayer?: any[];
+  dataLayer?: unknown[];
 }
