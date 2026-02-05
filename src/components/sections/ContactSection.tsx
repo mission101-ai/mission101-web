@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+import { trackConversion } from '@/lib/tracking';
 
 export const ContactSection = () => {
   const { t } = useTranslation();
@@ -27,7 +28,8 @@ export const ContactSection = () => {
               <div className="flex-1">
                 <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">{t('contact.phone')}</p>
                 <a 
-                  href="tel:+380974825097" 
+                  href="tel:+380974825097"
+                  onClick={trackConversion}
                   className="text-xl font-bold text-gray-900 hover:text-transparent hover:bg-gradient-to-r hover:from-uzhhorod hover:to-accent-teal hover:bg-clip-text transition-all duration-300"
                 >
                   +38-097-48-25-097
@@ -42,7 +44,8 @@ export const ContactSection = () => {
               <div className="flex-1">
                 <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">{t('contact.email')}</p>
                 <a 
-                  href="mailto:sergii@mission101.ai" 
+                  href="mailto:sergii@mission101.ai"
+                  onClick={trackConversion}
                   className="text-xl font-bold text-gray-900 hover:text-transparent hover:bg-gradient-to-r hover:from-uzhhorod hover:to-accent-teal hover:bg-clip-text transition-all duration-300 break-all"
                 >
                   sergii@mission101.ai
@@ -84,6 +87,7 @@ export const ContactSection = () => {
               </p>
               <a 
                 href="mailto:sergii@mission101.ai"
+                onClick={trackConversion}
                 className="group relative inline-flex items-center justify-center gap-3 px-12 py-6 bg-gradient-to-r from-uzhhorod to-accent-teal text-white font-bold text-lg rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 btn-ripple animate-gradient-shift"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2d4e73] to-[#0f9488] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

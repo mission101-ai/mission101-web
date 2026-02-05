@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { trackConversion } from '@/lib/tracking';
 
 export const UzhhorodContacts = () => {
   const { t } = useTranslation();
@@ -60,6 +61,8 @@ export const UzhhorodContacts = () => {
                 const Icon = item.icon;
                 const label = t(item.label);
                 const displayValue = item.valueKey ? t(item.valueKey) : item.value;
+                // Track conversion only for phone and email (not map or hours)
+                const shouldTrackConversion = item.href && (item.href.startsWith('tel:') || item.href.startsWith('mailto:'));
                 
                 return (
                   <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -71,6 +74,7 @@ export const UzhhorodContacts = () => {
                       {item.href ? (
                         <a
                           href={item.href}
+                          onClick={shouldTrackConversion ? trackConversion : undefined}
                           target={item.href.startsWith('http') ? '_blank' : undefined}
                           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           className="text-lg font-semibold text-gray-900 hover:text-uzhhorod transition-colors"
@@ -113,12 +117,14 @@ export const UzhhorodContacts = () => {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="tel:+380974825097"
+                  onClick={trackConversion}
                   className="flex-1 px-6 py-3 bg-uzhhorod text-white font-semibold rounded-lg hover:bg-[#2d4e73] transition-all duration-300 text-center shadow-md hover:shadow-lg"
                 >
                   {t('uzhhorod.contacts.call_button')}
                 </a>
                 <a
                   href="mailto:sergii@mission101.ai"
+                  onClick={trackConversion}
                   className="flex-1 px-6 py-3 bg-white border-2 border-[#3a6291] text-uzhhorod font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300 text-center"
                 >
                   {t('uzhhorod.contacts.email_button')}
