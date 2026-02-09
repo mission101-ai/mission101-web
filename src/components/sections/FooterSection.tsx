@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Linkedin, Mail } from 'lucide-react';
+import { trackContactClick } from '@/lib/tracking';
 
 interface FooterSectionProps {
   isUzhhorodPage?: boolean;
@@ -28,6 +29,7 @@ export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) =>
           <div className="flex items-center gap-4">
             <a
               href="https://www.linkedin.com/in/sergiiilliukhin/"
+              onClick={() => trackContactClick('linkedin', 'https://www.linkedin.com/in/sergiiilliukhin/')}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
@@ -37,6 +39,7 @@ export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) =>
             </a>
             <a
               href="mailto:sergii@mission101.ai"
+              onClick={() => trackContactClick('email', 'mailto:sergii@mission101.ai')}
               className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
               aria-label="Email"
             >
