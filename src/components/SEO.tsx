@@ -8,6 +8,8 @@ interface SEOProps {
   ogImage?: string;
   canonical?: string;
   isLocalPage?: boolean;
+  isServicePage?: boolean;
+  serviceSlug?: string;
 }
 
 export const SEO = ({ 
@@ -15,7 +17,9 @@ export const SEO = ({
   description, 
   ogImage = 'https://mission101.ai/mission101-og-2026.png',
   canonical,
-  isLocalPage = false
+  isLocalPage = false,
+  isServicePage = false,
+  serviceSlug
 }: SEOProps) => {
   const location = useLocation();
   const { i18n, t } = useTranslation();
@@ -95,7 +99,11 @@ export const SEO = ({
     };
     
     // Update hreflang based on page type
-    if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
+    if (isServicePage && serviceSlug) {
+      updateAlternateLink('en', `${baseUrl}/en/services/${serviceSlug}`);
+      updateAlternateLink('uk', `${baseUrl}/ua/services/${serviceSlug}`);
+      updateAlternateLink('x-default', `${baseUrl}/ua/services/${serviceSlug}`);
+    } else if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
       updateAlternateLink('en', `${baseUrl}/en/uzhhorod`);
       updateAlternateLink('uk', `${baseUrl}/ua/uzhhorod`);
       updateAlternateLink('x-default', `${baseUrl}/ua/uzhhorod`);
@@ -105,15 +113,33 @@ export const SEO = ({
       updateAlternateLink('x-default', baseUrl);
     }
     
-    // Add LocalBusiness schema for Uzhhorod page
-    if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
-      let schemaScript = document.querySelector('script[type="application/ld+json"]');
-      if (!schemaScript) {
-        schemaScript = document.createElement('script');
-        schemaScript.setAttribute('type', 'application/ld+json');
-        document.head.appendChild(schemaScript);
-      }
-      
+    // Add structured data based on page type
+    let schemaScript = document.querySelector('script[type="application/ld+json"]');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(schemaScript);
+    }
+
+    if (isServicePage && serviceSlug) {
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": pageTitle,
+        "description": pageDescription,
+        "provider": {
+          "@type": "Organization",
+          "name": "Mission101.ai",
+          "url": "https://mission101.ai"
+        },
+        "url": canonicalUrl,
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        }
+      };
+      schemaScript.textContent = JSON.stringify(schemaData);
+    } else if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
       const schemaData = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
@@ -145,17 +171,15 @@ export const SEO = ({
           "Cost Optimization"
         ]
       };
-      
       schemaScript.textContent = JSON.stringify(schemaData);
     } else {
-      // Remove schema if not on local page
       const existingSchema = document.querySelector('script[type="application/ld+json"]');
       if (existingSchema) {
         existingSchema.remove();
       }
     }
     
-  }, [location, title, description, ogImage, canonical, isLocalPage, i18n.language, t]);
+  }, [location, title, description, ogImage, canonical, isLocalPage, isServicePage, serviceSlug, i18n.language, t]);
   
   return null; // This component doesn't render anything
 };

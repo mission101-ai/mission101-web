@@ -64,6 +64,7 @@
   "services": {
     "title": "Our Services",
     "subtitle": "Enterprise-grade AI solutions for modern businesses",
+    "learnMore": "Learn more",
     "items": [
       {
         "title": "Voice Agents for Call Centers",
@@ -265,6 +266,107 @@
     "seo": {
       "title": "Mission101.ai • Uzhhorod • Business Automation with AI",
       "description": "Professional IT services in Uzhhorod from Mission101.ai. Business process automation, cost optimization, custom AI solutions. In-person meetings and consultations. ☎️ Contact us!"
+    }
+  },
+  "servicePages": {
+    "backToServices": "Back to Services",
+    "ctaTitle": "Ready to Get Started?",
+    "ctaButton": "Schedule a Consultation",
+    "voice-agents": {
+      "slug": "voice-agents",
+      "title": "Voice Agents for Call Centers",
+      "subtitle": "AI-powered voice agents for call centers",
+      "description": "Intelligent voice agents help businesses automatically answer customer calls, provide consultations, accept requests, and deliver basic information without operator involvement. They understand natural language, can conduct full conversations, and operate 24/7 without breaks or holidays. This reduces workload on staff, cuts costs, and improves customer service quality.",
+      "features": [
+        "24/7 availability",
+        "Natural language understanding",
+        "Seamless integration with your systems",
+        "Reduce personnel costs"
+      ],
+      "seo": {
+        "title": "Voice Agents for Call Centers | Mission101.ai",
+        "description": "AI-powered voice agents for call centers. 24/7 availability, natural language understanding, seamless integration with your systems. Reduce costs and improve customer service."
+      }
+    },
+    "ai-assistants": {
+      "slug": "ai-assistants",
+      "title": "Personal AI Assistants",
+      "subtitle": "Intelligent AI assistants that automate scheduling, document preparation, and daily workflows",
+      "description": "Digital assistants take on routine daily tasks: help plan meetings, organize correspondence, prepare documents and reminders. They work quickly and accurately, freeing managers and employees from excessive paperwork. This solution is especially useful for small and medium businesses where time savings and each employee's efficiency matter.",
+      "features": [
+        "Automate daily processes",
+        "Help with scheduling",
+        "Prepare reports and documents",
+        "Save working time"
+      ],
+      "seo": {
+        "title": "Personal AI Assistants for Business | Mission101.ai",
+        "description": "Intelligent AI assistants that automate scheduling, document preparation, and daily workflows. Save time and boost efficiency for your team."
+      }
+    },
+    "custom-ai-solutions": {
+      "slug": "custom-ai-solutions",
+      "title": "Custom AI Solutions",
+      "subtitle": "Bespoke AI solutions tailored to your business needs",
+      "description": "We develop solutions created specifically for your business needs. These can include sales forecasting systems, request processing automation, analysis of large data volumes, or optimization of internal processes. Before implementation, we thoroughly study the specifics of your operations to propose the most effective and understandable tool that delivers real results.",
+      "features": [
+        "Development for specific tasks",
+        "Data analysis and organization",
+        "Increased work efficiency",
+        "Scalability potential"
+      ],
+      "seo": {
+        "title": "Custom AI Solutions for Your Business | Mission101.ai",
+        "description": "Bespoke AI solutions tailored to your business needs. Sales forecasting, request processing automation, data analysis, and internal process optimization."
+      }
+    },
+    "marketing-automation": {
+      "slug": "marketing-automation",
+      "title": "Marketing Automation",
+      "subtitle": "AI-powered marketing automation tools",
+      "description": "Modern AI tools enable automatic content creation, customer behavior analysis, and selection of the best offers for each audience segment. This helps increase customer engagement, boost sales, and use advertising budgets more efficiently. All processes are monitored and adjusted based on real data.",
+      "features": [
+        "Automated content creation",
+        "Audience analysis",
+        "Budget optimization",
+        "Real-time performance tracking"
+      ],
+      "seo": {
+        "title": "AI Marketing Automation | Mission101.ai",
+        "description": "AI-powered marketing automation tools. Automated content creation, audience analysis, budget optimization, and real-time performance tracking."
+      }
+    },
+    "ai-websites": {
+      "slug": "ai-websites",
+      "title": "AI-Generated Websites",
+      "subtitle": "Modern websites built with AI technology",
+      "description": "We create modern websites that not only look attractive but actively help businesses attract customers. Smart systems analyze visitor behavior, offer personalized content, and help users find the information they need faster. This approach builds brand trust and improves customer interaction.",
+      "features": [
+        "Personalized content",
+        "Built-in assistants",
+        "Mobile-responsive design",
+        "Integration with your systems"
+      ],
+      "seo": {
+        "title": "AI-Generated Business Websites | Mission101.ai",
+        "description": "Modern websites built with AI technology. Personalized content, built-in assistants, mobile-responsive design, and seamless integration with your systems."
+      }
+    },
+    "business-analytics": {
+      "slug": "business-analytics",
+      "title": "Business Monitoring and Analytics",
+      "subtitle": "Real-time business analytics and monitoring",
+      "description": "Analytics systems help managers see the full picture of company operations in real time. You get clear performance indicators, identify weak spots and new opportunities for growth. Intelligent algorithms analyze data and warn about risks before they become problems.",
+      "features": [
+        "Track key metrics",
+        "Identify risks early",
+        "Automated reports",
+        "Data-driven decisions"
+      ],
+      "seo": {
+        "title": "Business Monitoring and Analytics | Mission101.ai",
+        "description": "Real-time business analytics and monitoring. Track key metrics, identify risks early, get automated reports, and make data-driven decisions."
+      }
     }
   }
 }

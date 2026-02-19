@@ -149,7 +149,57 @@ export default defineConfig(({ mode }) => ({
           fs.copyFileSync(distIndexPath, path.join(uaUzhhorodDir, 'index.html'));
         }
         
-        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, and /ua/uzhhorod/ directories');
+        // Process service page directories
+        const serviceSlugs = ['voice-agents', 'ai-assistants', 'custom-ai-solutions', 'marketing-automation', 'ai-websites', 'business-analytics'];
+        for (const slug of serviceSlugs) {
+          const enServiceDir = path.join(distPath, 'en', 'services', slug);
+          const uaServiceDir = path.join(distPath, 'ua', 'services', slug);
+          const enServicePublicIndex = path.join(publicPath, 'en', 'services', slug, 'index.html');
+          const uaServicePublicIndex = path.join(publicPath, 'ua', 'services', slug, 'index.html');
+          
+          if (!fs.existsSync(enServiceDir)) {
+            fs.mkdirSync(enServiceDir, { recursive: true });
+          }
+          if (!fs.existsSync(uaServiceDir)) {
+            fs.mkdirSync(uaServiceDir, { recursive: true });
+          }
+          
+          // Copy EN service page
+          if (fs.existsSync(enServicePublicIndex)) {
+            let enServiceHtml = fs.readFileSync(enServicePublicIndex, 'utf-8');
+            if (styleMatch) {
+              enServiceHtml = enServiceHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+            }
+            if (scriptMatch) {
+              enServiceHtml = enServiceHtml.replace(
+                '<script type="module" src="/src/main.tsx"></script>',
+                scriptMatch[0]
+              );
+            }
+            fs.writeFileSync(path.join(enServiceDir, 'index.html'), enServiceHtml);
+          } else {
+            fs.copyFileSync(distIndexPath, path.join(enServiceDir, 'index.html'));
+          }
+          
+          // Copy UA service page
+          if (fs.existsSync(uaServicePublicIndex)) {
+            let uaServiceHtml = fs.readFileSync(uaServicePublicIndex, 'utf-8');
+            if (styleMatch) {
+              uaServiceHtml = uaServiceHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+            }
+            if (scriptMatch) {
+              uaServiceHtml = uaServiceHtml.replace(
+                '<script type="module" src="/src/main.tsx"></script>',
+                scriptMatch[0]
+              );
+            }
+            fs.writeFileSync(path.join(uaServiceDir, 'index.html'), uaServiceHtml);
+          } else {
+            fs.copyFileSync(distIndexPath, path.join(uaServiceDir, 'index.html'));
+          }
+        }
+        
+        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, and 12 service page directories');
       }
     }
   ].filter(Boolean),

@@ -1,8 +1,13 @@
-import { Cog, TrendingDown, Sparkles, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Cog, TrendingDown, Sparkles, TrendingUp, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/context/LanguageContext';
+
+const uzhhorodServiceLinks = ['voice-agents', 'business-analytics', 'custom-ai-solutions', 'marketing-automation'];
 
 export const UzhhorodServices = () => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
   const icons = [Cog, TrendingDown, Sparkles, TrendingUp];
   const colors = [
@@ -49,7 +54,7 @@ export const UzhhorodServices = () => {
                 </p>
                 
                 {/* Benefits List */}
-                <div className="space-y-3">
+                <div className="space-y-3 mb-6">
                   {Array.from({ length: 3 }).map((_, benefitIndex) => (
                     <div key={benefitIndex} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-uzhhorod mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -61,6 +66,14 @@ export const UzhhorodServices = () => {
                     </div>
                   ))}
                 </div>
+
+                <Link
+                  to={`/${currentLanguage}/services/${uzhhorodServiceLinks[index]}`}
+                  className="inline-flex items-center gap-2 text-uzhhorod font-medium text-sm hover:text-[#3a6291] transition-colors"
+                >
+                  {t('services.learnMore')}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             );
           })}
