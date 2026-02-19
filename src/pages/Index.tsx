@@ -7,8 +7,21 @@ import { FooterSection } from '@/components/sections/FooterSection';
 import { UzhhorodNav } from '@/components/UzhhorodNav';
 import { SEO } from '@/components/SEO';
 import { CursorGlow } from '@/components/CursorGlow';
+import { useEffect } from 'react';
 
 const Index = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-[#3a6291] overflow-x-hidden light-theme relative">
       <SEO />
