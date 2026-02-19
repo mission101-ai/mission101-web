@@ -287,6 +287,196 @@ flowchart LR
 
 
 
+## Execution Strategy: Phases and Subagents
+
+### Dependency Analysis
+
+All implementation tasks operate on **separate files** with zero conflicts:
+
+- `en.json`, `ua.json` -- only touched by translations
+- `ServicePage.tsx`, `ServiceHero.tsx`, `ServiceDetails.tsx`, `ServiceCTA.tsx` -- new files
+- `App.tsx`, `SEO.tsx` -- each only touched by one task
+- `ServicesSection.tsx`, `UzhhorodServices.tsx` -- each only touched by one task
+- `vite.config.ts`, `sitemap.xml` -- each only touched by one task
+- 12 static HTML files -- all new files
+- 6 image files -- simple copies
+
+This means **all implementation work can run in a single parallel phase**, followed by a verification phase.
+
+```mermaid
+flowchart TD
+    subgraph phase1 [Phase 1: Implementation - 4 Parallel Agents]
+        A["Agent A\nTranslations"]
+        B["Agent B\nStatic HTML + Build Config"]
+        C["Agent C\nReact Components"]
+        D["Agent D\nAssets + Cross-references"]
+    end
+    subgraph phase2 [Phase 2: Verification - 1 Agent]
+        E["Agent E\nLint + Build + Test"]
+    end
+
+    A --> E
+    B --> E
+    C --> E
+    D --> E
+```
+
+
+
+---
+
+### Phase 1: Implementation (4 parallel agents)
+
+#### Agent A -- "Translations" (generalPurpose)
+
+**Files:** `src/i18n/locales/en.json`, `src/i18n/locales/ua.json`
+
+**Tasks:**
+
+- Add `servicePages` section to `en.json` with all 6 services (slug, title, subtitle, description, features, SEO meta)
+- Add `servicePages` section to `ua.json` with all 6 services (Ukrainian content from Services.md)
+
+**Workload:** Large -- 2 files, extensive content for 6 services x 2 languages
+
+**Context needed:** Current en.json and ua.json contents, Services.md for Ukrainian descriptions, SEO metadata reference table below
+
+---
+
+#### Agent B -- "Static HTML and Build Config" (generalPurpose)
+
+**Files:**
+
+- 12 new: `public/{en,ua}/services/{slug}/index.html` (6 slugs x 2 languages)
+- Edit: `public/sitemap.xml`
+- Edit: `vite.config.ts`
+
+**Tasks:**
+
+- Create 12 static HTML files following the `public/en/uzhhorod/index.html` template, with service-specific SEO meta, JSON-LD Service schema, hreflang alternates
+- Add 12 URL entries to sitemap.xml
+- Update vite.config.ts `closeBundle` plugin to loop over service slugs and create `dist/{en,ua}/services/{slug}/` directories
+
+**Workload:** Large -- 12 new files (templated) + 2 edits
+
+**Context needed:** `public/en/uzhhorod/index.html` as template, current `sitemap.xml`, current `vite.config.ts`, SEO metadata reference table below
+
+---
+
+#### Agent C -- "React Components and Routing" (generalPurpose)
+
+**Files:**
+
+- 4 new: `src/pages/ServicePage.tsx`, `src/components/sections/ServiceHero.tsx`, `src/components/sections/ServiceDetails.tsx`, `src/components/sections/ServiceCTA.tsx`
+- Edit: `src/App.tsx` (add 4 routes)
+- Edit: `src/components/SEO.tsx` (add `isServicePage` support)
+
+**Tasks:**
+
+- Create `ServicePage.tsx` -- parameterized page component using `useParams()`, maps slug to service index, composes sections
+- Create `ServiceHero.tsx` -- hero with image, title, subtitle, breadcrumb back to `/#services`
+- Create `ServiceDetails.tsx` -- full description + 4-feature grid
+- Create `ServiceCTA.tsx` -- call-to-action with link to `/#contact`
+- Add 4 parameterized routes to `App.tsx`
+- Extend `SEO.tsx` with `isServicePage` prop for Service JSON-LD and correct hreflang
+
+**Workload:** Large -- 4 new components + 2 edits, most complex logic
+
+**Context needed:** `Uzhhorod.tsx` and `UzhhorodHero.tsx`, `UzhhorodCTA.tsx` as design patterns, current `App.tsx`, current `SEO.tsx`, `UzhhorodNav.tsx` for reuse, translation key structure from plan
+
+---
+
+#### Agent D -- "Assets and Cross-references" (generalPurpose)
+
+**Files:**
+
+- 6 new: `public/services/{slug}.png` (image copies)
+- Edit: `src/components/sections/ServicesSection.tsx`
+- Edit: `src/components/sections/UzhhorodServices.tsx`
+
+**Tasks:**
+
+- Copy 6 images from `tmp/` to `public/services/` with descriptive filenames
+- Update `ServicesSection.tsx` -- make cards clickable with `<Link>` to `/{lang}/services/{slug}`, add "Learn more" affordance
+- Update `UzhhorodServices.tsx` -- add "Learn more" links to the closest matching service pages
+
+**Workload:** Medium -- 6 file copies + 2 existing file edits
+
+**Context needed:** Current `ServicesSection.tsx`, current `UzhhorodServices.tsx`, slug list, `useLanguage` hook pattern from `LanguageContext.tsx`
+
+---
+
+### Phase 2: Verification (1 agent, after Phase 1 completes)
+
+#### Agent E -- "Build Verification" (shell)
+
+**Tasks:**
+
+1. Run `npx eslint` on all modified/new files to check for lint errors
+2. Run `npm run build` to verify production build succeeds
+3. Spot-check that `dist/` contains all expected service directories
+4. Optionally run `npm run test` to verify existing E2E tests still pass
+
+---
+
+### Service Metadata Reference
+
+This table provides the canonical SEO data that Agents A and B must use consistently:
+
+**EN SEO Titles and Descriptions:**
+
+- `voice-agents`
+  - Title: "Voice Agents for Call Centers | Mission101.ai"
+  - Description: "AI-powered voice agents for call centers. 24/7 availability, natural language understanding, seamless integration with your systems. Reduce costs and improve customer service."
+- `ai-assistants`
+  - Title: "Personal AI Assistants for Business | Mission101.ai"
+  - Description: "Intelligent AI assistants that automate scheduling, document preparation, and daily workflows. Save time and boost efficiency for your team."
+- `custom-ai-solutions`
+  - Title: "Custom AI Solutions for Your Business | Mission101.ai"
+  - Description: "Bespoke AI solutions tailored to your business needs. Sales forecasting, request processing automation, data analysis, and internal process optimization."
+- `marketing-automation`
+  - Title: "AI Marketing Automation | Mission101.ai"
+  - Description: "AI-powered marketing automation tools. Automated content creation, audience analysis, budget optimization, and real-time performance tracking."
+- `ai-websites`
+  - Title: "AI-Generated Business Websites | Mission101.ai"
+  - Description: "Modern websites built with AI technology. Personalized content, built-in assistants, mobile-responsive design, and seamless integration with your systems."
+- `business-analytics`
+  - Title: "Business Monitoring and Analytics | Mission101.ai"
+  - Description: "Real-time business analytics and monitoring. Track key metrics, identify risks early, get automated reports, and make data-driven decisions."
+
+**UA SEO Titles and Descriptions:**
+
+- `voice-agents`
+  - Title: "Голосові помічники для кол-центрів | Mission101.ai"
+  - Description: "Інтелектуальні голосові помічники на основі ШІ для кол-центрів. Цілодобова робота, розуміння природної мови, інтеграція з вашими системами. Зменшення витрат та покращення обслуговування."
+- `ai-assistants`
+  - Title: "Персональні цифрові помічники для бізнесу | Mission101.ai"
+  - Description: "Цифрові ШІ-помічники для автоматизації щоденних завдань. Планування зустрічей, підготовка документів, організація робочих процесів. Економія часу та підвищення ефективності."
+- `custom-ai-solutions`
+  - Title: "Індивідуальні рішення зі штучного інтелекту | Mission101.ai"
+  - Description: "Розробка ШІ-рішень під потреби вашого бізнесу. Прогнозування продажів, автоматизація обробки звернень, аналіз даних та оптимізація внутрішніх процесів."
+- `marketing-automation`
+  - Title: "Автоматизація маркетингу з ШІ | Mission101.ai"
+  - Description: "Інструменти автоматизації маркетингу на основі ШІ. Створення рекламних матеріалів, аналіз аудиторії, оптимізація витрат та відстеження результатів."
+- `ai-websites`
+  - Title: "Створення сайтів із використанням ШІ | Mission101.ai"
+  - Description: "Сучасні сайти, створені за допомогою штучного інтелекту. Персоналізований вміст, вбудовані онлайн-помічники, адаптація до мобільних пристроїв та інтеграція з вашими системами."
+- `business-analytics`
+  - Title: "Моніторинг та аналітика бізнесу | Mission101.ai"
+  - Description: "Системи аналітики бізнесу в реальному часі. Контроль ключових показників, виявлення ризиків, автоматичні звіти та прийняття рішень на основі даних."
+
+---
+
+### Uzhhorod-to-Service Slug Mapping
+
+For Agent D when updating `UzhhorodServices.tsx`:
+
+- Uzhhorod item 0 "Business Process Automation" --> `voice-agents` (closest: automation focus)
+- Uzhhorod item 1 "Cost Optimization" --> `business-analytics` (closest: analytics/monitoring)
+- Uzhhorod item 2 "Custom AI Solutions" --> `custom-ai-solutions` (direct match)
+- Uzhhorod item 3 "Performance Enhancement" --> `marketing-automation` (closest: performance/optimization)
+
+---
+
 ## Testing Considerations
 
 After implementation, existing E2E tests should still pass. New tests could be added for:
