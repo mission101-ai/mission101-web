@@ -29,8 +29,8 @@ export const SEO = ({
     const baseUrl = 'https://mission101.ai';
     const currentPath = location.pathname;
     
-    // Normalize path - remove trailing slashes for consistency
-    const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+    // Normalize path - add trailing slashes for directory-like paths (matches GitHub Pages behavior)
+    const normalizedPath = currentPath === '/' ? '/' : (currentPath.endsWith('/') ? currentPath : currentPath + '/');
     
     // Determine the canonical URL
     const canonicalUrl = canonical || `${baseUrl}${normalizedPath}`;
@@ -98,18 +98,18 @@ export const SEO = ({
       link.setAttribute('href', href);
     };
     
-    // Update hreflang based on page type
+    // Update hreflang based on page type (use trailing slashes to match GitHub Pages)
     if (isServicePage && serviceSlug) {
-      updateAlternateLink('en', `${baseUrl}/en/services/${serviceSlug}`);
-      updateAlternateLink('uk', `${baseUrl}/ua/services/${serviceSlug}`);
-      updateAlternateLink('x-default', `${baseUrl}/ua/services/${serviceSlug}`);
+      updateAlternateLink('en', `${baseUrl}/en/services/${serviceSlug}/`);
+      updateAlternateLink('uk', `${baseUrl}/ua/services/${serviceSlug}/`);
+      updateAlternateLink('x-default', `${baseUrl}/ua/services/${serviceSlug}/`);
     } else if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
-      updateAlternateLink('en', `${baseUrl}/en/uzhhorod`);
-      updateAlternateLink('uk', `${baseUrl}/ua/uzhhorod`);
-      updateAlternateLink('x-default', `${baseUrl}/ua/uzhhorod`);
+      updateAlternateLink('en', `${baseUrl}/en/uzhhorod/`);
+      updateAlternateLink('uk', `${baseUrl}/ua/uzhhorod/`);
+      updateAlternateLink('x-default', `${baseUrl}/ua/uzhhorod/`);
     } else {
-      updateAlternateLink('en', `${baseUrl}/en`);
-      updateAlternateLink('uk', `${baseUrl}/ua`);
+      updateAlternateLink('en', `${baseUrl}/en/`);
+      updateAlternateLink('uk', `${baseUrl}/ua/`);
       updateAlternateLink('x-default', baseUrl);
     }
     
