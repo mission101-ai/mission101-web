@@ -1,10 +1,19 @@
 # Testing Overview
 
-The project includes comprehensive E2E testing with Playwright: **61 automated tests** covering routing, i18n, SEO, and page functionality.
+The project includes comprehensive E2E testing with Playwright: **73 automated tests** covering routing, i18n, SEO, hash navigation, and page functionality.
 
 ---
 
 ## Test Suites
+
+### hash-navigation.spec.ts
+
+12 tests for hash fragment navigation and smooth scrolling to sections:
+
+- **Direct URL navigation**: `/ua/#contact`, `/ua/#services`, `/en/#about`, `/en/#founder`, `/en/#contact` scroll to the correct section
+- **Both languages**: Ukrainian (`/ua/`) and English (`/en/`) routes
+- **Cross-page navigation**: From service pages (e.g., `/ua/services/voice-agents`) clicking the CTA link navigates to main page and scrolls to `#contact`
+- **Edge cases**: Invalid hash (`#nonexistent`) loads page normally; empty hash (`/ua/#`) loads at top; regular navigation without hash works
 
 ### i18n-routing.spec.ts
 
@@ -53,10 +62,10 @@ Verifies meta tags, canonical URLs, hreflang tags, and structured data:
 
 | Area | Tests | Coverage |
 |------|-------|----------|
-| **Main Site** | 23 | Routes, 404, language switcher, canonical URLs, hreflang, meta descriptions, Open Graph, Twitter Cards, HTML lang, localStorage persistence |
+| **Main Site** | 35 | Routes, 404, language switcher, canonical URLs, hreflang, meta descriptions, Open Graph, Twitter Cards, HTML lang, localStorage persistence, hash navigation |
 | **Uzhhorod Landing Page** | 38 | Route accessibility, SEO tags, LocalBusiness schema, Open Graph, Twitter Cards, light theme, navigation, mobile responsiveness, language switching, content rendering, CTA functionality |
 
-### Main Site (23 tests)
+### Main Site (35 tests)
 
 - All routes accessible (`/`, `/en`, `/en/`, `/ua`, `/ua/`)
 - 404 handling for invalid routes
@@ -66,6 +75,7 @@ Verifies meta tags, canonical URLs, hreflang tags, and structured data:
 - Twitter Card tags
 - HTML lang attribute matching
 - localStorage persistence
+- Hash navigation: direct URL with hash scrolls to section (#contact, #services, #about, #founder); cross-page navigation from service pages; edge cases (invalid/empty hash)
 
 ### Uzhhorod Landing Page (38 tests)
 
