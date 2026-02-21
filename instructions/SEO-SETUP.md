@@ -181,7 +181,7 @@ The SEO component automatically updates meta tags based on language selection. T
 
 ```tsx
 <SEO 
-  title="Custom Page Title | mission101.ai"
+  title="Custom Page Title • mission101.ai"
   description="Custom description for this page"
   canonical="https://mission101.ai/custom-page"
 />

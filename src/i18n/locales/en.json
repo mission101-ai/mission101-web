@@ -151,8 +151,14 @@
     "location": "Based in Uzhhorod, Ukraine • Serving clients worldwide"
   },
   "seo": {
-    "title": "Mission101.ai | Intelligent Automation for Modern Business",
+    "title": "Mission101.ai • Intelligent Automation for Modern Business",
     "description": "Transform your business with intelligent automation solutions. Mission101.ai provides AI-powered tools to streamline operations, enhance productivity, and accelerate digital growth."
+  },
+  "notFound": {
+    "title": "404 - Page Not Found • Mission101.ai",
+    "description": "The page you are looking for does not exist. Return to Mission101.ai homepage.",
+    "heading": "Oops! Page not found",
+    "returnButton": "Return to Home"
   },
   "uzhhorod": {
     "hero": {
@@ -284,7 +290,7 @@
         "Reduce personnel costs"
       ],
       "seo": {
-        "title": "Voice Agents for Call Centers | Mission101.ai",
+        "title": "Voice Agents for Call Centers • Mission101.ai",
         "description": "AI-powered voice agents for call centers. 24/7 availability, natural language understanding, seamless integration with your systems. Reduce costs and improve customer service."
       }
     },
@@ -300,7 +306,7 @@
         "Save working time"
       ],
       "seo": {
-        "title": "Personal AI Assistants for Business | Mission101.ai",
+        "title": "Personal AI Assistants for Business • Mission101.ai",
         "description": "Intelligent AI assistants that automate scheduling, document preparation, and daily workflows. Save time and boost efficiency for your team."
       }
     },
@@ -316,7 +322,7 @@
         "Scalability potential"
       ],
       "seo": {
-        "title": "Custom AI Solutions for Your Business | Mission101.ai",
+        "title": "Custom AI Solutions for Your Business • Mission101.ai",
         "description": "Bespoke AI solutions tailored to your business needs. Sales forecasting, request processing automation, data analysis, and internal process optimization."
       }
     },
@@ -332,7 +338,7 @@
         "Real-time performance tracking"
       ],
       "seo": {
-        "title": "AI Marketing Automation | Mission101.ai",
+        "title": "AI Marketing Automation • Mission101.ai",
         "description": "AI-powered marketing automation tools. Automated content creation, audience analysis, budget optimization, and real-time performance tracking."
       }
     },
@@ -348,7 +354,7 @@
         "Integration with your systems"
       ],
       "seo": {
-        "title": "AI-Generated Business Websites | Mission101.ai",
+        "title": "AI-Generated Business Websites • Mission101.ai",
         "description": "Modern websites built with AI technology. Personalized content, built-in assistants, mobile-responsive design, and seamless integration with your systems."
       }
     },
@@ -364,7 +370,7 @@
         "Data-driven decisions"
       ],
       "seo": {
-        "title": "Business Monitoring and Analytics | Mission101.ai",
+        "title": "Business Monitoring and Analytics • Mission101.ai",
         "description": "Real-time business analytics and monitoring. Track key metrics, identify risks early, get automated reports, and make data-driven decisions."
       }
     }
