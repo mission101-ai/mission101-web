@@ -66,27 +66,27 @@ test.describe('Uzhhorod Landing Page', () => {
       await page.goto('/ua/uzhhorod', { waitUntil: 'networkidle' });
       
       const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-      expect(canonical).toBe('https://mission101.ai/ua/uzhhorod');
+      expect(canonical).toBe('https://mission101.ai/ua/uzhhorod/');
     });
 
     test('should have correct canonical URL for English page', async ({ page }) => {
       await page.goto('/en/uzhhorod', { waitUntil: 'networkidle' });
       
       const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-      expect(canonical).toBe('https://mission101.ai/en/uzhhorod');
+      expect(canonical).toBe('https://mission101.ai/en/uzhhorod/');
     });
 
     test('should have hreflang tags for both languages', async ({ page }) => {
       await page.goto('/ua/uzhhorod', { waitUntil: 'networkidle' });
       
       const enLink = await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute('href');
-      expect(enLink).toBe('https://mission101.ai/en/uzhhorod');
+      expect(enLink).toBe('https://mission101.ai/en/uzhhorod/');
       
       const ukLink = await page.locator('link[rel="alternate"][hreflang="uk"]').getAttribute('href');
-      expect(ukLink).toBe('https://mission101.ai/ua/uzhhorod');
+      expect(ukLink).toBe('https://mission101.ai/ua/uzhhorod/');
       
       const defaultLink = await page.locator('link[rel="alternate"][hreflang="x-default"]').getAttribute('href');
-      expect(defaultLink).toBe('https://mission101.ai/ua/uzhhorod');
+      expect(defaultLink).toBe('https://mission101.ai/ua/uzhhorod/');
     });
 
     test('should have Open Graph tags', async ({ page }) => {

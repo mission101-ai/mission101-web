@@ -14,7 +14,7 @@ test.describe('SEO Tags', () => {
     await page.waitForLoadState('networkidle');
     
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toBe('https://mission101.ai/en');
+    expect(canonical).toBe('https://mission101.ai/en/');
   });
 
   test('/ua page should have correct canonical URL', async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe('SEO Tags', () => {
     await page.waitForLoadState('networkidle');
     
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toBe('https://mission101.ai/ua');
+    expect(canonical).toBe('https://mission101.ai/ua/');
   });
 
   test('trailing slash routes should normalize to canonical without trailing slash', async ({ page }) => {
@@ -30,8 +30,8 @@ test.describe('SEO Tags', () => {
     await page.waitForLoadState('networkidle');
     
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toBe('https://mission101.ai/en');
-    expect(canonical).not.toMatch(/\/$/);
+    expect(canonical).toBe('https://mission101.ai/en/');
+    expect(canonical).toMatch(/\/$/);
   });
 
   test('hreflang tags should be present on all pages', async ({ page }) => {
@@ -43,11 +43,11 @@ test.describe('SEO Tags', () => {
       
       // Check for English alternate
       const enLink = await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute('href');
-      expect(enLink).toBe('https://mission101.ai/en');
+      expect(enLink).toBe('https://mission101.ai/en/');
       
       // Check for Ukrainian alternate
       const ukLink = await page.locator('link[rel="alternate"][hreflang="uk"]').getAttribute('href');
-      expect(ukLink).toBe('https://mission101.ai/ua');
+      expect(ukLink).toBe('https://mission101.ai/ua/');
       
       // Check for x-default
       const defaultLink = await page.locator('link[rel="alternate"][hreflang="x-default"]').getAttribute('href');

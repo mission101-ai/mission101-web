@@ -153,6 +153,56 @@ If you need to add or update contact information, edit the JSON-LD structured da
 7. **Analytics Ready:** GA4 integration (needs configuration)
 8. **Accessibility:** Semantic markup and ARIA support
 
+## URL Structure and Trailing Slashes
+
+### GitHub Pages Behavior
+
+This site is deployed to GitHub Pages, which has specific URL handling behavior:
+
+- Directory-based routes like `/en` or `/ua/uzhhorod` are served from `en/index.html` and `ua/uzhhorod/index.html`
+- GitHub Pages automatically **301 redirects** URLs without trailing slashes to versions with trailing slashes
+  - `/en` redirects to `/en/`
+  - `/ua/uzhhorod` redirects to `/ua/uzhhorod/`
+- The root URL `/` does not redirect (no trailing slash added)
+
+### SEO Strategy: Trailing Slashes
+
+To avoid redirect chains that harm SEO and confuse search engine crawlers, all canonical URLs and hreflang links use **trailing slashes** to match GitHub Pages' final URL format:
+
+**Canonical URLs:**
+- `https://mission101.ai/` (root - no trailing slash)
+- `https://mission101.ai/en/` (with trailing slash)
+- `https://mission101.ai/ua/` (with trailing slash)
+- `https://mission101.ai/en/uzhhorod/` (with trailing slash)
+- `https://mission101.ai/en/services/automation/` (with trailing slash)
+
+**Why This Matters:**
+
+Without trailing slashes, Google Search Console reports:
+1. "Page with redirect" - Google finds the URL in sitemap but hits a 301 redirect
+2. "Alternative page with proper canonical tag" - The redirected page's canonical points to a different URL (without slash)
+
+This creates a redirect loop that prevents proper indexing.
+
+**Implementation:**
+
+The `SEO.tsx` component automatically adds trailing slashes to all paths except the root:
+
+```tsx
+const normalizedPath = currentPath === '/' ? '/' : (currentPath.endsWith('/') ? currentPath : currentPath + '/');
+```
+
+All hreflang alternate links also use trailing slashes to ensure consistency across all SEO tags.
+
+### Testing
+
+E2E tests in `e2e/seo-tags.spec.ts` and `e2e/uzhhorod-page.spec.ts` verify that:
+- Canonical URLs include trailing slashes (except root)
+- Hreflang links include trailing slashes
+- All SEO tags match the GitHub Pages URL structure
+
+This ensures tests match production behavior and catch any regressions.
+
 ## Monitoring SEO Performance
 
 After implementing the above steps, monitor your SEO performance:

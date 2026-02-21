@@ -98,7 +98,7 @@ export const SEO = ({
       link.setAttribute('href', href);
     };
     
-    // Update hreflang based on page type (use trailing slashes to match GitHub Pages)
+    // Update hreflang based on page type (use trailing slashes to match GitHub Pages behavior)
     if (isServicePage && serviceSlug) {
       updateAlternateLink('en', `${baseUrl}/en/services/${serviceSlug}/`);
       updateAlternateLink('uk', `${baseUrl}/ua/services/${serviceSlug}/`);
