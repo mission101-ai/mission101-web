@@ -1,0 +1,159 @@
+PRIVACY POLICY
+Mission101.ai Meta App – Instagram Content Publishing
+
+Effective Date: March 6, 2026
+
+This Privacy Policy describes how Mission101 AI ("Mission101.ai," "we," "us," or "our") collects, uses, and shares information in connection with our Meta App that publishes content to the mission101.ai Instagram account (@mission101.ai). This policy applies to users who interact with our Meta App and to visitors of our website at https://mission101.ai.
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+Mission101.ai operates a Meta App that integrates with Instagram to publish content to our official Instagram account (mission101.ai). We are committed to protecting your privacy and being transparent about our data practices. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
+
+--------------------------------------------------------------------------------
+2. INFORMATION WE COLLECT
+--------------------------------------------------------------------------------
+
+2.1 Information Collected Through the Meta App
+
+When you use or interact with our Meta App that publishes to the mission101.ai Instagram account, we may collect:
+
+- Account and profile information: Instagram account identifiers, profile information, and content you authorize us to access through Meta's APIs
+- Content data: Images, captions, and other media used for publishing to our Instagram account
+- Usage information: How you interact with our app, including publishing activity and engagement metrics
+- Technical data: Browser type, device information, IP address, and server logs
+
+2.2 Information Obtained Through Meta Business Tools
+
+We use Meta Business Tools (including the Instagram API) to manage and publish content. When you connect or authorize our app, Meta may share with us:
+
+- Data necessary for content publishing and account management
+- Analytics and insights related to published content
+- Information required to provide and improve our services
+
+2.3 Automatically Collected Information
+
+We automatically collect certain information when you visit our website or use our services:
+
+- Browser and device information (e.g., browser type, operating system)
+- Server and usage information (e.g., pages visited, referring URLs)
+- Usage patterns and interaction data
+
+--------------------------------------------------------------------------------
+3. HOW WE USE YOUR INFORMATION
+--------------------------------------------------------------------------------
+
+We use the information we collect to:
+
+- Publish and manage content on the mission101.ai Instagram account
+- Provide, operate, and maintain our Meta App and related services
+- Recognize you when you return to our app or website
+- Improve our services, user experience, and content quality
+- Analyze usage patterns and measure the effectiveness of our content
+- Comply with legal obligations and enforce our terms
+- Send promotional communications (where you have consented)
+- Respond to your inquiries and support requests
+
+--------------------------------------------------------------------------------
+4. DATA SHARING AND DISCLOSURE
+--------------------------------------------------------------------------------
+
+4.1 Sharing with Meta/Instagram
+
+We share data with Meta (Facebook, Inc.) and Instagram as necessary to operate our Meta App, publish content, and use Meta Business Tools. Meta's use of data is governed by Meta's Privacy Policy (https://www.facebook.com/privacy/policy/).
+
+4.2 Third-Party Service Providers
+
+We may share information with vendors and service providers who assist us in operating our app and website, including:
+
+- Hosting and infrastructure providers
+- Analytics services (e.g., Google Analytics)
+- Customer support tools
+
+These providers are contractually obligated to protect your data and use it only for the purposes we specify.
+
+4.3 Legal Requirements
+
+We may disclose information when required by law, court order, or governmental authority, or when necessary to protect our rights, your safety, or the safety of others.
+
+--------------------------------------------------------------------------------
+5. COOKIES AND TRACKING TECHNOLOGIES
+--------------------------------------------------------------------------------
+
+Our website uses cookies and similar technologies to:
+
+- Remember your preferences and settings
+- Analyze site traffic and usage (e.g., Google Analytics)
+- Improve site performance and user experience
+
+You can control cookies through your browser settings. Disabling certain cookies may affect the functionality of our website.
+
+--------------------------------------------------------------------------------
+6. DATA SECURITY
+--------------------------------------------------------------------------------
+
+We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, access controls, and secure hosting. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
+
+--------------------------------------------------------------------------------
+7. DATA RETENTION
+--------------------------------------------------------------------------------
+
+We retain your information only for as long as necessary to fulfill the purposes described in this policy, comply with legal obligations, resolve disputes, and enforce our agreements. When data is no longer needed, we securely delete or anonymize it.
+
+--------------------------------------------------------------------------------
+8. YOUR RIGHTS AND CHOICES
+--------------------------------------------------------------------------------
+
+8.1 Access and Correction
+
+You may request access to the personal data we hold about you and request correction of inaccurate data.
+
+8.2 Data Deletion
+
+You have the right to request deletion of your personal data. To request deletion, please contact us at:
+
+Email: sergii@mission101.ai
+
+We will process your request in accordance with applicable law and Meta's data deletion requirements. Please allow up to 30 days for processing.
+
+8.3 Opt-Out of Marketing
+
+You may opt out of promotional emails by following the unsubscribe link in our communications or by contacting us.
+
+8.4 Meta/Instagram Settings
+
+You can manage your Instagram and Meta privacy settings, including app permissions, through your Meta account settings and Instagram settings.
+
+--------------------------------------------------------------------------------
+9. CHILDREN'S PRIVACY
+--------------------------------------------------------------------------------
+
+Our services are not directed to individuals under 16 years of age. We do not knowingly collect personal data from children. If you believe we have collected data from a child, please contact us immediately.
+
+--------------------------------------------------------------------------------
+10. INTERNATIONAL DATA TRANSFERS
+--------------------------------------------------------------------------------
+
+Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place to protect your data in accordance with this policy and applicable law.
+
+--------------------------------------------------------------------------------
+11. CHANGES TO THIS POLICY
+--------------------------------------------------------------------------------
+
+We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on this page and updating the "Effective Date" above. We encourage you to review this policy periodically.
+
+--------------------------------------------------------------------------------
+12. CONTACT US
+--------------------------------------------------------------------------------
+
+For questions about this Privacy Policy or to exercise your privacy rights, contact us:
+
+Mission101 AI
+Email: sergii@mission101.ai
+Website: https://mission101.ai
+Instagram: @mission101.ai
+
+--------------------------------------------------------------------------------
+
+This Privacy Policy is clearly marked as a privacy policy and is publicly available at https://mission101.ai/privacy-policy.txt for users of our Meta App and visitors to our website.
