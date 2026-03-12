@@ -1,15 +1,15 @@
 PRIVACY POLICY
-Mission101.ai Meta App – Instagram Content Publishing
+Mission101.ai – Meta App & LinkedIn App
 
 Effective Date: March 6, 2026
 
-This Privacy Policy describes how Mission101 AI ("Mission101.ai," "we," "us," or "our") collects, uses, and shares information in connection with our Meta App that publishes content to the mission101.ai Instagram account (@mission101.ai). This policy applies to users who interact with our Meta App and to visitors of our website at https://mission101.ai.
+This Privacy Policy describes how Mission101 AI ("Mission101.ai," "we," "us," or "our") collects, uses, and shares information in connection with (1) our Meta App that publishes content to the mission101.ai Instagram account (@mission101.ai), and (2) our LinkedIn App that uses the Community Management API to manage our LinkedIn presence. This policy applies to users who interact with our Meta App, our LinkedIn App, and to visitors of our website at https://mission101.ai.
 
 --------------------------------------------------------------------------------
 1. INTRODUCTION
 --------------------------------------------------------------------------------
 
-Mission101.ai operates a Meta App that integrates with Instagram to publish content to our official Instagram account (mission101.ai). We are committed to protecting your privacy and being transparent about our data practices. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
+Mission101.ai operates a Meta App that integrates with Instagram to publish content to our official Instagram account (mission101.ai), and a LinkedIn App that uses LinkedIn's Community Management API to manage our LinkedIn presence. We are committed to protecting your privacy and being transparent about our data practices. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
 
 --------------------------------------------------------------------------------
 2. INFORMATION WE COLLECT
@@ -32,7 +32,18 @@ We use Meta Business Tools (including the Instagram API) to manage and publish c
 - Analytics and insights related to published content
 - Information required to provide and improve our services
 
-2.3 Automatically Collected Information
+2.3 Information Collected Through the LinkedIn App (Community Management API)
+
+When you use or interact with our LinkedIn App that uses the Community Management API, we may collect:
+
+- Page and profile data: LinkedIn Page data, administrator data, organization profile information, and content you authorize us to access through LinkedIn's APIs
+- Member analytics data: Engagement on posts (likes, comments, reactions), follower statistics, and content performance metrics
+- Page messaging data: Messages and related Member Profile data associated with the authors of messages (for Page Messaging only)
+- Events data: Organization events and related metadata
+
+We comply with LinkedIn's Data Storage Requirements: member social activity data (e.g., posts, comments, likes) is stored for no more than 48 hours, and most member profile data is stored for no more than 24 hours. Member data is used only to manage our LinkedIn Page and Profile; we do not use it for advertising, sales, recruiting, lead creation, or ad targeting.
+
+2.4 Automatically Collected Information
 
 We automatically collect certain information when you visit our website or use our services:
 
@@ -47,7 +58,8 @@ We automatically collect certain information when you visit our website or use o
 We use the information we collect to:
 
 - Publish and manage content on the mission101.ai Instagram account
-- Provide, operate, and maintain our Meta App and related services
+- Manage our LinkedIn presence via the Community Management API (Page Management, Member Profile Management, Page Messaging, Events Management, Member Post Analytics)
+- Provide, operate, and maintain our Meta App, LinkedIn App, and related services
 - Recognize you when you return to our app or website
 - Improve our services, user experience, and content quality
 - Analyze usage patterns and measure the effectiveness of our content
@@ -63,7 +75,11 @@ We use the information we collect to:
 
 We share data with Meta (Facebook, Inc.) and Instagram as necessary to operate our Meta App, publish content, and use Meta Business Tools. Meta's use of data is governed by Meta's Privacy Policy (https://www.facebook.com/privacy/policy/).
 
-4.2 Third-Party Service Providers
+4.2 Sharing with LinkedIn
+
+We share data with LinkedIn (Microsoft Corporation) as necessary to operate our LinkedIn App and use the Community Management API. LinkedIn's use of data is governed by LinkedIn's Privacy Policy (https://www.linkedin.com/legal/privacy-policy). We do not export, distribute, or transfer LinkedIn member data outside our application, and we do not combine LinkedIn member data with other data sources to create or supplement user profiles or leads.
+
+4.3 Third-Party Service Providers
 
 We may share information with vendors and service providers who assist us in operating our app and website, including:
 
@@ -73,7 +89,7 @@ We may share information with vendors and service providers who assist us in ope
 
 These providers are contractually obligated to protect your data and use it only for the purposes we specify.
 
-4.3 Legal Requirements
+4.4 Legal Requirements
 
 We may disclose information when required by law, court order, or governmental authority, or when necessary to protect our rights, your safety, or the safety of others.
 
@@ -101,6 +117,8 @@ We implement appropriate technical and organizational measures to protect your p
 
 We retain your information only for as long as necessary to fulfill the purposes described in this policy, comply with legal obligations, resolve disputes, and enforce our agreements. When data is no longer needed, we securely delete or anonymize it.
 
+In compliance with LinkedIn's Data Storage Requirements, we store LinkedIn member social activity data for no more than 48 hours and most LinkedIn member profile data for no more than 24 hours. Data received through the Community Management API is used only to manage our LinkedIn Page and Profile and is not retained beyond these limits.
+
 --------------------------------------------------------------------------------
 8. YOUR RIGHTS AND CHOICES
 --------------------------------------------------------------------------------
@@ -115,7 +133,7 @@ You have the right to request deletion of your personal data. To request deletio
 
 Email: sergii@mission101.ai
 
-We will process your request in accordance with applicable law and Meta's data deletion requirements. Please allow up to 30 days for processing.
+We will process your request in accordance with applicable law, Meta's data deletion requirements, and LinkedIn's Marketing API Program Terms. Please allow up to 30 days for processing.
 
 8.3 Opt-Out of Marketing
 
@@ -124,6 +142,10 @@ You may opt out of promotional emails by following the unsubscribe link in our c
 8.4 Meta/Instagram Settings
 
 You can manage your Instagram and Meta privacy settings, including app permissions, through your Meta account settings and Instagram settings.
+
+8.5 LinkedIn Settings
+
+You can manage your LinkedIn privacy settings, including app permissions and data preferences, through your LinkedIn account settings at https://www.linkedin.com/mypreferences/.
 
 --------------------------------------------------------------------------------
 9. CHILDREN'S PRIVACY
@@ -153,7 +175,8 @@ Mission101 AI
 Email: sergii@mission101.ai
 Website: https://mission101.ai
 Instagram: @mission101.ai
+LinkedIn: https://www.linkedin.com/company/mission101-ai
 
 --------------------------------------------------------------------------------
 
-This Privacy Policy is clearly marked as a privacy policy and is publicly available at https://mission101.ai/privacy-policy.txt for users of our Meta App and visitors to our website.
+This Privacy Policy is clearly marked as a privacy policy and is publicly available at https://mission101.ai/privacy-policy.txt for users of our Meta App, our LinkedIn App, and visitors to our website.
