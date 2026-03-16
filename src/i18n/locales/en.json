@@ -374,5 +374,74 @@
         "description": "Real-time business analytics and monitoring. Track key metrics, identify risks early, get automated reports, and make data-driven decisions."
       }
     }
+  },
+  "nav": {
+    "events": "Events"
+  },
+  "events": {
+    "seo": {
+      "title": "Events • Mission101.ai",
+      "description": "Workshops and masterclasses on artificial intelligence for small and medium businesses. Practical tools without big expenses."
+    },
+    "hero": {
+      "title": "Events",
+      "subtitle": "Workshops and masterclasses on AI for your business"
+    },
+    "list": {
+      "upcoming": "Upcoming Events",
+      "noEvents": "No upcoming events",
+      "learnMore": "Learn more",
+      "registerNow": "Register now"
+    },
+    "details": {
+      "learningPoints": "What you'll learn",
+      "targetAudience": "Target audience",
+      "dateTime": "Date & Time",
+      "location": "Location",
+      "speaker": "Speaker",
+      "price": "Price",
+      "format": "Format",
+      "materials": "Conference Materials",
+      "viewPresentation": "View Presentation"
+    },
+    "uzhhorod-2026-03-18": {
+      "slug": "uzhhorod-2026-03-18",
+      "title": "Artificial Intelligence for Small and Medium Business. Practical Tools Without Big Expenses",
+      "date": "March 18, 2026",
+      "time": "6:00 PM – 8:00 PM",
+      "location": {
+        "address": "1 Nezalezhnosti Embankment, 3rd floor, Uzhhorod",
+        "city": "Uzhhorod"
+      },
+      "speaker": {
+        "name": "Sergii Illiukhin",
+        "role": "AI Engineering Manager at eToro, Founder of AI Agency Mission101"
+      },
+      "description": "Artificial intelligence can already save your time, reduce costs, and simplify business processes today",
+      "learningPoints": [
+        "how to quickly create and edit websites without code (Lovable, Cursor, Kiro)",
+        "how to analyze contracts, presentations, and business documents with NotebookLM",
+        "how to automate routine processes with n8n",
+        "how to deploy your own solutions on free cloud resources (Oracle Cloud, Google Cloud)",
+        "how to work with databases on Supabase at no extra cost"
+      ],
+      "targetAudience": [
+        "small and medium business owners",
+        "managers"
+      ],
+      "price": "400 UAH",
+      "format": "In-person",
+      "materials": {
+        "presentation": {
+          "title": "View slides",
+          "description": "View the training presentation",
+          "url": "https://gamma.app/docs/Mission101ai-iav5n79ow9r3853"
+        }
+      },
+      "registration": {
+        "cta": "Register now",
+        "url": "https://diia-business-uzhhorod.com/events/62-shtuchnyy-intelekt-dlia-maloho-ta-serednyoho-biznesu-praktychni-instrumenty-bez-velykykh-vytrat"
+      }
+    }
   }
 }

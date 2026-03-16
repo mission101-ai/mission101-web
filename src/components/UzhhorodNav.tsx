@@ -1,7 +1,12 @@
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const UzhhorodNav = () => {
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -46,8 +51,14 @@ export const UzhhorodNav = () => {
             </span>
           </button>
 
-          {/* Right side: Language switcher */}
-          <div className="flex items-center gap-4">
+          {/* Right side: Events link and Language switcher */}
+          <div className="flex items-center gap-6">
+            <Link
+              to={`/${currentLanguage}/events`}
+              className="text-gray-700 hover:text-uzhhorod transition-colors duration-300 font-medium text-sm md:text-base"
+            >
+              {t('nav.events')}
+            </Link>
             <LanguageSwitcher isUzhhorodPage={true} />
           </div>
         </div>

@@ -151,6 +151,7 @@ export default defineConfig(({ mode }) => ({
         
         // Process service page directories
         const serviceSlugs = ['voice-agents', 'ai-assistants', 'custom-ai-solutions', 'marketing-automation', 'ai-websites', 'business-analytics'];
+        const eventSlugs = ['uzhhorod-2026-03-18'];
         for (const slug of serviceSlugs) {
           const enServiceDir = path.join(distPath, 'en', 'services', slug);
           const uaServiceDir = path.join(distPath, 'ua', 'services', slug);
@@ -199,7 +200,103 @@ export default defineConfig(({ mode }) => ({
           }
         }
         
-        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, and 12 service page directories');
+        // Process events list pages
+        const enEventsDir = path.join(distPath, 'en', 'events');
+        const uaEventsDir = path.join(distPath, 'ua', 'events');
+        const enEventsPublicIndex = path.join(publicPath, 'en', 'events', 'index.html');
+        const uaEventsPublicIndex = path.join(publicPath, 'ua', 'events', 'index.html');
+        
+        if (!fs.existsSync(enEventsDir)) {
+          fs.mkdirSync(enEventsDir, { recursive: true });
+        }
+        if (!fs.existsSync(uaEventsDir)) {
+          fs.mkdirSync(uaEventsDir, { recursive: true });
+        }
+        
+        // Copy EN events list page
+        if (fs.existsSync(enEventsPublicIndex)) {
+          let enEventsHtml = fs.readFileSync(enEventsPublicIndex, 'utf-8');
+          if (styleMatch) {
+            enEventsHtml = enEventsHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          if (scriptMatch) {
+            enEventsHtml = enEventsHtml.replace(
+              '<script type="module" src="/src/main.tsx"></script>',
+              scriptMatch[0]
+            );
+          }
+          fs.writeFileSync(path.join(enEventsDir, 'index.html'), enEventsHtml);
+        } else {
+          fs.copyFileSync(distIndexPath, path.join(enEventsDir, 'index.html'));
+        }
+        
+        // Copy UA events list page
+        if (fs.existsSync(uaEventsPublicIndex)) {
+          let uaEventsHtml = fs.readFileSync(uaEventsPublicIndex, 'utf-8');
+          if (styleMatch) {
+            uaEventsHtml = uaEventsHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+          }
+          if (scriptMatch) {
+            uaEventsHtml = uaEventsHtml.replace(
+              '<script type="module" src="/src/main.tsx"></script>',
+              scriptMatch[0]
+            );
+          }
+          fs.writeFileSync(path.join(uaEventsDir, 'index.html'), uaEventsHtml);
+        } else {
+          fs.copyFileSync(distIndexPath, path.join(uaEventsDir, 'index.html'));
+        }
+        
+        // Process event detail pages
+        for (const slug of eventSlugs) {
+          const enEventDir = path.join(distPath, 'en', 'events', slug);
+          const uaEventDir = path.join(distPath, 'ua', 'events', slug);
+          const enEventPublicIndex = path.join(publicPath, 'en', 'events', slug, 'index.html');
+          const uaEventPublicIndex = path.join(publicPath, 'ua', 'events', slug, 'index.html');
+          
+          if (!fs.existsSync(enEventDir)) {
+            fs.mkdirSync(enEventDir, { recursive: true });
+          }
+          if (!fs.existsSync(uaEventDir)) {
+            fs.mkdirSync(uaEventDir, { recursive: true });
+          }
+          
+          // Copy EN event detail page
+          if (fs.existsSync(enEventPublicIndex)) {
+            let enEventHtml = fs.readFileSync(enEventPublicIndex, 'utf-8');
+            if (styleMatch) {
+              enEventHtml = enEventHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+            }
+            if (scriptMatch) {
+              enEventHtml = enEventHtml.replace(
+                '<script type="module" src="/src/main.tsx"></script>',
+                scriptMatch[0]
+              );
+            }
+            fs.writeFileSync(path.join(enEventDir, 'index.html'), enEventHtml);
+          } else {
+            fs.copyFileSync(distIndexPath, path.join(enEventDir, 'index.html'));
+          }
+          
+          // Copy UA event detail page
+          if (fs.existsSync(uaEventPublicIndex)) {
+            let uaEventHtml = fs.readFileSync(uaEventPublicIndex, 'utf-8');
+            if (styleMatch) {
+              uaEventHtml = uaEventHtml.replace('</head>', `  ${styleMatch[0]}\n  </head>`);
+            }
+            if (scriptMatch) {
+              uaEventHtml = uaEventHtml.replace(
+                '<script type="module" src="/src/main.tsx"></script>',
+                scriptMatch[0]
+              );
+            }
+            fs.writeFileSync(path.join(uaEventDir, 'index.html'), uaEventHtml);
+          } else {
+            fs.copyFileSync(distIndexPath, path.join(uaEventDir, 'index.html'));
+          }
+        }
+        
+        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, 12 service page directories, and 4 event page directories');
       }
     }
   ].filter(Boolean),
