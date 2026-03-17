@@ -1,9 +1,8 @@
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
-import { Calendar } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 export const UzhhorodNav = () => {
   const { t } = useTranslation();
@@ -52,19 +51,21 @@ export const UzhhorodNav = () => {
             </span>
           </button>
 
-          {/* Right section: Events + Language switcher */}
+          {/* Right section: Presentation + Language switcher */}
           <div className="flex flex-col md:flex-row-reverse items-end md:items-center gap-2 md:gap-3">
             <LanguageSwitcher isUzhhorodPage={true} />
             
-            <Link
-              to={`/${currentLanguage}/events`}
+            <a
+              href="https://gamma.app/docs/Mission101ai-iav5n79ow9r3853"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative flex items-center gap-2 px-4 md:px-5 py-2.5 bg-white border-2 border-gray-200 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:border-uzhhorod transition-all duration-300 group shadow-sm hover:shadow-md overflow-hidden btn-ripple"
             >
-              <Calendar className="w-5 h-5 text-uzhhorod group-hover:scale-110 transition-transform duration-300" />
+              <FileText className="w-5 h-5 text-uzhhorod group-hover:scale-110 transition-transform duration-300" />
               <span className="text-sm font-bold text-gray-900 group-hover:text-uzhhorod transition-colors">
-                {t('nav.events')}
+                {t('nav.presentation')}
               </span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
