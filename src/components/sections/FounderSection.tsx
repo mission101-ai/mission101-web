@@ -7,7 +7,7 @@ export const FounderSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="founder" className="py-24 bg-white relative">
+    <section id="founder" className="py-24 bg-gradient-to-br from-blue-50 to-blue-50 relative">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">

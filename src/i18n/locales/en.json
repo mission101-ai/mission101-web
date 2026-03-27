@@ -67,6 +67,20 @@
     "learnMore": "Learn more",
     "items": [
       {
+        "title": "Digital Transformation Strategy",
+        "description": [
+          "End-to-end roadmaps that align business goals with digital initiatives, milestones, and change management",
+          "Technology selection, architecture guidance, and vendor evaluation to build a sustainable, scalable stack"
+        ]
+      },
+      {
+        "title": "Employee Training & Education",
+        "description": [
+          "Structured upskilling programs that bring teams up to speed on AI tools, automation, and modern workflows",
+          "Hands-on workshops and practical exercises so staff can apply new skills confidently in day-to-day work"
+        ]
+      },
+      {
         "title": "Voice Agents for Call Centers",
         "description": [
           "AI-powered conversational agents that handle customer inquiries with natural language understanding",
@@ -372,6 +386,38 @@
       "seo": {
         "title": "Business Monitoring and Analytics • Mission101.ai",
         "description": "Real-time business analytics and monitoring. Track key metrics, identify risks early, get automated reports, and make data-driven decisions."
+      }
+    },
+    "digital-transformation-strategy": {
+      "slug": "digital-transformation-strategy",
+      "title": "Digital Transformation Strategy",
+      "subtitle": "From assessment to roadmap: align technology with business goals",
+      "description": "Digital transformation succeeds when strategy comes before tools. We help you define where your organization is today, where it needs to go, and which changes will deliver the most value—so investments in AI and automation support real priorities instead of chasing trends.\n\nOur assessment methodology examines processes, data, systems, and team capabilities. We identify bottlenecks, risks, and quick wins, then build a phased roadmap with clear milestones, owners, and dependencies so execution stays manageable and measurable.\n\nTechnology selection and integration are grounded in your stack and constraints: we evaluate vendors, APIs, and internal platforms, design integration patterns, and plan rollouts that minimize disruption while connecting new capabilities to existing workflows.\n\nEvery engagement ties initiatives to business outcomes—cost reduction, revenue growth, faster cycle times, or better customer experience—with KPIs you can track before, during, and after implementation so leadership sees progress in numbers, not only in slide decks.",
+      "features": [
+        "Comprehensive Assessment",
+        "Phased Implementation",
+        "Technology Selection",
+        "Measurable KPIs"
+      ],
+      "seo": {
+        "title": "Digital Transformation Strategy • Mission101.ai",
+        "description": "Strategic digital transformation planning, assessment, roadmaps, technology selection, and integration—with measurable KPIs and phased implementation for your business."
+      }
+    },
+    "employee-training": {
+      "slug": "employee-training",
+      "title": "Employee Training for AI Adoption",
+      "subtitle": "Upskill your team with practical, role-based learning",
+      "description": "Training is the bridge between buying AI tools and actually using them. Without structured enablement, adoption stalls, shadow IT grows, and ROI stays on paper. We focus on building confidence and habits so employees integrate AI into daily work safely and effectively.\n\nCurriculum is customized to your industry, tools, and roles—from leadership briefings to hands-on sessions for operations, sales, and support. Content reflects your real processes and data boundaries, not generic demos, so learners can apply skills on Monday morning.\n\nInteractive workshops emphasize practice: guided exercises, small-group problem solving, and live scenarios that mirror your workflows. Participants leave having completed tasks they will repeat on the job, not just watched a presentation.\n\nLearning does not end when the workshop does. We provide ongoing mentorship options, office hours, and refresher materials so teams can ask questions as tools evolve and new use cases emerge—keeping skills current without overwhelming your internal L&D capacity.",
+      "features": [
+        "Customized Curriculum",
+        "Hands-on Practice",
+        "Practical Use Cases",
+        "Ongoing Mentorship"
+      ],
+      "seo": {
+        "title": "Employee Training for AI Adoption • Mission101.ai",
+        "description": "Custom AI training for your team: tailored curriculum, hands-on workshops, practical use cases, and ongoing mentorship for lasting adoption."
       }
     }
   },

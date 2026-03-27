@@ -46,6 +46,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/uzhhorod/" />
   </url>
   <url>
+    <loc>https://mission101.ai/en/services/digital-transformation-strategy/</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/services/digital-transformation-strategy/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/services/digital-transformation-strategy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/services/digital-transformation-strategy/" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/ua/services/digital-transformation-strategy/</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/services/digital-transformation-strategy/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/services/digital-transformation-strategy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/services/digital-transformation-strategy/" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/en/services/employee-training/</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/services/employee-training/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/services/employee-training/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/services/employee-training/" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/ua/services/employee-training/</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/services/employee-training/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/services/employee-training/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/services/employee-training/" />
+  </url>
+  <url>
     <loc>https://mission101.ai/en/services/voice-agents/</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>

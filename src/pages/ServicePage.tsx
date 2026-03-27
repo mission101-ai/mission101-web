@@ -10,6 +10,8 @@ import { FooterSection } from '@/components/sections/FooterSection';
 import { SEO } from '@/components/SEO';
 
 const SERVICE_SLUGS = [
+  'digital-transformation-strategy',
+  'employee-training',
   'voice-agents',
   'ai-assistants',
   'custom-ai-solutions',

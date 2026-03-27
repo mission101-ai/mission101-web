@@ -150,7 +150,16 @@ export default defineConfig(({ mode }) => ({
         }
         
         // Process service page directories
-        const serviceSlugs = ['voice-agents', 'ai-assistants', 'custom-ai-solutions', 'marketing-automation', 'ai-websites', 'business-analytics'];
+        const serviceSlugs = [
+          'digital-transformation-strategy',
+          'employee-training',
+          'voice-agents',
+          'ai-assistants',
+          'custom-ai-solutions',
+          'marketing-automation',
+          'ai-websites',
+          'business-analytics',
+        ];
         const eventSlugs = ['uzhhorod-2026-03-18'];
         for (const slug of serviceSlugs) {
           const enServiceDir = path.join(distPath, 'en', 'services', slug);

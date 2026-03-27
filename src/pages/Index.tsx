@@ -29,8 +29,8 @@ const Index = () => {
       <UzhhorodNav />
       <HeroSection />
       <AboutSection />
-      <ServicesSection />
       <FounderSection />
+      <ServicesSection />
       <ContactSection />
       <FooterSection isUzhhorodPage={true} />
     </div>

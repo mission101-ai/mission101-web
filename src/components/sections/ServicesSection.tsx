@@ -1,18 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ScrollTrigger } from '../ScrollTrigger';
-import { Phone, BarChart3, Globe, Bot, Megaphone, Sparkles, ArrowRight } from 'lucide-react';
+import { Phone, BarChart3, Globe, Bot, Megaphone, Sparkles, ArrowRight, Workflow, GraduationCap } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
-const serviceIcons = [Phone, Bot, Sparkles, Megaphone, Globe, BarChart3];
-const serviceSlugs = ['voice-agents', 'ai-assistants', 'custom-ai-solutions', 'marketing-automation', 'ai-websites', 'business-analytics'];
+const serviceIcons = [Workflow, GraduationCap, Phone, Bot, Sparkles, Megaphone, Globe, BarChart3];
+const serviceSlugs = [
+  'digital-transformation-strategy',
+  'employee-training',
+  'voice-agents',
+  'ai-assistants',
+  'custom-ai-solutions',
+  'marketing-automation',
+  'ai-websites',
+  'business-analytics',
+];
 
 export const ServicesSection = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-blue-50 to-blue-50 relative">
+    <section id="services" className="py-24 bg-white relative">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -28,6 +37,8 @@ export const ServicesSection = () => {
           {(t('services.items', { returnObjects: true }) as Array<{ title: string; description: string[] }>).map((service, index: number) => {
             const Icon = serviceIcons[index];
             const accentColors = [
+              'from-violet-500 to-purple-500',
+              'from-sky-500 to-blue-500',
               'from-blue-500 to-indigo-500',
               'from-teal-500 to-cyan-500',
               'from-purple-500 to-pink-500',

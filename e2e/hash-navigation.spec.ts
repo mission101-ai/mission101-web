@@ -98,6 +98,70 @@ test.describe('Hash Navigation', () => {
       await expect(page.locator('#contact')).toBeAttached();
       await expect(page.locator('#contact')).toBeInViewport({ timeout: 10000 });
     });
+
+    test('navigating from /ua/services/digital-transformation-strategy/ and clicking CTA should scroll to contact', async ({
+      page,
+    }) => {
+      await page.goto('/ua/services/digital-transformation-strategy/', { waitUntil: 'networkidle' });
+
+      const contactLink = page.locator('a[href*="#contact"]').first();
+      await expect(contactLink).toBeVisible();
+      await contactLink.click();
+
+      await page.waitForURL(/\/ua\/.*#contact/, { timeout: 5000 });
+
+      expect(page.url()).toContain('#contact');
+      await expect(page.locator('#contact')).toBeAttached();
+      await expect(page.locator('#contact')).toBeInViewport({ timeout: 10000 });
+    });
+
+    test('navigating from /en/services/digital-transformation-strategy/ and clicking CTA should scroll to contact', async ({
+      page,
+    }) => {
+      await page.goto('/en/services/digital-transformation-strategy/', { waitUntil: 'networkidle' });
+
+      const contactLink = page.locator('a[href*="#contact"]').first();
+      await expect(contactLink).toBeVisible();
+      await contactLink.click();
+
+      await page.waitForURL(/\/en\/.*#contact/, { timeout: 5000 });
+
+      expect(page.url()).toContain('#contact');
+      await expect(page.locator('#contact')).toBeAttached();
+      await expect(page.locator('#contact')).toBeInViewport({ timeout: 10000 });
+    });
+
+    test('navigating from /ua/services/employee-training/ and clicking CTA should scroll to contact', async ({
+      page,
+    }) => {
+      await page.goto('/ua/services/employee-training/', { waitUntil: 'networkidle' });
+
+      const contactLink = page.locator('a[href*="#contact"]').first();
+      await expect(contactLink).toBeVisible();
+      await contactLink.click();
+
+      await page.waitForURL(/\/ua\/.*#contact/, { timeout: 5000 });
+
+      expect(page.url()).toContain('#contact');
+      await expect(page.locator('#contact')).toBeAttached();
+      await expect(page.locator('#contact')).toBeInViewport({ timeout: 10000 });
+    });
+
+    test('navigating from /en/services/employee-training/ and clicking CTA should scroll to contact', async ({
+      page,
+    }) => {
+      await page.goto('/en/services/employee-training/', { waitUntil: 'networkidle' });
+
+      const contactLink = page.locator('a[href*="#contact"]').first();
+      await expect(contactLink).toBeVisible();
+      await contactLink.click();
+
+      await page.waitForURL(/\/en\/.*#contact/, { timeout: 5000 });
+
+      expect(page.url()).toContain('#contact');
+      await expect(page.locator('#contact')).toBeAttached();
+      await expect(page.locator('#contact')).toBeInViewport({ timeout: 10000 });
+    });
   });
 
   test.describe('Edge cases', () => {
