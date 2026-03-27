@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Instagram, Youtube, Facebook } from 'lucide-react';
 import { trackContactClick } from '@/lib/tracking';
 
 interface FooterSectionProps {
@@ -36,6 +36,33 @@ export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) =>
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5 text-uzhhorod" />
+            </a>
+            <a
+              href="https://www.instagram.com/mission101.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5 text-uzhhorod" />
+            </a>
+            <a
+              href="https://www.youtube.com/@mission101-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-5 h-5 text-uzhhorod" />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61588411877520"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-uzhhorod hover:bg-blue-50 transition-all duration-300"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5 text-uzhhorod" />
             </a>
             <a
               href="mailto:sergii@mission101.ai"
