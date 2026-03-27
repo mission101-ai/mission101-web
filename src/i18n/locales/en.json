@@ -74,10 +74,10 @@
         ]
       },
       {
-        "title": "Employee Training & Education",
+        "title": "AI Training for Business Teams",
         "description": [
-          "Structured upskilling programs that bring teams up to speed on AI tools, automation, and modern workflows",
-          "Hands-on workshops and practical exercises so staff can apply new skills confidently in day-to-day work"
+          "Structured AI training programs: teach your team to work with ChatGPT, voice agents, automation, and data analytics",
+          "Hands-on workshops with real business cases: from prompt engineering to integrating AI tools into daily workflows"
         ]
       },
       {
@@ -406,18 +406,18 @@
     },
     "employee-training": {
       "slug": "employee-training",
-      "title": "Employee Training for AI Adoption",
-      "subtitle": "Upskill your team with practical, role-based learning",
-      "description": "Training is the bridge between buying AI tools and actually using them. Without structured enablement, adoption stalls, shadow IT grows, and ROI stays on paper. We focus on building confidence and habits so employees integrate AI into daily work safely and effectively.\n\nCurriculum is customized to your industry, tools, and roles—from leadership briefings to hands-on sessions for operations, sales, and support. Content reflects your real processes and data boundaries, not generic demos, so learners can apply skills on Monday morning.\n\nInteractive workshops emphasize practice: guided exercises, small-group problem solving, and live scenarios that mirror your workflows. Participants leave having completed tasks they will repeat on the job, not just watched a presentation.\n\nLearning does not end when the workshop does. We provide ongoing mentorship options, office hours, and refresher materials so teams can ask questions as tools evolve and new use cases emerge—keeping skills current without overwhelming your internal L&D capacity.",
+      "title": "Corporate AI Training for Business Teams",
+      "subtitle": "Practical AI programs: from ChatGPT to automation and data analytics",
+      "description": "Training is the bridge between buying AI tools and actually using them. Without structured AI enablement, adoption stalls, shadow IT grows, and ROI stays on paper. We build confidence and practical skills so employees integrate artificial intelligence into daily work safely and effectively—from ChatGPT to voice agents.\n\nCurriculum is customized to your industry and tools: we teach teams to work with ChatGPT for content and analysis, AI voice agents for call centers and customer support, personal AI assistants for automating routine tasks, and data analytics for decision-making. Content reflects your real processes, not generic demos, so learners apply skills immediately.\n\nInteractive workshops emphasize hands-on practice: participants write prompts, configure automations, integrate AI into workflows on real or realistic scenarios. Each workshop ends with tasks employees can repeat on the job, building muscle memory for AI tools they'll use daily.\n\nLearning continues after workshops end. We provide ongoing mentorship, office hours for AI tool questions, best practices guidance for prompt engineering and automation, and help with first AI projects. Skills become embedded in company processes—teams confidently use artificial intelligence to solve business problems.",
       "features": [
-        "Customized Curriculum",
-        "Hands-on Practice",
-        "Practical Use Cases",
-        "Ongoing Mentorship"
+        "Industry-specific AI programs",
+        "ChatGPT, voice agents, automation training",
+        "Real business cases & prompt engineering",
+        "Ongoing mentorship & support"
       ],
       "seo": {
-        "title": "Employee Training for AI Adoption • Mission101.ai",
-        "description": "Custom AI training for your team: tailored curriculum, hands-on workshops, practical use cases, and ongoing mentorship for lasting adoption."
+        "title": "Corporate AI Training for Business Teams • Mission101.ai",
+        "description": "AI training for business: teach teams to work with ChatGPT, voice agents, automation, and analytics. Hands-on workshops, real cases, ongoing support."
       }
     }
   },
