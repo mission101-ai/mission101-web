@@ -67,10 +67,10 @@
     "learnMore": "Learn more",
     "items": [
       {
-        "title": "Digital Transformation Strategy",
+        "title": "AI Integration & Digital Transformation Strategy",
         "description": [
-          "End-to-end roadmaps that align business goals with digital initiatives, milestones, and change management",
-          "Technology selection, architecture guidance, and vendor evaluation to build a sustainable, scalable stack"
+          "AI readiness assessment: analyze processes, data, and infrastructure to identify where artificial intelligence delivers maximum value",
+          "AI implementation roadmap: from pilot projects to company-wide deployment with clear KPIs, phases, and ownership"
         ]
       },
       {
@@ -390,18 +390,18 @@
     },
     "digital-transformation-strategy": {
       "slug": "digital-transformation-strategy",
-      "title": "Digital Transformation Strategy",
-      "subtitle": "From assessment to roadmap: align technology with business goals",
-      "description": "Digital transformation succeeds when strategy comes before tools. We help you define where your organization is today, where it needs to go, and which changes will deliver the most value—so investments in AI and automation support real priorities instead of chasing trends.\n\nOur assessment methodology examines processes, data, systems, and team capabilities. We identify bottlenecks, risks, and quick wins, then build a phased roadmap with clear milestones, owners, and dependencies so execution stays manageable and measurable.\n\nTechnology selection and integration are grounded in your stack and constraints: we evaluate vendors, APIs, and internal platforms, design integration patterns, and plan rollouts that minimize disruption while connecting new capabilities to existing workflows.\n\nEvery engagement ties initiatives to business outcomes—cost reduction, revenue growth, faster cycle times, or better customer experience—with KPIs you can track before, during, and after implementation so leadership sees progress in numbers, not only in slide decks.",
+      "title": "AI Integration & Digital Transformation Strategy",
+      "subtitle": "Strategic AI adoption roadmap tailored to your business goals and capabilities",
+      "description": "Successful AI integration starts with strategy, not tools. We help you identify where artificial intelligence will deliver genuine business value, assess your readiness, and build a practical roadmap—so AI investments support real priorities instead of following hype.\n\nOur AI readiness assessment examines your processes, data quality, infrastructure, and team capabilities. We identify the highest-impact use cases—whether that's intelligent automation, customer service AI agents, predictive analytics, or personalized experiences—then prioritize based on feasibility, ROI, and strategic alignment.\n\nWe design phased implementation plans that start with pilot projects for quick wins and learning, then scale successful AI solutions across your organization. The roadmap includes data preparation, system integration with your existing CRM/ERP/communication platforms, team training, and change management so AI becomes part of your workflow, not a disconnected experiment.\n\nEvery initiative ties directly to measurable business outcomes: reduced processing time, higher conversion rates, lower operational costs, or improved customer satisfaction. You track progress with concrete KPIs throughout implementation, making data-driven decisions about where to double down and where to adjust course.",
       "features": [
-        "Comprehensive Assessment",
-        "Phased Implementation",
-        "Technology Selection",
-        "Measurable KPIs"
+        "AI Readiness Assessment",
+        "Use Case Prioritization",
+        "Phased AI Roadmap",
+        "Integration with Existing Systems"
       ],
       "seo": {
-        "title": "Digital Transformation Strategy • Mission101.ai",
-        "description": "Strategic digital transformation planning, assessment, roadmaps, technology selection, and integration—with measurable KPIs and phased implementation for your business."
+        "title": "AI Integration & Digital Transformation Strategy • Mission101.ai",
+        "description": "Strategic AI adoption planning: readiness assessment, use case prioritization, phased implementation roadmap, and system integration for measurable business results."
       }
     },
     "employee-training": {
