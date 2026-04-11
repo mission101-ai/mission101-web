@@ -245,6 +245,42 @@
             "Better team coordination",
             "Measurable results"
           ]
+        },
+        {
+          "title": "Digital Strategy & AI Roadmap",
+          "description": "Plan your digital transformation. We create a clear roadmap for implementing AI and modern technologies in your business.",
+          "benefits": [
+            "Clear implementation plan",
+            "Risk assessment and mitigation",
+            "Prioritized action steps"
+          ]
+        },
+        {
+          "title": "Team AI Training",
+          "description": "Empower your employees. We train your team to effectively use AI tools and automation in their daily work.",
+          "benefits": [
+            "Practical skills for your team",
+            "Hands-on workshops",
+            "Ongoing support and guidance"
+          ]
+        },
+        {
+          "title": "Smart Business Websites",
+          "description": "Modern web presence that works. We create professional websites optimized for conversions and search engines.",
+          "benefits": [
+            "Mobile-friendly design",
+            "SEO optimization included",
+            "Fast loading and performance"
+          ]
+        },
+        {
+          "title": "Marketing & Growth Automation",
+          "description": "Grow your business smarter. We automate marketing campaigns and customer outreach to maximize your results.",
+          "benefits": [
+            "Automated lead generation",
+            "Multi-channel campaigns",
+            "Real-time performance tracking"
+          ]
         }
       ]
     },

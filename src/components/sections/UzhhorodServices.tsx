@@ -1,20 +1,33 @@
 import { Link } from 'react-router-dom';
-import { Cog, TrendingDown, Sparkles, TrendingUp, ArrowRight } from 'lucide-react';
+import { Cog, TrendingDown, Sparkles, TrendingUp, ArrowRight, Workflow, GraduationCap, Phone, Bot, Megaphone, Globe, BarChart3 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
 
-const uzhhorodServiceLinks = ['voice-agents', 'business-analytics', 'custom-ai-solutions', 'marketing-automation'];
+const uzhhorodServiceLinks = [
+  'digital-transformation-strategy',
+  'employee-training',
+  'voice-agents',
+  'ai-assistants',
+  'custom-ai-solutions',
+  'marketing-automation',
+  'ai-websites',
+  'business-analytics'
+];
 
 export const UzhhorodServices = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
-  const icons = [Cog, TrendingDown, Sparkles, TrendingUp];
+  const icons = [Workflow, GraduationCap, Phone, Bot, Sparkles, Megaphone, Globe, BarChart3];
   const colors = [
+    { bg: 'bg-violet-100', text: 'text-violet-600', hover: 'hover:border-violet-300' },
+    { bg: 'bg-sky-100', text: 'text-sky-600', hover: 'hover:border-sky-300' },
     { bg: 'bg-blue-100', text: 'text-uzhhorod', hover: 'hover:border-blue-300' },
+    { bg: 'bg-teal-100', text: 'text-teal-600', hover: 'hover:border-teal-300' },
     { bg: 'bg-purple-100', text: 'text-purple-600', hover: 'hover:border-purple-300' },
-    { bg: 'bg-blue-100', text: 'text-uzhhorod', hover: 'hover:border-blue-300' },
     { bg: 'bg-orange-100', text: 'text-orange-600', hover: 'hover:border-orange-300' },
+    { bg: 'bg-emerald-100', text: 'text-emerald-600', hover: 'hover:border-emerald-300' },
+    { bg: 'bg-rose-100', text: 'text-rose-600', hover: 'hover:border-rose-300' },
   ];
 
   return (
@@ -32,7 +45,7 @@ export const UzhhorodServices = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {Array.from({ length: 4 }).map((_, index) => {
+          {Array.from({ length: 8 }).map((_, index) => {
             const Icon = icons[index];
             const color = colors[index];
             

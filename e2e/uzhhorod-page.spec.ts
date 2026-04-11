@@ -247,16 +247,17 @@ test.describe('Uzhhorod Landing Page', () => {
       await expect(servicesTitle).toBeVisible();
     });
 
-    test('should display 4 service cards with benefits', async ({ page }) => {
+    test('should display 8 service cards with benefits', async ({ page }) => {
       await page.goto('/ua/uzhhorod');
       await page.waitForLoadState('networkidle');
       
-      const serviceCards = page.locator('h3').filter({ 
-        hasText: /Автоматизація|Оптимізація|Рішення|Ефективності|Automation|Optimization|Solutions|Enhancement/ 
-      });
+      // Count service cards by looking for the service card structure
+      // Each service card has an h3 title within the services section
+      const servicesSection = page.locator('section').filter({ has: page.locator('h2').filter({ hasText: /Послуги|Services/ }) });
+      const serviceCards = servicesSection.locator('h3');
       
       const count = await serviceCards.count();
-      expect(count).toBeGreaterThanOrEqual(4);
+      expect(count).toBe(8);
     });
 
     test('should display CTA section', async ({ page }) => {
