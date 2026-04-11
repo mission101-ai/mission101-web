@@ -218,6 +218,104 @@ test.describe('Uzhhorod Landing Page', () => {
       await expect(ctaButton).toBeVisible();
     });
 
+    test('should display Mission101 Lead section', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      await expect(founderSection).toBeVisible();
+      
+      const founderTitle = page.locator('h2').filter({ hasText: /Керівник Mission101|Mission101 Lead/ });
+      await expect(founderTitle).toBeVisible();
+    });
+
+    test('should display founder profile image', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      const profileImage = founderSection.locator('img[alt*="Сергій Іллюхін"], img[alt*="Sergii Illiukhin"]');
+      await expect(profileImage).toBeVisible();
+    });
+
+    test('should display founder name and role in Ukrainian', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      const founderName = founderSection.locator('h3').filter({ hasText: /Сергій Іллюхін/ });
+      await expect(founderName).toBeVisible();
+      
+      const founderRole = founderSection.getByText(/Засновник і CEO/);
+      await expect(founderRole).toBeVisible();
+    });
+
+    test('should display founder name and role in English', async ({ page }) => {
+      await page.goto('/en/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      const founderName = founderSection.locator('h3').filter({ hasText: /Sergii Illiukhin/ });
+      await expect(founderName).toBeVisible();
+      
+      const founderRole = founderSection.getByText(/Founder & CEO/);
+      await expect(founderRole).toBeVisible();
+    });
+
+    test('should display founder bio points', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      const bioList = founderSection.locator('ul');
+      await expect(bioList).toBeVisible();
+      
+      const bioItems = bioList.locator('li');
+      const count = await bioItems.count();
+      expect(count).toBeGreaterThanOrEqual(4);
+    });
+
+    test('should display founder email button', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      const emailLink = founderSection.locator('a[href="mailto:sergii@mission101.ai"]');
+      await expect(emailLink).toBeVisible();
+      await expect(emailLink).toBeEnabled();
+    });
+
+    test('should display founder LinkedIn button', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const founderSection = page.locator('section#founder');
+      const linkedinLink = founderSection.locator('a[href="https://www.linkedin.com/in/sergiiilliukhin/"]');
+      await expect(linkedinLink).toBeVisible();
+      await expect(linkedinLink).toHaveAttribute('target', '_blank');
+      await expect(linkedinLink).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+
+    test('should position founder section before local advantages', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+      
+      const sections = page.locator('section');
+      const founderSection = page.locator('section#founder');
+      const advantagesSection = page.locator('section').filter({ has: page.locator('h2').filter({ hasText: /Чому Обирають/ }) });
+      
+      await expect(founderSection).toBeVisible();
+      await expect(advantagesSection).toBeVisible();
+      
+      // Get positions to verify founder comes before advantages
+      const founderBox = await founderSection.boundingBox();
+      const advantagesBox = await advantagesSection.boundingBox();
+      
+      expect(founderBox).toBeTruthy();
+      expect(advantagesBox).toBeTruthy();
+      expect(founderBox!.y).toBeLessThan(advantagesBox!.y);
+    });
+
     test('should display local advantages section', async ({ page }) => {
       await page.goto('/ua/uzhhorod');
       await page.waitForLoadState('networkidle');

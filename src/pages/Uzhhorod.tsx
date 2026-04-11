@@ -1,5 +1,6 @@
 import { UzhhorodNav } from '@/components/UzhhorodNav';
 import { UzhhorodHero } from '@/components/sections/UzhhorodHero';
+import { UzhhorodFounder } from '@/components/sections/UzhhorodFounder';
 import { UzhhorodLocalAdvantages } from '@/components/sections/UzhhorodLocalAdvantages';
 import { UzhhorodServices } from '@/components/sections/UzhhorodServices';
 import { UzhhorodCTA } from '@/components/sections/UzhhorodCTA';
@@ -12,9 +13,18 @@ import { useEffect } from 'react';
 const Uzhhorod = () => {
   const { t } = useTranslation();
 
-  // Scroll to top on mount
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   return (
@@ -26,6 +36,7 @@ const Uzhhorod = () => {
       />
       <UzhhorodNav />
       <UzhhorodHero />
+      <UzhhorodFounder />
       <UzhhorodLocalAdvantages />
       <UzhhorodServices />
       <UzhhorodCTA />

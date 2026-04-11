@@ -164,6 +164,24 @@ test.describe('Hash Navigation', () => {
     });
   });
 
+  test.describe('Uzhhorod page hash navigation', () => {
+    test('/ua/uzhhorod/#founder should scroll to founder section', async ({ page }) => {
+      await page.goto('/ua/uzhhorod/#founder', { waitUntil: 'networkidle' });
+
+      await expect(page.locator('#founder')).toBeAttached();
+      await expect(page.locator('#founder')).toBeInViewport({ timeout: 10000 });
+      expect(page.url()).toContain('#founder');
+    });
+
+    test('/en/uzhhorod/#founder should scroll to founder section', async ({ page }) => {
+      await page.goto('/en/uzhhorod/#founder', { waitUntil: 'networkidle' });
+
+      await expect(page.locator('#founder')).toBeAttached();
+      await expect(page.locator('#founder')).toBeInViewport({ timeout: 10000 });
+      expect(page.url()).toContain('#founder');
+    });
+  });
+
   test.describe('Edge cases', () => {
     test('invalid hash (#nonexistent) should load page normally without error', async ({ page }) => {
       const response = await page.goto('/ua/#nonexistent', { waitUntil: 'networkidle' });
