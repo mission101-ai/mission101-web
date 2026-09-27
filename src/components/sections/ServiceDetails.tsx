@@ -1,15 +1,23 @@
 import { CheckCircle2, Zap, Target, BarChart3 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-
 interface ServiceDetailsProps {
   serviceSlug: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
 }
 
 export const ServiceDetails = ({ serviceSlug }: ServiceDetailsProps) => {
   const { t } = useTranslation();
 
   const icons = [CheckCircle2, Zap, Target, BarChart3];
+
+  const audience = t(`servicePages.${serviceSlug}.audience`, { defaultValue: '' });
+  const faqItems = t(`servicePages.${serviceSlug}.faq`, { returnObjects: true, defaultValue: [] }) as FaqItem[];
+  const hasFaq = Array.isArray(faqItems) && faqItems.length > 0;
 
   return (
     <section className="py-20 bg-white">
@@ -22,8 +30,20 @@ export const ServiceDetails = ({ serviceSlug }: ServiceDetailsProps) => {
             </p>
           </div>
 
+          {/* Who it's for */}
+          {audience && (
+            <div className="mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#3a6291] mb-4">
+                {t('servicePages.audienceTitle')}
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                {audience}
+              </p>
+            </div>
+          )}
+
           {/* Features Grid */}
-          <div>
+          <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold text-[#3a6291] mb-8">
               {t('services.subtitle')}
             </h2>
@@ -46,6 +66,27 @@ export const ServiceDetails = ({ serviceSlug }: ServiceDetailsProps) => {
               })}
             </div>
           </div>
+
+          {/* FAQ / objections */}
+          {hasFaq && (
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#3a6291] mb-8">
+                {t('servicePages.faqTitle')}
+              </h2>
+              <div className="space-y-6">
+                {faqItems.map((item, index) => (
+                  <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0">
+                    <h3 className="text-lg font-bold text-[#3a6291] mb-2">
+                      {item.question}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import { UzhhorodLocalAdvantages } from '@/components/sections/UzhhorodLocalAdva
 import { UzhhorodServices } from '@/components/sections/UzhhorodServices';
 import { UzhhorodCTA } from '@/components/sections/UzhhorodCTA';
 import { UzhhorodContacts } from '@/components/sections/UzhhorodContacts';
+import { UzhhorodFAQ } from '@/components/sections/UzhhorodFAQ';
 import { FooterSection } from '@/components/sections/FooterSection';
 import { SEO } from '@/components/SEO';
 import { useTranslation } from 'react-i18next';
@@ -41,6 +42,7 @@ const Uzhhorod = () => {
       <UzhhorodServices />
       <UzhhorodCTA />
       <UzhhorodContacts />
+      <UzhhorodFAQ />
       <FooterSection isUzhhorodPage={true} />
     </div>
   );

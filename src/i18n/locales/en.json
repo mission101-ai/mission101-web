@@ -162,11 +162,13 @@
   "footer": {
     "tagline": "Intelligent Automation for Modern Business",
     "copyright": "© {{year}} Mission101.ai. All rights reserved.",
-    "location": "Based in Uzhhorod, Ukraine • Serving clients worldwide"
+    "location": "Based in Uzhhorod, Ukraine • Serving clients worldwide",
+    "linksTitle": "Explore",
+    "uzhhorodLink": "Uzhhorod Office"
   },
   "seo": {
-    "title": "Mission101.ai • Intelligent Automation for Modern Business",
-    "description": "Transform your business with intelligent automation solutions. Mission101.ai provides AI-powered tools to streamline operations, enhance productivity, and accelerate digital growth."
+    "title": "Mission101.ai | AI Automation Consulting for Business Growth",
+    "description": "Mission101.ai helps businesses automate operations and adopt AI with confidence—voice agents, assistants, and workflow automation. Based in Uzhhorod, Ukraine, serving clients worldwide. Get a free consultation."
   },
   "notFound": {
     "title": "404 - Page Not Found • Mission101.ai",
@@ -178,7 +180,7 @@
     "hero": {
       "title": "IT Services in Uzhhorod",
       "subtitle": "Business Optimization and AI Implementation",
-      "description": "Our main office is located in Uzhhorod. Ready to meet in person and discuss how artificial intelligence can transform your business.",
+      "description": "Our main office is located in Uzhhorod. We help local businesses—retailers, law firms, service companies, and manufacturers across Zakarpattia—automate day-to-day operations, cut costs, and adopt AI tools without hiring an in-house engineering team. Ready to meet in person and discuss how artificial intelligence can transform your business.",
       "cta": "Contact Us",
       "location": "📍 Uzhhorod, Zakarpattia Region"
     },
@@ -322,6 +324,32 @@
     "seo": {
       "title": "Mission101.ai • Uzhhorod • Business Automation with AI",
       "description": "Professional IT services in Uzhhorod from Mission101.ai. Business process automation, cost optimization, custom AI solutions. In-person meetings and consultations. ☎️ Contact us!"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Answers for businesses in Uzhhorod and Zakarpattia considering AI and automation",
+      "items": [
+        {
+          "question": "Do you work with small businesses in Uzhhorod, or only larger companies?",
+          "answer": "We work with businesses of all sizes across Zakarpattia—from small retail and service shops to law firms and manufacturers. Most of our automation projects start small and scale as they prove value."
+        },
+        {
+          "question": "Can we meet in person at your Uzhhorod office?",
+          "answer": "Yes. Our office is in the Uzhhorod city center and we regularly meet clients face-to-face. We can also visit your office if that is more convenient."
+        },
+        {
+          "question": "How much does business automation or an AI solution typically cost?",
+          "answer": "It depends on scope, but most engagements start with a free consultation and a scoped proposal so you know the investment before committing. Many clients see ROI within 3-6 months."
+        },
+        {
+          "question": "We don't have an IT team—can you still help us adopt AI?",
+          "answer": "Absolutely. Most of our Uzhhorod clients don't have in-house engineers. We handle implementation end to end and train your team to use the tools we build."
+        },
+        {
+          "question": "How quickly can we start a project?",
+          "answer": "We typically respond within 2 hours during business hours and can schedule an initial consultation within a few days."
+        }
+      ]
     }
   },
   "servicePages": {
@@ -342,7 +370,22 @@
       "seo": {
         "title": "Voice Agents for Call Centers • Mission101.ai",
         "description": "AI-powered voice agents for call centers. 24/7 availability, natural language understanding, seamless integration with your systems. Reduce costs and improve customer service."
-      }
+      },
+      "audience": "Best suited for call centers, customer support teams, clinics, and service businesses with a steady volume of repetitive phone inquiries—bookings, order status, FAQs, or basic troubleshooting—who want to cut wait times without adding headcount.",
+      "faq": [
+        {
+          "question": "Will callers know they're talking to an AI voice agent?",
+          "answer": "We configure this based on your preference and local regulations. Many clients disclose it upfront; others use it as a first-line assistant that hands off to a human when needed."
+        },
+        {
+          "question": "Can the voice agent integrate with our existing phone system and CRM?",
+          "answer": "Yes. We connect voice agents to common telephony providers and CRMs so call outcomes, bookings, and notes sync automatically."
+        },
+        {
+          "question": "What happens when a caller has a complex request the agent can't handle?",
+          "answer": "The agent recognizes when it's out of scope and transfers the call to a human agent with full context, so callers never have to repeat themselves."
+        }
+      ]
     },
     "ai-assistants": {
       "slug": "ai-assistants",
@@ -358,7 +401,22 @@
       "seo": {
         "title": "Personal AI Assistants for Business • Mission101.ai",
         "description": "Intelligent AI assistants that automate scheduling, document preparation, and daily workflows. Save time and boost efficiency for your team."
-      }
+      },
+      "audience": "Ideal for busy founders, managers, and small teams who spend hours each week on scheduling, correspondence, and document preparation, and want that time back without hiring an assistant.",
+      "faq": [
+        {
+          "question": "What tasks can a personal AI assistant actually handle?",
+          "answer": "Scheduling meetings, drafting and organizing correspondence, preparing routine documents and reports, and sending reminders—freeing you from the paperwork side of daily operations."
+        },
+        {
+          "question": "Does the assistant work with our existing calendar and email tools?",
+          "answer": "Yes, we integrate with common calendar and email platforms so the assistant fits into your existing workflow rather than replacing it."
+        },
+        {
+          "question": "Is this only useful for large companies?",
+          "answer": "No—it's especially valuable for small and medium businesses, where every hour saved has a direct, measurable impact on the team's output."
+        }
+      ]
     },
     "custom-ai-solutions": {
       "slug": "custom-ai-solutions",
@@ -390,7 +448,22 @@
       "seo": {
         "title": "AI Marketing Automation • Mission101.ai",
         "description": "AI-powered marketing automation tools. Automated content creation, audience analysis, budget optimization, and real-time performance tracking."
-      }
+      },
+      "audience": "Suited for marketing teams and business owners running campaigns across multiple channels who want better targeting and content output without expanding the marketing team.",
+      "faq": [
+        {
+          "question": "Will AI-generated content sound generic or off-brand?",
+          "answer": "We tune content generation to your brand voice and review workflows, so output stays on-brand while still saving your team time on first drafts."
+        },
+        {
+          "question": "How does audience analysis improve our campaign results?",
+          "answer": "By analyzing customer behavior and segment performance, we help you route the right offers to the right audience segments instead of running one-size-fits-all campaigns."
+        },
+        {
+          "question": "Can we keep control over budget and approvals?",
+          "answer": "Yes. Automation handles the repetitive execution work—content variants, segment targeting, reporting—while your team keeps control over budget decisions and final approvals."
+        }
+      ]
     },
     "ai-websites": {
       "slug": "ai-websites",
@@ -438,7 +511,22 @@
       "seo": {
         "title": "AI Integration & Digital Transformation Strategy • Mission101.ai",
         "description": "Strategic AI adoption planning: readiness assessment, use case prioritization, phased implementation roadmap, and system integration for measurable business results."
-      }
+      },
+      "audience": "Designed for business owners and executives who sense AI could help but aren't sure where to start—and want a structured, low-risk path from assessment to measurable results rather than scattered experiments.",
+      "faq": [
+        {
+          "question": "We've never used AI before—can you still help us build a strategy?",
+          "answer": "Yes. The readiness assessment is designed exactly for that: we start from your current processes and data, not from an assumption that you already have AI infrastructure in place."
+        },
+        {
+          "question": "How long does a typical AI roadmap take to produce?",
+          "answer": "The assessment and roadmap are usually delivered within a few weeks, followed by phased implementation starting with a pilot project so you see results before scaling."
+        },
+        {
+          "question": "What if our data or systems aren't ready for AI yet?",
+          "answer": "That's a common starting point, not a blocker. Data preparation and system integration are built into the roadmap as an early phase before any AI use case goes live."
+        }
+      ]
     },
     "employee-training": {
       "slug": "employee-training",
@@ -455,7 +543,9 @@
         "title": "Corporate AI Training for Business Teams • Mission101.ai",
         "description": "AI training for business: teach teams to work with ChatGPT, voice agents, automation, and analytics. Hands-on workshops, real cases, ongoing support."
       }
-    }
+    },
+    "audienceTitle": "Who It's For",
+    "faqTitle": "Frequently Asked Questions"
   },
   "nav": {
     "events": "Events"

@@ -618,5 +618,57 @@ test.describe('Uzhhorod Landing Page', () => {
       expect(count).toBeGreaterThan(1);
     });
   });
+
+  test.describe('FAQ Section', () => {
+    test('should display FAQ heading and content in Ukrainian', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+
+      const faqSection = page.locator('section#faq');
+      await expect(faqSection).toBeVisible();
+
+      const faqTitle = faqSection.locator('h2').filter({ hasText: /Часті запитання/ });
+      await expect(faqTitle).toBeVisible();
+
+      const questions = faqSection.locator('h3');
+      expect(await questions.count()).toBeGreaterThanOrEqual(3);
+    });
+
+    test('should display FAQ heading and content in English', async ({ page }) => {
+      await page.goto('/en/uzhhorod');
+      await page.waitForLoadState('networkidle');
+
+      const faqSection = page.locator('section#faq');
+      await expect(faqSection).toBeVisible();
+
+      const faqTitle = faqSection.locator('h2').filter({ hasText: /Frequently Asked Questions/ });
+      await expect(faqTitle).toBeVisible();
+
+      const questions = faqSection.locator('h3');
+      expect(await questions.count()).toBeGreaterThanOrEqual(3);
+    });
+  });
+
+  test.describe('Footer Product Links', () => {
+    test('should link to Image Resizer and Legal product pages in English', async ({ page }) => {
+      await page.goto('/en/uzhhorod');
+      await page.waitForLoadState('networkidle');
+
+      const footer = page.locator('footer');
+      await expect(footer.locator('a[href="/en/products/image-resizer"]')).toBeVisible();
+      await expect(footer.locator('a[href="/en/products/legal"]')).toBeVisible();
+      await expect(footer.locator('a[href="/en/uzhhorod"]')).toBeVisible();
+    });
+
+    test('should link to Image Resizer and Legal product pages in Ukrainian', async ({ page }) => {
+      await page.goto('/ua/uzhhorod');
+      await page.waitForLoadState('networkidle');
+
+      const footer = page.locator('footer');
+      await expect(footer.locator('a[href="/ua/products/image-resizer"]')).toBeVisible();
+      await expect(footer.locator('a[href="/ua/products/legal"]')).toBeVisible();
+      await expect(footer.locator('a[href="/ua/uzhhorod"]')).toBeVisible();
+    });
+  });
 });
 

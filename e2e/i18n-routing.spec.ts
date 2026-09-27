@@ -63,8 +63,8 @@ test.describe('i18n Routing', () => {
     
     // Titles should be different for different languages
     expect(enTitle).not.toBe(uaTitle);
-    expect(enTitle).toContain('Intelligent Automation');
-    expect(uaTitle).toContain('Розумна Автоматизація');
+    expect(enTitle).toContain('AI Automation');
+    expect(uaTitle).toContain('ШІ-автоматизації');
   });
 
   test('language routes are accessible and distinct', async ({ page }) => {

@@ -188,12 +188,12 @@ test.describe('SEO Tags', () => {
     // English page
     await page.goto('/en/', { waitUntil: 'networkidle' });
     let title = await page.title();
-    expect(title).toContain('Intelligent Automation');
-    
-    // Ukrainian page  
+    expect(title).toContain('AI Automation');
+
+    // Ukrainian page
     await page.goto('/ua/', { waitUntil: 'networkidle' });
     title = await page.title();
-    expect(title).toContain('Розумна Автоматизація');
+    expect(title).toContain('ШІ-автоматизації');
   });
 
   test('HTML lang attribute should match language for SEO', async ({ page }) => {

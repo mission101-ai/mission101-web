@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Linkedin, Mail, Instagram, Youtube, Facebook } from 'lucide-react';
 import { trackContactClick } from '@/lib/tracking';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface FooterSectionProps {
   isUzhhorodPage?: boolean;
@@ -8,12 +10,14 @@ interface FooterSectionProps {
 
 export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   const currentYear = new Date().getFullYear();
+  const langPrefix = currentLanguage === 'ua' ? 'ua' : 'en';
 
   return (
     <footer className="py-12 px-6 border-t border-gray-200">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-10">
           {/* Logo and tagline */}
           <div className="text-center md:text-left">
             <div className="text-2xl font-bold mb-2">
@@ -23,6 +27,29 @@ export const FooterSection = ({ isUzhhorodPage = false }: FooterSectionProps) =>
             <p className="text-sm text-gray-600">
               {t('footer.tagline')}
             </p>
+          </div>
+
+          {/* Discovery links */}
+          <div className="flex flex-col items-center md:items-start gap-2 text-sm">
+            <span className="font-semibold text-[#3a6291]">{t('footer.linksTitle')}</span>
+            <Link
+              to={`/${langPrefix}/products/image-resizer`}
+              className="text-gray-600 hover:text-uzhhorod transition-colors"
+            >
+              {t('products.imageResizer.name')}
+            </Link>
+            <Link
+              to={`/${langPrefix}/products/legal`}
+              className="text-gray-600 hover:text-uzhhorod transition-colors"
+            >
+              {t('products.legal.name')}
+            </Link>
+            <Link
+              to={`/${langPrefix}/uzhhorod`}
+              className="text-gray-600 hover:text-uzhhorod transition-colors"
+            >
+              {t('footer.uzhhorodLink')}
+            </Link>
           </div>
 
           {/* Social links */}
