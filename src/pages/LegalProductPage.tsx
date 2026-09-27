@@ -26,6 +26,7 @@ const LegalProductPage = () => {
       />
       <UzhhorodNav />
 
+      <main>
       <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-blue-50/30">
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
           <div className="absolute top-20 right-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl" />
@@ -168,6 +169,7 @@ const LegalProductPage = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <FooterSection isUzhhorodPage={true} />
     </div>

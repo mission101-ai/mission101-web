@@ -160,7 +160,7 @@ test.describe('SEO Tags', () => {
     
     // Check og:image
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
-    expect(ogImage).toContain('mission101-og-2026.png');
+    expect(ogImage).toContain('mission101-og-1200x630.jpg');
   });
 
   test('Twitter Card tags should be present', async ({ page }) => {
@@ -181,7 +181,7 @@ test.describe('SEO Tags', () => {
     
     // Check twitter:image
     const twitterImage = await page.locator('meta[name="twitter:image"]').getAttribute('content');
-    expect(twitterImage).toContain('mission101-og-2026.png');
+    expect(twitterImage).toContain('mission101-og-1200x630.jpg');
   });
 
   test('page title should reflect current language', async ({ page }) => {

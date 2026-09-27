@@ -27,11 +27,13 @@ const Index = () => {
       <SEO />
       <CursorGlow />
       <UzhhorodNav />
-      <HeroSection />
-      <AboutSection />
-      <FounderSection />
-      <ServicesSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <FounderSection />
+        <ServicesSection />
+        <ContactSection />
+      </main>
       <FooterSection isUzhhorodPage={true} />
     </div>
   );

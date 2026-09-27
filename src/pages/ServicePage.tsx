@@ -55,9 +55,11 @@ const ServicePage = () => {
         serviceSlug={serviceSlug}
       />
       <UzhhorodNav />
-      <ServiceHero serviceSlug={slug} />
-      <ServiceDetails serviceSlug={slug} />
-      <ServiceCTA />
+      <main>
+        <ServiceHero serviceSlug={slug} />
+        <ServiceDetails serviceSlug={slug} />
+        <ServiceCTA />
+      </main>
       <FooterSection isUzhhorodPage={true} />
     </div>
   );

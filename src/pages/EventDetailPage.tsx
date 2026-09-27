@@ -48,9 +48,11 @@ const EventDetailPage = () => {
         hreflangPath={`events/${slug}`}
       />
       <UzhhorodNav />
-      <EventHero eventSlug={slug} />
-      <EventDetails eventSlug={slug} />
-      <EventCTA eventSlug={slug} />
+      <main>
+        <EventHero eventSlug={slug} />
+        <EventDetails eventSlug={slug} />
+        <EventCTA eventSlug={slug} />
+      </main>
       <FooterSection isUzhhorodPage={true} />
     </div>
   );

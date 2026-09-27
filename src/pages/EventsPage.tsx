@@ -22,8 +22,10 @@ const EventsPage = () => {
         hreflangPath="events"
       />
       <UzhhorodNav />
-      <EventsHero />
-      <EventsList />
+      <main>
+        <EventsHero />
+        <EventsList />
+      </main>
       <FooterSection isUzhhorodPage={true} />
     </div>
   );

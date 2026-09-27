@@ -30,6 +30,7 @@ const ImageResizerPrivacyPage = () => {
       />
       <UzhhorodNav />
 
+      <main>
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 max-w-3xl">
           <Link
@@ -76,6 +77,7 @@ const ImageResizerPrivacyPage = () => {
           </p>
         </div>
       </section>
+      </main>
 
       <FooterSection isUzhhorodPage={true} />
     </div>

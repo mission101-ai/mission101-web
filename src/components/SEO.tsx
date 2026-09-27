@@ -28,7 +28,7 @@ interface SEOProps {
 export const SEO = ({
   title,
   description,
-  ogImage = 'https://mission101.ai/mission101-og-2026.png',
+  ogImage = 'https://mission101.ai/mission101-og-1200x630.jpg',
   canonical,
   isLocalPage = false,
   isServicePage = false,

@@ -36,13 +36,15 @@ const Uzhhorod = () => {
         isLocalPage={true}
       />
       <UzhhorodNav />
-      <UzhhorodHero />
-      <UzhhorodFounder />
-      <UzhhorodLocalAdvantages />
-      <UzhhorodServices />
-      <UzhhorodCTA />
-      <UzhhorodContacts />
-      <UzhhorodFAQ />
+      <main>
+        <UzhhorodHero />
+        <UzhhorodFounder />
+        <UzhhorodLocalAdvantages />
+        <UzhhorodServices />
+        <UzhhorodCTA />
+        <UzhhorodContacts />
+        <UzhhorodFAQ />
+      </main>
       <FooterSection isUzhhorodPage={true} />
     </div>
   );
