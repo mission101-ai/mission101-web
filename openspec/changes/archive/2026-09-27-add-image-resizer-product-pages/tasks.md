@@ -20,7 +20,7 @@
 ## 4. Tests and production verification
 
 - [x] 4.1 Add Playwright coverage for EN/UA product and privacy routes (200/render, language switcher path swap, key privacy statements), and verify the new tests pass via `npm run test` (or a focused Playwright file run)
-- [ ] 4.2 After deploy to mission101.ai, confirm `https://mission101.ai/en/products/image-resizer` and `https://mission101.ai/en/products/image-resizer/privacy-policy` return HTTP 200 with `curl -I`, and spot-check the UA mirrors
+- [x] 4.2 After deploy to mission101.ai, confirm `https://mission101.ai/en/products/image-resizer` and `https://mission101.ai/en/products/image-resizer/privacy-policy` return HTTP 200 with `curl -I`, and spot-check the UA mirrors
 
 ## 5. Cross-repo store URL sync (external)
 
