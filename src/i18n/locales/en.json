@@ -605,6 +605,49 @@
       "playStoreLabel": "Get it on Google Play",
       "playStoreHref": "#play-store-coming-soon",
       "logoAlt": "Mission101 Image Resizer app icon"
+    },
+    "legal": {
+      "name": "Mission101 Legal",
+      "seo": {
+        "title": "Mission101 Legal • Law firm management and reporting • Mission101.ai",
+        "description": "Mission101 Legal helps legal teams manage reports, workflows, and firm operations from a secure web and mobile workspace."
+      },
+      "hero": {
+        "title": "Mission101 Legal",
+        "subtitle": "Law firm management and reporting",
+        "description": "Mission101 Legal helps legal teams manage reports, workflows, and firm operations from a secure web and mobile workspace."
+      },
+      "featuresTitle": "What it offers",
+      "features": [
+        {
+          "title": "Secure web and mobile workspace",
+          "description": "Authorized legal teams get a shared place to sign in, work with operational reports, and continue across web and mobile surfaces."
+        },
+        {
+          "title": "Report workflows for legal operations",
+          "description": "Authenticated upload and processing flows for worker and bank reports help teams prepare generated results without exposing files publicly."
+        },
+        {
+          "title": "Private by default",
+          "description": "Account access, uploaded files, processing metadata, and result downloads are handled through authenticated backend APIs rather than public links."
+        }
+      ],
+      "supportTitle": "Support",
+      "supportBody": "Need help with Mission101 Legal? Contact us at",
+      "supportEmail": "support@mission101.ai",
+      "appCta": "Open Mission101 Legal",
+      "appHref": "https://legal.mission101.ai/",
+      "supportCta": "Support",
+      "supportHref": "https://legal.mission101.ai/support",
+      "privacyCta": "Read the privacy policy",
+      "privacyHref": "https://legal.mission101.ai/privacy",
+      "storesTitle": "Get the app",
+      "storesNote": "iOS is available on the App Store. Android is available through Google Play testing.",
+      "appStoreLabel": "Download on the App Store",
+      "appStoreHref": "https://apps.apple.com/us/app/mission101-legal/id6782926649",
+      "playStoreLabel": "Get it on Google Play",
+      "playStoreHref": "https://play.google.com/apps/test/ai.mission101.legal/2",
+      "logoAlt": "Mission101 Legal app icon"
     }
   }
 }

@@ -305,10 +305,11 @@ export default defineConfig(({ mode }) => ({
           }
         }
         
-        // Product pages: Image Resizer product + privacy (EN/UA)
+        // Product pages: Image Resizer product + privacy, Legal product (EN/UA)
         const productPaths = [
           ['products', 'image-resizer'],
           ['products', 'image-resizer', 'privacy-policy'],
+          ['products', 'legal'],
         ] as const;
 
         for (const segments of productPaths) {
@@ -321,7 +322,7 @@ export default defineConfig(({ mode }) => ({
           }
         }
 
-        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, 12 service page directories, 4 event page directories, and 4 image-resizer product directories');
+        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, 12 service page directories, 4 event page directories, and 6 product page directories');
       }
     }
   ].filter(Boolean),

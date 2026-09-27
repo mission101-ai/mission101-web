@@ -10,6 +10,7 @@ import EventsPage from "./pages/EventsPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import ImageResizerProductPage from "./pages/ImageResizerProductPage";
 import ImageResizerPrivacyPage from "./pages/ImageResizerPrivacyPage";
+import LegalProductPage from "./pages/LegalProductPage";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "@/i18n/config";
@@ -53,6 +54,10 @@ const App = () => (
             <Route path="/en/products/image-resizer/privacy-policy/" element={<ImageResizerPrivacyPage />} />
             <Route path="/ua/products/image-resizer/privacy-policy" element={<ImageResizerPrivacyPage />} />
             <Route path="/ua/products/image-resizer/privacy-policy/" element={<ImageResizerPrivacyPage />} />
+            <Route path="/en/products/legal" element={<LegalProductPage />} />
+            <Route path="/en/products/legal/" element={<LegalProductPage />} />
+            <Route path="/ua/products/legal" element={<LegalProductPage />} />
+            <Route path="/ua/products/legal/" element={<LegalProductPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

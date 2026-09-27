@@ -605,6 +605,49 @@
       "playStoreLabel": "Отримати в Google Play",
       "playStoreHref": "#play-store-coming-soon",
       "logoAlt": "Іконка застосунку Mission101 Image Resizer"
+    },
+    "legal": {
+      "name": "Mission101 Legal",
+      "seo": {
+        "title": "Mission101 Legal • Управління юрфірмою та звітність • Mission101.ai",
+        "description": "Mission101 Legal допомагає юридичним командам керувати звітами, робочими процесами та операціями фірми в захищеному веб- і мобільному робочому просторі."
+      },
+      "hero": {
+        "title": "Mission101 Legal",
+        "subtitle": "Управління юрфірмою та звітність",
+        "description": "Mission101 Legal допомагає юридичним командам керувати звітами, робочими процесами та операціями фірми в захищеному веб- і мобільному робочому просторі."
+      },
+      "featuresTitle": "Що пропонує продукт",
+      "features": [
+        {
+          "title": "Захищений веб- і мобільний простір",
+          "description": "Авторизовані юридичні команди отримують спільне місце для входу, роботи з операційними звітами та продовження роботи у веб- і мобільних інтерфейсах."
+        },
+        {
+          "title": "Процеси звітності для юридичних операцій",
+          "description": "Автентифіковане завантаження й обробка звітів працівників і банківських звітів допомагають командам готувати результати без публічного розкриття файлів."
+        },
+        {
+          "title": "Приватність за замовчуванням",
+          "description": "Доступ до облікового запису, завантажені файли, метадані обробки та завантаження результатів проходять через автентифіковані backend API, а не через публічні посилання."
+        }
+      ],
+      "supportTitle": "Підтримка",
+      "supportBody": "Потрібна допомога з Mission101 Legal? Напишіть нам на",
+      "supportEmail": "support@mission101.ai",
+      "appCta": "Відкрити Mission101 Legal",
+      "appHref": "https://legal.mission101.ai/",
+      "supportCta": "Підтримка",
+      "supportHref": "https://legal.mission101.ai/support",
+      "privacyCta": "Читати політику конфіденційності",
+      "privacyHref": "https://legal.mission101.ai/privacy",
+      "storesTitle": "Завантажити застосунок",
+      "storesNote": "iOS доступний в App Store. Android доступний через тестування Google Play.",
+      "appStoreLabel": "Завантажити в App Store",
+      "appStoreHref": "https://apps.apple.com/us/app/mission101-legal/id6782926649",
+      "playStoreLabel": "Отримати в Google Play",
+      "playStoreHref": "https://play.google.com/apps/test/ai.mission101.legal/2",
+      "logoAlt": "Іконка застосунку Mission101 Legal"
     }
   }
 }
