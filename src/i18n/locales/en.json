@@ -599,11 +599,11 @@
         ]
       },
       "storesTitle": "Get the app",
-      "storesNote": "Store links will go live with the public release.",
+      "storesNote": "Android is available on Google Play. The App Store link will go live with the iOS release.",
       "appStoreLabel": "Download on the App Store",
       "appStoreHref": "#app-store-coming-soon",
       "playStoreLabel": "Get it on Google Play",
-      "playStoreHref": "#play-store-coming-soon",
+      "playStoreHref": "https://play.google.com/store/apps/details?id=ai.mission101.imageresizer",
       "logoAlt": "Mission101 Image Resizer app icon"
     },
     "legal": {
@@ -642,11 +642,11 @@
       "privacyCta": "Read the privacy policy",
       "privacyHref": "https://legal.mission101.ai/privacy",
       "storesTitle": "Get the app",
-      "storesNote": "iOS is available on the App Store. Android is available through Google Play testing.",
+      "storesNote": "iOS is available on the App Store. Android is available on Google Play.",
       "appStoreLabel": "Download on the App Store",
       "appStoreHref": "https://apps.apple.com/us/app/mission101-legal/id6782926649",
       "playStoreLabel": "Get it on Google Play",
-      "playStoreHref": "https://play.google.com/apps/test/ai.mission101.legal/2",
+      "playStoreHref": "https://play.google.com/store/apps/details?id=ai.mission101.legal",
       "logoAlt": "Mission101 Legal app icon"
     }
   }

@@ -14,7 +14,7 @@ test.describe('Image Resizer product pages', () => {
       );
       await expect(page.getByTestId('image-resizer-play-store-link')).toHaveAttribute(
         'href',
-        '#play-store-coming-soon'
+        'https://play.google.com/store/apps/details?id=ai.mission101.imageresizer'
       );
     });
 

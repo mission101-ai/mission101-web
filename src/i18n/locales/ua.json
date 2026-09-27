@@ -599,11 +599,11 @@
         ]
       },
       "storesTitle": "Завантажити застосунок",
-      "storesNote": "Посилання на магазини з’являться з публічним релізом.",
+      "storesNote": "Android доступний в Google Play. Посилання на App Store з’явиться з релізом iOS.",
       "appStoreLabel": "Завантажити в App Store",
       "appStoreHref": "#app-store-coming-soon",
       "playStoreLabel": "Отримати в Google Play",
-      "playStoreHref": "#play-store-coming-soon",
+      "playStoreHref": "https://play.google.com/store/apps/details?id=ai.mission101.imageresizer",
       "logoAlt": "Іконка застосунку Mission101 Image Resizer"
     },
     "legal": {
@@ -642,11 +642,11 @@
       "privacyCta": "Читати політику конфіденційності",
       "privacyHref": "https://legal.mission101.ai/privacy",
       "storesTitle": "Завантажити застосунок",
-      "storesNote": "iOS доступний в App Store. Android доступний через тестування Google Play.",
+      "storesNote": "iOS доступний в App Store. Android доступний в Google Play.",
       "appStoreLabel": "Завантажити в App Store",
       "appStoreHref": "https://apps.apple.com/us/app/mission101-legal/id6782926649",
       "playStoreLabel": "Отримати в Google Play",
-      "playStoreHref": "https://play.google.com/apps/test/ai.mission101.legal/2",
+      "playStoreHref": "https://play.google.com/store/apps/details?id=ai.mission101.legal",
       "logoAlt": "Іконка застосунку Mission101 Legal"
     }
   }

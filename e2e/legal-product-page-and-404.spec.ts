@@ -22,7 +22,7 @@ test.describe('Mission101 Legal product page', () => {
     );
     await expect(page.getByTestId('legal-play-store-link')).toHaveAttribute(
       'href',
-      'https://play.google.com/apps/test/ai.mission101.legal/2'
+      'https://play.google.com/store/apps/details?id=ai.mission101.legal'
     );
   });
 
