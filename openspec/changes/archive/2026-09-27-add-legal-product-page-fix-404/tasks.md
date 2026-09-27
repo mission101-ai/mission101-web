@@ -24,4 +24,4 @@
 ## 5. Tests and production verification
 
 - [x] 5.1 Add Playwright coverage for EN/UA Legal product routes (render, logo, support email, external privacy/support/app hrefs, language switcher path swap) and for the Not Found page (unknown route shows 404 content + nav/footer), and verify the new tests pass via a focused Playwright run
-- [ ] 5.2 After deploy to mission101.ai, confirm `https://mission101.ai/en/products/legal` and `https://mission101.ai/ua/products/legal` return HTTP 200 with `curl -I`, and spot-check the live 404 page alignment in the browser
+- [x] 5.2 After deploy to mission101.ai, confirm `https://mission101.ai/en/products/legal` and `https://mission101.ai/ua/products/legal` return HTTP 200 with `curl -I`, and spot-check the live 404 page alignment in the browser
