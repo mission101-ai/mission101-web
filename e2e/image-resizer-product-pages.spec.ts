@@ -31,7 +31,7 @@ test.describe('Image Resizer product pages', () => {
       });
       expect(response?.ok()).toBeTruthy();
       await expect(page.getByRole('heading', { level: 1 })).toContainText('Privacy Policy');
-      const body = await page.locator('main, body').innerText();
+      const body = await page.locator('main').innerText();
       expect(body).toContain('on your device');
       expect(body).toContain('Camera');
       expect(body).toContain('Photo Library');
