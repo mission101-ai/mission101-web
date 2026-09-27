@@ -5,6 +5,29 @@ import { useTranslation } from 'react-i18next';
 const BASE_URL = 'https://mission101.ai';
 const BUSINESS_PHONE = '+380974825097';
 
+const BREADCRUMB_LABELS: Record<'en' | 'uk', { home: string; services: string; events: string }> = {
+  en: { home: 'Home', services: 'Services', events: 'Events' },
+  uk: { home: 'Головна', services: 'Послуги', events: 'Події' },
+};
+
+interface BreadcrumbStep {
+  name: string;
+  item: string;
+}
+
+function buildBreadcrumbList(steps: BreadcrumbStep[]) {
+  if (steps.length === 0) return null;
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: steps.map((step, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: step.name,
+      item: step.item,
+    })),
+  };
+}
+
 interface ApplicationSchema {
   type: 'SoftwareApplication' | 'MobileApplication';
   name: string;
@@ -23,6 +46,8 @@ interface SEOProps {
   /** @deprecated use hreflangPath */
   productHreflangPath?: string;
   applicationSchema?: ApplicationSchema;
+  /** When true, adds <meta name="robots" content="noindex, follow"> to this page. Defaults to indexable. */
+  noindex?: boolean;
 }
 
 export const SEO = ({
@@ -36,6 +61,7 @@ export const SEO = ({
   hreflangPath,
   productHreflangPath,
   applicationSchema,
+  noindex = false,
 }: SEOProps) => {
   const location = useLocation();
   const { i18n, t } = useTranslation();
@@ -45,6 +71,7 @@ export const SEO = ({
 
   useEffect(() => {
     const currentLang = i18n.language || 'en';
+    const langPrefix = currentLang === 'ua' ? 'ua' : 'en';
     const currentPath = location.pathname;
 
     // Normalize path - add trailing slashes for directory-like paths (matches GitHub Pages behavior)
@@ -88,6 +115,13 @@ export const SEO = ({
     document.documentElement.lang = currentLang === 'ua' ? 'uk' : currentLang;
 
     updateMetaTag('description', pageDescription);
+
+    if (noindex) {
+      updateMetaTag('robots', 'noindex, follow');
+    } else {
+      const existingRobotsTag = document.querySelector('meta[name="robots"]');
+      existingRobotsTag?.remove();
+    }
 
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
@@ -146,9 +180,46 @@ export const SEO = ({
       document.head.appendChild(schemaScript);
     }
 
+    // Breadcrumb JSON-LD for service/event/product pages, reusing the resolved page title
+    // as the leaf label so it never drifts from what search engines already see as the title.
+    const breadcrumbLangKey = currentLang === 'ua' ? 'uk' : 'en';
+    const breadcrumbLabels = BREADCRUMB_LABELS[breadcrumbLangKey];
+    const homeUrl = currentLang === 'ua' ? `${BASE_URL}/ua/` : `${BASE_URL}/`;
+    const homeStep: BreadcrumbStep = { name: breadcrumbLabels.home, item: homeUrl };
+
+    let breadcrumbSteps: BreadcrumbStep[] = [];
     if (isServicePage && serviceSlug) {
-      schemaScript.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
+      breadcrumbSteps = [
+        homeStep,
+        { name: breadcrumbLabels.services, item: `${homeUrl}#services` },
+        { name: pageTitle, item: canonicalUrl },
+      ];
+    } else if (alternatePath?.startsWith('events')) {
+      const eventsIndexUrl = `${BASE_URL}/${langPrefix}/events/`;
+      breadcrumbSteps =
+        alternatePath === 'events'
+          ? [homeStep, { name: breadcrumbLabels.events, item: eventsIndexUrl }]
+          : [
+              homeStep,
+              { name: breadcrumbLabels.events, item: eventsIndexUrl },
+              { name: pageTitle, item: canonicalUrl },
+            ];
+    } else if (alternatePath?.startsWith('products/')) {
+      const segments = alternatePath.split('/');
+      if (segments.length === 3) {
+        const productSlug = segments[1];
+        const productKey = productSlug.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase());
+        const parentLabel = t(`products.${productKey}.name`, { defaultValue: pageTitle });
+        const parentUrl = `${BASE_URL}/${langPrefix}/products/${productSlug}/`;
+        breadcrumbSteps = [homeStep, { name: parentLabel, item: parentUrl }, { name: pageTitle, item: canonicalUrl }];
+      } else {
+        breadcrumbSteps = [homeStep, { name: pageTitle, item: canonicalUrl }];
+      }
+    }
+    const breadcrumbList = buildBreadcrumbList(breadcrumbSteps);
+
+    if (isServicePage && serviceSlug) {
+      const serviceSchema = {
         '@type': 'Service',
         name: pageTitle,
         description: pageDescription,
@@ -162,7 +233,12 @@ export const SEO = ({
           '@type': 'Place',
           name: 'Worldwide',
         },
-      });
+      };
+      schemaScript.textContent = JSON.stringify(
+        breadcrumbList
+          ? { '@context': 'https://schema.org', '@graph': [serviceSchema, breadcrumbList] }
+          : { '@context': 'https://schema.org', ...serviceSchema }
+      );
     } else if (isUzhhorodPage) {
       schemaScript.textContent = JSON.stringify({
         '@context': 'https://schema.org',
@@ -196,8 +272,7 @@ export const SEO = ({
         ],
       });
     } else if (applicationSchemaType && applicationSchemaName) {
-      schemaScript.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
+      const applicationSchemaObject = {
         '@type': applicationSchemaType,
         name: applicationSchemaName,
         description: pageDescription,
@@ -208,7 +283,12 @@ export const SEO = ({
           price: '0',
           priceCurrency: 'USD',
         },
-      });
+      };
+      schemaScript.textContent = JSON.stringify(
+        breadcrumbList
+          ? { '@context': 'https://schema.org', '@graph': [applicationSchemaObject, breadcrumbList] }
+          : { '@context': 'https://schema.org', ...applicationSchemaObject }
+      );
     } else if (isHomePage) {
       schemaScript.textContent = JSON.stringify({
         '@context': 'https://schema.org',
@@ -234,6 +314,10 @@ export const SEO = ({
           },
         ],
       });
+    } else if (breadcrumbList) {
+      // Page types with no primary schema type (e.g. events index, product privacy pages)
+      // still get breadcrumb-only structured data.
+      schemaScript.textContent = JSON.stringify({ '@context': 'https://schema.org', ...breadcrumbList });
     } else if (schemaScript) {
       // Page types without a defined graph: remove leftover schema from prior navigations
       schemaScript.remove();
@@ -250,6 +334,7 @@ export const SEO = ({
     alternatePath,
     applicationSchemaType,
     applicationSchemaName,
+    noindex,
     i18n.language,
     t,
   ]);

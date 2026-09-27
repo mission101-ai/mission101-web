@@ -76,8 +76,16 @@ test.describe('SEO Tags', () => {
 
     const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
     const schema = JSON.parse(schemaText!);
-    expect(schema['@type']).toBe('Service');
-    expect(schema.url).toBe('https://mission101.ai/en/services/voice-agents/');
+    const nodes = schema['@graph'] || [schema];
+    const service = nodes.find((n: { '@type'?: string }) => n['@type'] === 'Service');
+    expect(service).toBeTruthy();
+    expect(service.url).toBe('https://mission101.ai/en/services/voice-agents/');
+
+    const breadcrumb = nodes.find((n: { '@type'?: string }) => n['@type'] === 'BreadcrumbList');
+    expect(breadcrumb).toBeTruthy();
+    const items = breadcrumb.itemListElement;
+    expect(items[0].item).toBe('https://mission101.ai/');
+    expect(items[items.length - 1].item).toBe('https://mission101.ai/en/services/voice-agents/');
   });
 
   test('product static HTML head matches hydrated canonical/title', async ({ page, request }) => {
@@ -96,9 +104,17 @@ test.describe('SEO Tags', () => {
 
     const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
     const schema = JSON.parse(schemaText!);
-    expect(schema['@type']).toBe('SoftwareApplication');
-    expect(schema.name).toBe('Mission101 Legal');
-    expect(schema.url).toBe('https://mission101.ai/en/products/legal/');
+    const nodes = schema['@graph'] || [schema];
+    const application = nodes.find((n: { '@type'?: string }) => n['@type'] === 'SoftwareApplication');
+    expect(application).toBeTruthy();
+    expect(application.name).toBe('Mission101 Legal');
+    expect(application.url).toBe('https://mission101.ai/en/products/legal/');
+
+    const breadcrumb = nodes.find((n: { '@type'?: string }) => n['@type'] === 'BreadcrumbList');
+    expect(breadcrumb).toBeTruthy();
+    const items = breadcrumb.itemListElement;
+    expect(items[0].item).toBe('https://mission101.ai/');
+    expect(items[items.length - 1].item).toBe('https://mission101.ai/en/products/legal/');
   });
 
   test('events static HTML head matches hydrated canonical/title', async ({ page, request }) => {
@@ -123,6 +139,14 @@ test.describe('SEO Tags', () => {
     expect(
       await page.locator('link[rel="alternate"][hreflang="x-default"]').getAttribute('href')
     ).toBe('https://mission101.ai/en/events/');
+
+    const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
+    const schema = JSON.parse(schemaText!);
+    expect(schema['@type']).toBe('BreadcrumbList');
+    expect(schema.itemListElement[0].item).toBe('https://mission101.ai/');
+    expect(schema.itemListElement[schema.itemListElement.length - 1].item).toBe(
+      'https://mission101.ai/en/events/'
+    );
   });
 
   test('Uzhhorod LocalBusiness telephone is E.164', async ({ page }) => {

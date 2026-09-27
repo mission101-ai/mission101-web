@@ -1,0 +1,26 @@
+## 1. Homepage meta description
+
+- [x] 1.1 Draft a new English homepage meta description of 160 characters or fewer that still mentions intelligent automation/AI for business and includes a soft call to action; verify length with a character count. (150 chars; also shortened the Ukrainian `seo.description` to 145 chars to satisfy the same modified spec requirement, which explicitly covers both languages.)
+- [x] 1.2 Update `seo.description` in `src/i18n/locales/en.json` to the new copy.
+- [x] 1.3 Update the matching `<meta name="description">` and `og:description`/`twitter:description` values in `index.html` and `public/en/index.html` to the same copy, keeping the prerendered shell and runtime string in agreement. (Also updated `public/ua/index.html`, which had drifted from the runtime Ukrainian string even before this change.)
+- [x] 1.4 Verify: run the app (`npm run dev` or build), inspect the rendered `<head>` for `/` and `/en/`, and confirm the description text matches across static HTML and post-hydration DOM and is ≤160 characters. (`npm run build` succeeded; `dist/index.html`, `dist/en/index.html`, `dist/ua/index.html` all carry the new copy at 150/150/145 chars respectively.)
+
+## 2. Robots noindex support
+
+- [x] 2.1 Add an optional `noindex` boolean prop to `SEOProps` in `src/components/SEO.tsx`, defaulting to unset/false.
+- [x] 2.2 Implement `updateMetaTag`-based logic that adds `<meta name="robots" content="noindex, follow">` when `noindex` is true, and removes any existing `robots` meta tag when `noindex` is false/absent (so navigating away from a noindexed page clears it).
+- [x] 2.3 Verify: with a temporary local test render (or existing test harness) confirm the meta tag appears when `noindex` is passed, and confirm it is absent for a page rendered without the prop, then remove any temporary test scaffolding not meant to remain. (Temporarily set `noindex` on `ImageResizerPrivacyPage`'s `<SEO>` call and confirmed via a disposable Playwright spec that `/en/products/image-resizer/privacy-policy/` rendered `<meta name="robots" content="noindex, follow">` while the sibling `/en/products/image-resizer/` page had no `robots` meta tag at all. Reverted the temporary prop, rebuilt, removed the scaffolding spec; `git status` confirms no stray page or test changes remain.)
+
+## 3. Breadcrumb structured data
+
+- [x] 3.1 Add a small pure helper in or alongside `src/components/SEO.tsx` that builds a `BreadcrumbList` JSON-LD object (an ordered array of `{name, item}` steps) from the already-resolved page title/H1 string and the current path, for service, event, and product page types.
+- [x] 3.2 Wire the helper into the existing schema-building logic so the breadcrumb entry is merged into the same `@graph`/script element already written for service pages (alongside the existing `Service` schema).
+- [x] 3.3 Extend the same wiring to event pages (index and detail) and product pages (Image Resizer, Image Resizer privacy, Legal), each with the correct hierarchy depth (Home > Events > event, Home > product). (Image Resizer privacy is Home > Image Resizer > Privacy Policy, since it is genuinely nested under the product page.)
+- [x] 3.4 Ensure breadcrumb item URLs use the same language prefix (`/en/` or `/ua/`) as the page's own canonical URL.
+- [x] 3.5 Verify: view each affected page type in a browser after hydration, inspect `document.querySelectorAll('script[type="application/ld+json"]')`, and confirm a `BreadcrumbList` is present with correctly ordered, correctly prefixed item URLs; confirm navigating between page types does not leave a stale breadcrumb from a previous page. (Covered by the updated/added assertions in `e2e/seo-tags.spec.ts` for service, product/Legal, and events-index pages, plus a disposable Playwright check for the Image Resizer privacy page and the Ukrainian service page `/ua/` prefix — all passed, scaffolding removed after. The existing single-script cleanup logic (`schemaScript.remove()` in the final else-branch) is unchanged, so no stale-script risk was introduced.)
+
+## 4. Regression check against existing SEO specs
+
+- [x] 4.1 Re-verify the existing `structured-data` scenarios (homepage Organization/WebSite graph, Uzhhorod LocalBusiness telephone, product application schema, service Service schema) still pass after the `SEO.tsx` changes, per the current `openspec/specs/seo/structured-data/spec.md`. (`e2e/seo-tags.spec.ts` covers all four; updated the service and product assertions to look inside `@graph` now that breadcrumb data is merged in, per design.md's decision. All pass.)
+- [x] 4.2 Re-verify the existing `static-document-heads` scenarios (static and hydrated title/description/canonical agree) still pass for the homepage after the description edit, per `openspec/specs/seo/static-document-heads/spec.md`. (Confirmed via `npm run build` output: `dist/index.html`, `dist/en/index.html`, `dist/ua/index.html` all carry the same new description as the runtime `en.json`/`ua.json` strings; existing e2e canonical/hreflang/title assertions for `/en/products/legal/` and `/en/events/` still pass.)
+- [x] 4.3 Run the project's existing test suite (`npm run test`) and confirm no regressions. (124/124 Playwright tests passed.)
