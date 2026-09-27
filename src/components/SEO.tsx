@@ -2,6 +2,14 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+const BASE_URL = 'https://mission101.ai';
+const BUSINESS_PHONE = '+380974825097';
+
+interface ApplicationSchema {
+  type: 'SoftwareApplication' | 'MobileApplication';
+  name: string;
+}
+
 interface SEOProps {
   title?: string;
   description?: string;
@@ -10,65 +18,77 @@ interface SEOProps {
   isLocalPage?: boolean;
   isServicePage?: boolean;
   serviceSlug?: string;
-  /** Language-agnostic path under /en|ua/, e.g. products/image-resizer */
+  /** Language-agnostic path under /en|ua/, e.g. products/image-resizer or events */
+  hreflangPath?: string;
+  /** @deprecated use hreflangPath */
   productHreflangPath?: string;
+  applicationSchema?: ApplicationSchema;
 }
 
-export const SEO = ({ 
-  title, 
-  description, 
+export const SEO = ({
+  title,
+  description,
   ogImage = 'https://mission101.ai/mission101-og-2026.png',
   canonical,
   isLocalPage = false,
   isServicePage = false,
   serviceSlug,
-  productHreflangPath
+  hreflangPath,
+  productHreflangPath,
+  applicationSchema,
 }: SEOProps) => {
   const location = useLocation();
   const { i18n, t } = useTranslation();
-  
+  const alternatePath = hreflangPath || productHreflangPath;
+  const applicationSchemaType = applicationSchema?.type;
+  const applicationSchemaName = applicationSchema?.name;
+
   useEffect(() => {
     const currentLang = i18n.language || 'en';
-    const baseUrl = 'https://mission101.ai';
     const currentPath = location.pathname;
-    
+
     // Normalize path - add trailing slashes for directory-like paths (matches GitHub Pages behavior)
-    const normalizedPath = currentPath === '/' ? '/' : (currentPath.endsWith('/') ? currentPath : currentPath + '/');
-    
-    // Determine the canonical URL
-    const canonicalUrl = canonical || `${baseUrl}${normalizedPath}`;
-    
-    // Default SEO content from translations
+    const normalizedPath =
+      currentPath === '/' ? '/' : currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+
+    const isEnglishHome = normalizedPath === '/' || normalizedPath === '/en/';
+    const isUkrainianHome = normalizedPath === '/ua/';
+    const isHomePage = isEnglishHome || isUkrainianHome;
+    // Match /en/uzhhorod/ only — not event slugs like /events/uzhhorod-2026-03-18/
+    const isUzhhorodPath = /\/uzhhorod\/?$/.test(normalizedPath);
+    const isUzhhorodPage = isLocalPage || isUzhhorodPath;
+
+    // Preferred English homepage is apex `/` (not `/en/`)
+    let canonicalUrl = canonical || `${BASE_URL}${normalizedPath}`;
+    if (!canonical && isEnglishHome) {
+      canonicalUrl = `${BASE_URL}/`;
+    }
+
     const defaultTitle = t('seo.title');
     const defaultDescription = t('seo.description');
-    
+
     const pageTitle = title || defaultTitle;
     const pageDescription = description || defaultDescription;
-    
-    // Update document title
+
     document.title = pageTitle;
-    
-    // Update or create meta tags
+
     const updateMetaTag = (name: string, content: string, isProperty = false) => {
       const attribute = isProperty ? 'property' : 'name';
       let element = document.querySelector(`meta[${attribute}="${name}"]`);
-      
+
       if (!element) {
         element = document.createElement('meta');
         element.setAttribute(attribute, name);
         document.head.appendChild(element);
       }
-      
+
       element.setAttribute('content', content);
     };
-    
-    // Update HTML lang attribute
+
     document.documentElement.lang = currentLang === 'ua' ? 'uk' : currentLang;
-    
-    // Update basic meta tags
+
     updateMetaTag('description', pageDescription);
-    
-    // Update canonical link
+
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
@@ -76,20 +96,17 @@ export const SEO = ({
       document.head.appendChild(canonicalLink);
     }
     canonicalLink.setAttribute('href', canonicalUrl);
-    
-    // Update Open Graph tags
+
     updateMetaTag('og:title', pageTitle, true);
     updateMetaTag('og:description', pageDescription, true);
     updateMetaTag('og:url', canonicalUrl, true);
     updateMetaTag('og:image', ogImage, true);
     updateMetaTag('og:locale', currentLang === 'ua' ? 'uk_UA' : 'en_US', true);
-    
-    // Update Twitter Card tags
+
     updateMetaTag('twitter:title', pageTitle);
     updateMetaTag('twitter:description', pageDescription);
     updateMetaTag('twitter:image', ogImage);
-    
-    // Update language alternates
+
     const updateAlternateLink = (hreflang: string, href: string) => {
       let link = document.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`);
       if (!link) {
@@ -100,28 +117,28 @@ export const SEO = ({
       }
       link.setAttribute('href', href);
     };
-    
-    // Update hreflang based on page type (use trailing slashes to match GitHub Pages behavior)
-    if (productHreflangPath) {
-      const normalizedProductPath = productHreflangPath.replace(/^\/+|\/+$/g, '');
-      updateAlternateLink('en', `${baseUrl}/en/${normalizedProductPath}/`);
-      updateAlternateLink('uk', `${baseUrl}/ua/${normalizedProductPath}/`);
-      updateAlternateLink('x-default', `${baseUrl}/en/${normalizedProductPath}/`);
+
+    // Hreflang: en/uk codes, x-default always English URL (trailing slash)
+    if (alternatePath) {
+      const normalizedAlternatePath = alternatePath.replace(/^\/+|\/+$/g, '');
+      updateAlternateLink('en', `${BASE_URL}/en/${normalizedAlternatePath}/`);
+      updateAlternateLink('uk', `${BASE_URL}/ua/${normalizedAlternatePath}/`);
+      updateAlternateLink('x-default', `${BASE_URL}/en/${normalizedAlternatePath}/`);
     } else if (isServicePage && serviceSlug) {
-      updateAlternateLink('en', `${baseUrl}/en/services/${serviceSlug}/`);
-      updateAlternateLink('uk', `${baseUrl}/ua/services/${serviceSlug}/`);
-      updateAlternateLink('x-default', `${baseUrl}/ua/services/${serviceSlug}/`);
-    } else if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
-      updateAlternateLink('en', `${baseUrl}/en/uzhhorod/`);
-      updateAlternateLink('uk', `${baseUrl}/ua/uzhhorod/`);
-      updateAlternateLink('x-default', `${baseUrl}/ua/uzhhorod/`);
+      updateAlternateLink('en', `${BASE_URL}/en/services/${serviceSlug}/`);
+      updateAlternateLink('uk', `${BASE_URL}/ua/services/${serviceSlug}/`);
+      updateAlternateLink('x-default', `${BASE_URL}/en/services/${serviceSlug}/`);
+    } else if (isUzhhorodPage) {
+      updateAlternateLink('en', `${BASE_URL}/en/uzhhorod/`);
+      updateAlternateLink('uk', `${BASE_URL}/ua/uzhhorod/`);
+      updateAlternateLink('x-default', `${BASE_URL}/en/uzhhorod/`);
     } else {
-      updateAlternateLink('en', `${baseUrl}/en/`);
-      updateAlternateLink('uk', `${baseUrl}/ua/`);
-      updateAlternateLink('x-default', baseUrl);
+      // Home cluster: preferred English URL is apex
+      updateAlternateLink('en', `${BASE_URL}/`);
+      updateAlternateLink('uk', `${BASE_URL}/ua/`);
+      updateAlternateLink('x-default', `${BASE_URL}/`);
     }
-    
-    // Add structured data based on page type
+
     let schemaScript = document.querySelector('script[type="application/ld+json"]');
     if (!schemaScript) {
       schemaScript = document.createElement('script');
@@ -130,65 +147,112 @@ export const SEO = ({
     }
 
     if (isServicePage && serviceSlug) {
-      const schemaData = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": pageTitle,
-        "description": pageDescription,
-        "provider": {
-          "@type": "Organization",
-          "name": "Mission101.ai",
-          "url": "https://mission101.ai"
+      schemaScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: pageTitle,
+        description: pageDescription,
+        provider: {
+          '@type': 'Organization',
+          name: 'Mission101.ai',
+          url: BASE_URL,
         },
-        "url": canonicalUrl,
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      };
-      schemaScript.textContent = JSON.stringify(schemaData);
-    } else if (isLocalPage || normalizedPath.includes('/uzhhorod')) {
-      const schemaData = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Mission101.ai",
-        "image": ogImage,
-        "description": pageDescription,
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Uzhhorod",
-          "addressRegion": "Zakarpattia Oblast",
-          "addressCountry": "UA"
+        url: canonicalUrl,
+        areaServed: {
+          '@type': 'Place',
+          name: 'Worldwide',
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "48.6208",
-          "longitude": "22.2879"
+      });
+    } else if (isUzhhorodPage) {
+      schemaScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'Mission101.ai',
+        image: ogImage,
+        description: pageDescription,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Uzhhorod',
+          addressRegion: 'Zakarpattia Oblast',
+          addressCountry: 'UA',
         },
-        "url": canonicalUrl,
-        "telephone": "+380",
-        "priceRange": "$$",
-        "areaServed": {
-          "@type": "City",
-          "name": "Uzhhorod"
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '48.6208',
+          longitude: '22.2879',
         },
-        "serviceType": [
-          "Business Process Automation",
-          "AI Solutions",
-          "IT Consulting",
-          "Cost Optimization"
-        ]
-      };
-      schemaScript.textContent = JSON.stringify(schemaData);
-    } else {
-      const existingSchema = document.querySelector('script[type="application/ld+json"]');
-      if (existingSchema) {
-        existingSchema.remove();
-      }
+        url: canonicalUrl,
+        telephone: BUSINESS_PHONE,
+        priceRange: '$$',
+        areaServed: {
+          '@type': 'City',
+          name: 'Uzhhorod',
+        },
+        serviceType: [
+          'Business Process Automation',
+          'AI Solutions',
+          'IT Consulting',
+          'Cost Optimization',
+        ],
+      });
+    } else if (applicationSchemaType && applicationSchemaName) {
+      schemaScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': applicationSchemaType,
+        name: applicationSchemaName,
+        description: pageDescription,
+        url: canonicalUrl,
+        applicationCategory: 'BusinessApplication',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+      });
+    } else if (isHomePage) {
+      schemaScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Organization',
+            name: 'Mission101.ai',
+            url: BASE_URL,
+            logo: `${BASE_URL}/mission101-icon.ico`,
+            description:
+              'Empowering businesses worldwide through intelligent automation and AI-driven optimization',
+          },
+          {
+            '@type': 'WebSite',
+            name: 'Mission101.ai',
+            url: BASE_URL,
+            description: pageDescription,
+            publisher: {
+              '@type': 'Organization',
+              name: 'Mission101.ai',
+            },
+            inLanguage: ['en', 'uk'],
+          },
+        ],
+      });
+    } else if (schemaScript) {
+      // Page types without a defined graph: remove leftover schema from prior navigations
+      schemaScript.remove();
     }
-    
-  }, [location, title, description, ogImage, canonical, isLocalPage, isServicePage, serviceSlug, productHreflangPath, i18n.language, t]);
-  
-  return null; // This component doesn't render anything
-};
+  }, [
+    location,
+    title,
+    description,
+    ogImage,
+    canonical,
+    isLocalPage,
+    isServicePage,
+    serviceSlug,
+    alternatePath,
+    applicationSchemaType,
+    applicationSchemaName,
+    i18n.language,
+    t,
+  ]);
 
+  return null;
+};

@@ -19,7 +19,7 @@ const EventsPage = () => {
       <SEO
         title={t('events.seo.title')}
         description={t('events.seo.description')}
-        isLocalPage={true}
+        hreflangPath="events"
       />
       <UzhhorodNav />
       <EventsHero />

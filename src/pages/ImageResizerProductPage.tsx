@@ -26,7 +26,8 @@ const ImageResizerProductPage = () => {
       <SEO
         title={t('products.imageResizer.seo.title')}
         description={t('products.imageResizer.seo.description')}
-        productHreflangPath="products/image-resizer"
+        hreflangPath="products/image-resizer"
+        applicationSchema={{ type: 'MobileApplication', name: 'Mission101 Image Resizer' }}
       />
       <UzhhorodNav />
 

@@ -9,12 +9,14 @@ test.describe('SEO Tags', () => {
     expect(canonical).toBe('https://mission101.ai/');
   });
 
-  test('/en page should have correct canonical URL', async ({ page }) => {
+  test('/en page should canonical to preferred English home (apex)', async ({ page }) => {
     await page.goto('/en');
     await page.waitForLoadState('networkidle');
     
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toBe('https://mission101.ai/en/');
+    expect(canonical).toBe('https://mission101.ai/');
+    const ogUrl = await page.locator('meta[property="og:url"]').getAttribute('content');
+    expect(ogUrl).toBe('https://mission101.ai/');
   });
 
   test('/ua page should have correct canonical URL', async ({ page }) => {
@@ -25,13 +27,12 @@ test.describe('SEO Tags', () => {
     expect(canonical).toBe('https://mission101.ai/ua/');
   });
 
-  test('trailing slash routes should normalize to canonical without trailing slash', async ({ page }) => {
+  test('/en/ trailing slash also canonicals to preferred English home', async ({ page }) => {
     await page.goto('/en/');
     await page.waitForLoadState('networkidle');
     
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toBe('https://mission101.ai/en/');
-    expect(canonical).toMatch(/\/$/);
+    expect(canonical).toBe('https://mission101.ai/');
   });
 
   test('hreflang tags should be present on all pages', async ({ page }) => {
@@ -41,18 +42,95 @@ test.describe('SEO Tags', () => {
       await page.goto(route);
       await page.waitForLoadState('networkidle');
       
-      // Check for English alternate
+      // Preferred English home is apex
       const enLink = await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute('href');
-      expect(enLink).toBe('https://mission101.ai/en/');
+      expect(enLink).toBe('https://mission101.ai/');
       
-      // Check for Ukrainian alternate
       const ukLink = await page.locator('link[rel="alternate"][hreflang="uk"]').getAttribute('href');
       expect(ukLink).toBe('https://mission101.ai/ua/');
       
-      // Check for x-default
       const defaultLink = await page.locator('link[rel="alternate"][hreflang="x-default"]').getAttribute('href');
-      expect(defaultLink).toBeTruthy();
+      expect(defaultLink).toBe('https://mission101.ai/');
     }
+  });
+
+  test('homepage keeps Organization + WebSite JSON-LD after hydration', async ({ page }) => {
+    await page.goto('/en/', { waitUntil: 'networkidle' });
+
+    const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
+    expect(schemaText).toBeTruthy();
+    const schema = JSON.parse(schemaText!);
+    const nodes = schema['@graph'] || [schema];
+    const types = nodes.map((n: { '@type'?: string }) => n['@type']);
+    expect(types).toContain('Organization');
+    expect(types).toContain('WebSite');
+  });
+
+  test('service x-default targets English URL', async ({ page }) => {
+    await page.goto('/en/services/voice-agents/', { waitUntil: 'networkidle' });
+
+    const xDefault = await page
+      .locator('link[rel="alternate"][hreflang="x-default"]')
+      .getAttribute('href');
+    expect(xDefault).toBe('https://mission101.ai/en/services/voice-agents/');
+
+    const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
+    const schema = JSON.parse(schemaText!);
+    expect(schema['@type']).toBe('Service');
+    expect(schema.url).toBe('https://mission101.ai/en/services/voice-agents/');
+  });
+
+  test('product static HTML head matches hydrated canonical/title', async ({ page, request }) => {
+    const path = '/en/products/legal/';
+    const staticRes = await request.get(path);
+    expect(staticRes.ok()).toBeTruthy();
+    const staticHtml = await staticRes.text();
+    expect(staticHtml).toContain('Mission101 Legal');
+    expect(staticHtml).toContain('rel="canonical" href="https://mission101.ai/en/products/legal/"');
+
+    await page.goto(path, { waitUntil: 'networkidle' });
+    expect(await page.title()).toContain('Mission101 Legal');
+    expect(await page.locator('link[rel="canonical"]').getAttribute('href')).toBe(
+      'https://mission101.ai/en/products/legal/'
+    );
+
+    const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
+    const schema = JSON.parse(schemaText!);
+    expect(schema['@type']).toBe('SoftwareApplication');
+    expect(schema.name).toBe('Mission101 Legal');
+    expect(schema.url).toBe('https://mission101.ai/en/products/legal/');
+  });
+
+  test('events static HTML head matches hydrated canonical/title', async ({ page, request }) => {
+    const path = '/en/events/';
+    const staticRes = await request.get(path);
+    expect(staticRes.ok()).toBeTruthy();
+    const staticHtml = await staticRes.text();
+    expect(staticHtml).toMatch(/<title>[^<]*Events[^<]*<\/title>/);
+    expect(staticHtml).toContain('rel="canonical" href="https://mission101.ai/en/events/"');
+
+    await page.goto(path, { waitUntil: 'networkidle' });
+    expect(await page.title()).toContain('Events');
+    expect(await page.locator('link[rel="canonical"]').getAttribute('href')).toBe(
+      'https://mission101.ai/en/events/'
+    );
+    expect(await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute('href')).toBe(
+      'https://mission101.ai/en/events/'
+    );
+    expect(await page.locator('link[rel="alternate"][hreflang="uk"]').getAttribute('href')).toBe(
+      'https://mission101.ai/ua/events/'
+    );
+    expect(
+      await page.locator('link[rel="alternate"][hreflang="x-default"]').getAttribute('href')
+    ).toBe('https://mission101.ai/en/events/');
+  });
+
+  test('Uzhhorod LocalBusiness telephone is E.164', async ({ page }) => {
+    await page.goto('/ua/uzhhorod/', { waitUntil: 'networkidle' });
+    const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
+    const schema = JSON.parse(schemaText!);
+    expect(schema['@type']).toBe('LocalBusiness');
+    expect(schema.telephone).toBe('+380974825097');
   });
 
   test('meta description should be present', async ({ page }) => {

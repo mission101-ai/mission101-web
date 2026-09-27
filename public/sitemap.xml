@@ -5,16 +5,7 @@
     <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/" />
-  </url>
-  <url>
-    <loc>https://mission101.ai/en/</loc>
-    <lastmod>2026-02-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/" />
     <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/" />
   </url>
@@ -23,7 +14,7 @@
     <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/" />
     <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/" />
   </url>

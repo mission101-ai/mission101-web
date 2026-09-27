@@ -45,7 +45,7 @@ const EventDetailPage = () => {
       <SEO
         title={seoTitle}
         description={seoDescription}
-        isLocalPage={true}
+        hreflangPath={`events/${slug}`}
       />
       <UzhhorodNav />
       <EventHero eventSlug={slug} />

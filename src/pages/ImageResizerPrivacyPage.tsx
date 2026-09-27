@@ -26,7 +26,7 @@ const ImageResizerPrivacyPage = () => {
       <SEO
         title={t('products.imageResizer.privacy.seo.title')}
         description={t('products.imageResizer.privacy.seo.description')}
-        productHreflangPath="products/image-resizer/privacy-policy"
+        hreflangPath="products/image-resizer/privacy-policy"
       />
       <UzhhorodNav />
 

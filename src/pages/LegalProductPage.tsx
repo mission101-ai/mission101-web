@@ -21,7 +21,8 @@ const LegalProductPage = () => {
       <SEO
         title={t('products.legal.seo.title')}
         description={t('products.legal.seo.description')}
-        productHreflangPath="products/legal"
+        hreflangPath="products/legal"
+        applicationSchema={{ type: 'SoftwareApplication', name: 'Mission101 Legal' }}
       />
       <UzhhorodNav />
 
