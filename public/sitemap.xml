@@ -225,5 +225,41 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/events/uzhhorod-2026-03-18/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/events/uzhhorod-2026-03-18/" />
   </url>
+  <url>
+    <loc>https://mission101.ai/en/products/image-resizer/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/products/image-resizer/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/products/image-resizer/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/products/image-resizer/" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/ua/products/image-resizer/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/products/image-resizer/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/products/image-resizer/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/products/image-resizer/" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/en/products/image-resizer/privacy-policy/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/products/image-resizer/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/products/image-resizer/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/products/image-resizer/privacy-policy/" />
+  </url>
+  <url>
+    <loc>https://mission101.ai/ua/products/image-resizer/privacy-policy/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mission101.ai/en/products/image-resizer/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mission101.ai/ua/products/image-resizer/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mission101.ai/en/products/image-resizer/privacy-policy/" />
+  </url>
 </urlset>
 

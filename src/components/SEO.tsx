@@ -10,6 +10,8 @@ interface SEOProps {
   isLocalPage?: boolean;
   isServicePage?: boolean;
   serviceSlug?: string;
+  /** Language-agnostic path under /en|ua/, e.g. products/image-resizer */
+  productHreflangPath?: string;
 }
 
 export const SEO = ({ 
@@ -19,7 +21,8 @@ export const SEO = ({
   canonical,
   isLocalPage = false,
   isServicePage = false,
-  serviceSlug
+  serviceSlug,
+  productHreflangPath
 }: SEOProps) => {
   const location = useLocation();
   const { i18n, t } = useTranslation();
@@ -99,7 +102,12 @@ export const SEO = ({
     };
     
     // Update hreflang based on page type (use trailing slashes to match GitHub Pages behavior)
-    if (isServicePage && serviceSlug) {
+    if (productHreflangPath) {
+      const normalizedProductPath = productHreflangPath.replace(/^\/+|\/+$/g, '');
+      updateAlternateLink('en', `${baseUrl}/en/${normalizedProductPath}/`);
+      updateAlternateLink('uk', `${baseUrl}/ua/${normalizedProductPath}/`);
+      updateAlternateLink('x-default', `${baseUrl}/en/${normalizedProductPath}/`);
+    } else if (isServicePage && serviceSlug) {
       updateAlternateLink('en', `${baseUrl}/en/services/${serviceSlug}/`);
       updateAlternateLink('uk', `${baseUrl}/ua/services/${serviceSlug}/`);
       updateAlternateLink('x-default', `${baseUrl}/ua/services/${serviceSlug}/`);
@@ -179,7 +187,7 @@ export const SEO = ({
       }
     }
     
-  }, [location, title, description, ogImage, canonical, isLocalPage, isServicePage, serviceSlug, i18n.language, t]);
+  }, [location, title, description, ogImage, canonical, isLocalPage, isServicePage, serviceSlug, productHreflangPath, i18n.language, t]);
   
   return null; // This component doesn't render anything
 };

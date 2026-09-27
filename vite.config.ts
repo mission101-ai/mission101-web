@@ -305,7 +305,23 @@ export default defineConfig(({ mode }) => ({
           }
         }
         
-        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, 12 service page directories, and 4 event page directories');
+        // Product pages: Image Resizer product + privacy (EN/UA)
+        const productPaths = [
+          ['products', 'image-resizer'],
+          ['products', 'image-resizer', 'privacy-policy'],
+        ] as const;
+
+        for (const segments of productPaths) {
+          for (const lang of ['en', 'ua'] as const) {
+            const productDir = path.join(distPath, lang, ...segments);
+            if (!fs.existsSync(productDir)) {
+              fs.mkdirSync(productDir, { recursive: true });
+            }
+            fs.copyFileSync(distIndexPath, path.join(productDir, 'index.html'));
+          }
+        }
+
+        console.log('✓ Copied language-specific index.html to /en/, /ua/, /en/uzhhorod/, /ua/uzhhorod/, 12 service page directories, 4 event page directories, and 4 image-resizer product directories');
       }
     }
   ].filter(Boolean),

@@ -525,5 +525,86 @@
         "url": "https://diia-business-uzhhorod.com/events/62-shtuchnyy-intelekt-dlia-maloho-ta-serednyoho-biznesu-praktychni-instrumenty-bez-velykykh-vytrat"
       }
     }
+  },
+  "products": {
+    "imageResizer": {
+      "name": "Mission101 Image Resizer",
+      "seo": {
+        "title": "Mission101 Image Resizer • On-device photo resize • Mission101.ai",
+        "description": "Mission101 Image Resizer is a free mobile app that resizes photos on your device. Select images or take a photo, resize, and save — with no off-device collection by Mission 101."
+      },
+      "hero": {
+        "title": "Mission101 Image Resizer",
+        "subtitle": "Resize photos on your device",
+        "description": "A free utility for iOS and Android that helps you select photos or take a new one, resize them on-device, and save the results. Your photos stay on your phone under your control."
+      },
+      "featuresTitle": "What it does",
+      "features": [
+        {
+          "title": "Select from your library",
+          "description": "Pick one or more photos from your Photo Library and resize them on the device."
+        },
+        {
+          "title": "Take a photo",
+          "description": "Use the camera to capture a photo, then resize and save without leaving the app."
+        },
+        {
+          "title": "On-device processing",
+          "description": "Resize and save flows run on your device. Mission 101 does not upload your photos to a developer backend."
+        }
+      ],
+      "supportTitle": "Support",
+      "supportBody": "Need help with Mission101 Image Resizer? Contact us at",
+      "supportEmail": "support@mission101.ai",
+      "privacyCta": "Read the privacy policy",
+      "privacy": {
+        "seo": {
+          "title": "Privacy Policy • Mission101 Image Resizer • Mission101.ai",
+          "description": "Privacy policy for Mission101 Image Resizer: photos are processed on-device for resize and save. Mission 101 does not collect user photos off device via analytics, ads, crash reporting, or a developer backend."
+        },
+        "title": "Privacy Policy",
+        "productName": "Mission101 Image Resizer",
+        "effectiveDateLabel": "Effective date",
+        "effectiveDate": "September 27, 2026",
+        "intro": "This Privacy Policy explains how Mission 101 (“Mission 101,” “we,” “us,” or “our”) handles information in connection with the Mission101 Image Resizer mobile application for iOS and Android (the “App”). It applies to users of the App and visitors of this product page on https://mission101.ai.",
+        "sections": [
+          {
+            "heading": "Who we are",
+            "body": "The App is operated by Mission 101. For privacy questions about Mission101 Image Resizer, contact support@mission101.ai."
+          },
+          {
+            "heading": "On-device photo processing",
+            "body": "The App lets you select images from your Photo Library or take a photo with the Camera, then resize and save those images. Photo processing for resize and save flows happens on your device."
+          },
+          {
+            "heading": "Permissions we use",
+            "body": "The App requests Camera and Photo Library access only as needed for core functionality: capturing photos, selecting images, and saving resized results on your device."
+          },
+          {
+            "heading": "What we do not collect",
+            "body": "Mission 101 does not collect your photos or other personal data off your device through a developer backend, analytics SDK, advertising SDK, or crash-reporting SDK in the App. We do not sell your personal information."
+          },
+          {
+            "heading": "Children’s privacy",
+            "body": "The App is a general-audience utility. We do not knowingly collect personal information from children off device."
+          },
+          {
+            "heading": "Changes to this policy",
+            "body": "We may update this Privacy Policy from time to time. The effective date at the top of this page will change when we do. Continued use of the App after an update means you accept the revised policy."
+          },
+          {
+            "heading": "Contact",
+            "body": "If you have questions about this Privacy Policy or Mission101 Image Resizer, email support@mission101.ai."
+          }
+        ]
+      },
+      "storesTitle": "Get the app",
+      "storesNote": "Store links will go live with the public release.",
+      "appStoreLabel": "Download on the App Store",
+      "appStoreHref": "#app-store-coming-soon",
+      "playStoreLabel": "Get it on Google Play",
+      "playStoreHref": "#play-store-coming-soon",
+      "logoAlt": "Mission101 Image Resizer app icon"
+    }
   }
 }
