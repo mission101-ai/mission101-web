@@ -86,7 +86,7 @@ test.describe('Uzhhorod Landing Page', () => {
       expect(ukLink).toBe('https://mission101.ai/ua/uzhhorod/');
       
       const defaultLink = await page.locator('link[rel="alternate"][hreflang="x-default"]').getAttribute('href');
-      expect(defaultLink).toBe('https://mission101.ai/ua/uzhhorod/');
+      expect(defaultLink).toBe('https://mission101.ai/en/uzhhorod/');
     });
 
     test('should have Open Graph tags', async ({ page }) => {
