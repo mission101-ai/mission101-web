@@ -13,5 +13,5 @@
 
 ## 3. Deploy hygiene
 
-- [ ] 3.1 After a production deploy that includes Image Resizer Play Store URL fixes, verify live store CTAs are not both hash placeholders
-- [ ] 3.2 Smoke-check social preview (Facebook/LinkedIn debugger or equivalent) for homepage using the new OG image once DNS/CDN have the new file
+- [x] 3.1 After a production deploy that includes Image Resizer Play Store URL fixes, verify live store CTAs are not both hash placeholders
+- [x] 3.2 Smoke-check social preview (Facebook/LinkedIn debugger or equivalent) for homepage using the new OG image once DNS/CDN have the new file
