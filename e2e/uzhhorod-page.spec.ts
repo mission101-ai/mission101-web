@@ -110,15 +110,18 @@ test.describe('Uzhhorod Landing Page', () => {
       
       const schemaScript = await page.locator('script[type="application/ld+json"]').textContent();
       expect(schemaScript).toBeTruthy();
-      
+
       const schema = JSON.parse(schemaScript!);
-      expect(schema['@type']).toBe('LocalBusiness');
-      expect(schema.name).toBe('Mission101.ai');
-      expect(schema.address.addressLocality).toBe('Uzhhorod');
-      expect(schema.address.addressCountry).toBe('UA');
-      expect(schema.geo.latitude).toBeTruthy();
-      expect(schema.geo.longitude).toBeTruthy();
-      expect(schema.serviceType).toContain('Business Process Automation');
+      const localBusiness = Array.isArray(schema['@graph'])
+        ? schema['@graph'].find((entity: { '@type': string }) => entity['@type'] === 'LocalBusiness')
+        : schema;
+      expect(localBusiness['@type']).toBe('LocalBusiness');
+      expect(localBusiness.name).toBe('Mission101.ai');
+      expect(localBusiness.address.addressLocality).toBe('Uzhhorod');
+      expect(localBusiness.address.addressCountry).toBe('UA');
+      expect(localBusiness.geo.latitude).toBeTruthy();
+      expect(localBusiness.geo.longitude).toBeTruthy();
+      expect(localBusiness.serviceType).toContain('Business Process Automation');
     });
 
     test('should have correct HTML lang attribute', async ({ page }) => {

@@ -12,6 +12,60 @@ function loadLocales() {
   return { en, ua };
 }
 
+/** FAQ items for a service page, in the given language, from the same source the on-page FAQ UI reads. */
+export function getServiceFaqItems(slug, lang) {
+  const { en, ua } = loadLocales();
+  const locale = lang === 'en' ? en : ua;
+  return locale?.servicePages?.[slug]?.faq ?? [];
+}
+
+/** FAQ items for the Uzhhorod local page, in the given language. */
+export function getUzhhorodFaqItems(lang) {
+  const { en, ua } = loadLocales();
+  const locale = lang === 'en' ? en : ua;
+  return locale?.uzhhorod?.faq?.items ?? [];
+}
+
+/** Mirrors src/components/SEO.tsx's buildFaqPageSchema: only emit FAQPage for 2+ items. */
+function buildFaqPageSchema(items) {
+  if (!Array.isArray(items) || items.length < 2) return null;
+  return {
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * Merge a FAQPage entity into the page's existing JSON-LD block (single object or @graph),
+ * without disturbing whatever schema is already there.
+ */
+function injectFaqIntoLdJson(html, faqItems) {
+  const faqSchema = buildFaqPageSchema(faqItems);
+  if (!faqSchema) return html;
+
+  const blockRe = /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/;
+  const match = html.match(blockRe);
+  if (!match) return html;
+
+  const json = JSON.parse(match[1]);
+  const merged = Array.isArray(json['@graph'])
+    ? { ...json, '@graph': [...json['@graph'], faqSchema] }
+    : (() => {
+        const { '@context': context, ...rest } = json;
+        return { '@context': context, '@graph': [rest, faqSchema] };
+      })();
+
+  const newBlock = `<script type="application/ld+json">\n    ${JSON.stringify(merged, null, 2)}\n    </script>`;
+  return html.replace(blockRe, newBlock);
+}
+
 function escapeAttr(value) {
   return String(value)
     .replace(/&/g, '&amp;')
@@ -190,6 +244,7 @@ export function writePrerenderedHtml({
   styleTag,
   scriptTag,
   headMeta,
+  faqItems,
 }) {
   let html;
   if (publicIndexPath && fs.existsSync(publicIndexPath)) {
@@ -209,6 +264,10 @@ export function writePrerenderedHtml({
 
   if (headMeta) {
     html = applySeoHead(html, headMeta);
+  }
+
+  if (faqItems) {
+    html = injectFaqIntoLdJson(html, faqItems);
   }
 
   fs.mkdirSync(path.dirname(destPath), { recursive: true });

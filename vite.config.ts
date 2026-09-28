@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 import fs from "fs";
 import {
   getInjectedRouteMetas,
+  getServiceFaqItems,
+  getUzhhorodFaqItems,
   writePrerenderedHtml,
 } from "./scripts/seo-head.mjs";
 
@@ -50,13 +52,18 @@ export default defineConfig(({ mode }) => ({
         const styleTag = styleMatch?.[0];
         const scriptTag = scriptMatch?.[0];
 
-        const writeFromPublic = (publicRel: string, destRel: string) => {
+        const writeFromPublic = (
+          publicRel: string,
+          destRel: string,
+          faqItems?: unknown
+        ) => {
           writePrerenderedHtml({
             publicIndexPath: path.join(publicPath, publicRel),
             distIndexHtml,
             destPath: path.join(distPath, destRel),
             styleTag,
             scriptTag,
+            faqItems,
           });
         };
 
@@ -65,18 +72,28 @@ export default defineConfig(({ mode }) => ({
         writeFromPublic("ua/index.html", "ua/index.html");
 
         // Uzhhorod (use dedicated prerender templates, not lang-home shells)
-        writeFromPublic("en/uzhhorod/index.html", "en/uzhhorod/index.html");
-        writeFromPublic("ua/uzhhorod/index.html", "ua/uzhhorod/index.html");
+        writeFromPublic(
+          "en/uzhhorod/index.html",
+          "en/uzhhorod/index.html",
+          getUzhhorodFaqItems("en")
+        );
+        writeFromPublic(
+          "ua/uzhhorod/index.html",
+          "ua/uzhhorod/index.html",
+          getUzhhorodFaqItems("ua")
+        );
 
         // Service pages
         for (const slug of serviceSlugs) {
           writeFromPublic(
             `en/services/${slug}/index.html`,
-            `en/services/${slug}/index.html`
+            `en/services/${slug}/index.html`,
+            getServiceFaqItems(slug, "en")
           );
           writeFromPublic(
             `ua/services/${slug}/index.html`,
-            `ua/services/${slug}/index.html`
+            `ua/services/${slug}/index.html`,
+            getServiceFaqItems(slug, "ua")
           );
         }
 

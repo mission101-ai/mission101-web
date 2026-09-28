@@ -28,6 +28,26 @@ function buildBreadcrumbList(steps: BreadcrumbStep[]) {
   };
 }
 
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+function buildFaqPageSchema(items: FaqItem[]) {
+  if (!Array.isArray(items) || items.length < 2) return null;
+  return {
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 interface ApplicationSchema {
   type: 'SoftwareApplication' | 'MobileApplication';
   name: string;
@@ -234,14 +254,19 @@ export const SEO = ({
           name: 'Worldwide',
         },
       };
+      const serviceFaqItems = t(`servicePages.${serviceSlug}.faq`, {
+        returnObjects: true,
+        defaultValue: [],
+      }) as FaqItem[];
+      const serviceFaqSchema = buildFaqPageSchema(serviceFaqItems);
+      const serviceGraph = [serviceSchema, breadcrumbList, serviceFaqSchema].filter(Boolean);
       schemaScript.textContent = JSON.stringify(
-        breadcrumbList
-          ? { '@context': 'https://schema.org', '@graph': [serviceSchema, breadcrumbList] }
+        serviceGraph.length > 1
+          ? { '@context': 'https://schema.org', '@graph': serviceGraph }
           : { '@context': 'https://schema.org', ...serviceSchema }
       );
     } else if (isUzhhorodPage) {
-      schemaScript.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
+      const localBusinessSchema = {
         '@type': 'LocalBusiness',
         name: 'Mission101.ai',
         image: ogImage,
@@ -270,7 +295,17 @@ export const SEO = ({
           'IT Consulting',
           'Cost Optimization',
         ],
-      });
+      };
+      const uzhhorodFaqItems = t('uzhhorod.faq.items', {
+        returnObjects: true,
+        defaultValue: [],
+      }) as FaqItem[];
+      const uzhhorodFaqSchema = buildFaqPageSchema(uzhhorodFaqItems);
+      schemaScript.textContent = JSON.stringify(
+        uzhhorodFaqSchema
+          ? { '@context': 'https://schema.org', '@graph': [localBusinessSchema, uzhhorodFaqSchema] }
+          : { '@context': 'https://schema.org', ...localBusinessSchema }
+      );
     } else if (applicationSchemaType && applicationSchemaName) {
       const applicationSchemaObject = {
         '@type': applicationSchemaType,

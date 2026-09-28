@@ -153,8 +153,11 @@ test.describe('SEO Tags', () => {
     await page.goto('/ua/uzhhorod/', { waitUntil: 'networkidle' });
     const schemaText = await page.locator('script[type="application/ld+json"]').textContent();
     const schema = JSON.parse(schemaText!);
-    expect(schema['@type']).toBe('LocalBusiness');
-    expect(schema.telephone).toBe('+380974825097');
+    const localBusiness = Array.isArray(schema['@graph'])
+      ? schema['@graph'].find((entity: { '@type': string }) => entity['@type'] === 'LocalBusiness')
+      : schema;
+    expect(localBusiness['@type']).toBe('LocalBusiness');
+    expect(localBusiness.telephone).toBe('+380974825097');
   });
 
   test('meta description should be present', async ({ page }) => {
