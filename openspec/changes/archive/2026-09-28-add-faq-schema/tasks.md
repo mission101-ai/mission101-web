@@ -21,3 +21,4 @@
 - [x] 4.1 Run `npm run build` and inspect the generated static HTML for at least one service page and the Uzhhorod page (both languages) to confirm `FAQPage` JSON-LD is present in the raw file, not only after hydration
 - [x] 4.2 Manually load a service page and the Uzhhorod page in a browser, inspect the hydrated `application/ld+json` script, and confirm the `FAQPage` entity matches the on-page FAQ text exactly
 - [x] 4.3 Run the existing Playwright E2E suite (`npm run test`) and confirm no regressions in existing SEO/structured-data assertions
+- [x] 4.4 Added `e2e/faq-schema.spec.ts`: permanent regression coverage for every scenario in `specs/seo/structured-data/spec.md` (FAQPage present and matching DOM for services with FAQ + Uzhhorod, absent for services without, coexists with existing schema, static/hydrated parity), in both languages
